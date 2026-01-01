@@ -1,0 +1,116 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  #CC-RL Compiler RL78 Assembler Source
+00000000                        2  #@  CC-RL Version : V1.12.00  [02 Dec 2022]
+00000000                        3  #@  Commmand :
+00000000                        4  #@   my_cgc.c
+00000000                        5  #@   -cpu=S3
+00000000                        6  #@   -o Release_BQFR\my_cgc.obj
+00000000                        7  #@   -dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+00000000                        8  #@   -g
+00000000                        9  #@   -g_line
+00000000                       10  #@   -Onothing
+00000000                       11  #@   -I Release_BQFR
+00000000                       12  #@   -I V2.21\incrl78
+00000000                       13  #@   -I .
+00000000                       14  #@   -asmopt=-prn_path=Release_BQFR
+00000000                       15  #@   -c
+00000000                       16  #@   -MAKEUD=Release_BQFR
+00000000                       17  #@   -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_db84882a1d0041e4a8e984f23f262f67is30yrwa.aqb
+00000000                       18  #@  compiled at Tue Aug 12 17:41:35 2025
+00000000                       19  
+00000000                       20  	.PUBLIC _MY_CGC_Create
+00000000                       21  
+00000000                       22  	.SECTION .textf,TEXTF
+00000000                       23  	.TYPE _MY_CGC_Create,function,.LFE1-_MY_CGC_Create
+00000000                       24  _MY_CGC_Create:
+00000000                       25  	.STACK _MY_CGC_Create = 8
+00000000                       26  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 5
+00000000 2004                  27  	subw sp, #0x04
+00000002                       28  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 9
+00000002 CEA011                29  	mov 0xFFFA0, #0x11
+00000005                       30  .BB@LABEL@1_1:	; entry.split
+00000005                       31  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 10
+00000005 717AA1                32  	set1 0xFFFA1.7
+00000008                       33  .BB@LABEL@1_2:	; entry.split1
+00000008                       34  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 11
+00000008 714BA4                35  	clr1 0xFFFA4.4
+0000000B                       36  .BB@LABEL@1_3:	; entry.split2
+0000000B                       37  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 0
+0000000B 368603                38  	movw hl, #0x0386
+0000000E                       39  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 12
+0000000E 71E3                  40  	clr1 [hl].6
+00000010                       41  .BB@LABEL@1_4:	; entry.split3
+00000010                       42  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 0
+00000010 F6                    43  	clrw ax
+00000011                       44  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 13
+00000011 B802                  45  	movw [sp+0x02], ax
+00000013 B800                  46  	movw [sp+0x00], ax
+00000015 EF00                  47  	br $.BB@LABEL@1_8
+00000017                       48  .BB@LABEL@1_5:	; bb
+00000017                       49  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 15
+00000017 00                    50  	nop
+00000018 A802                  51  	movw ax, [sp+0x02]
+0000001A 14                    52  	movw de, ax
+0000001B A800                  53  	movw ax, [sp+0x00]
+0000001D 040100                54  	addw ax, #0x0001
+00000020 12                    55  	movw bc, ax
+00000021 15                    56  	movw ax, de
+00000022 61D8                  57  	sknc
+00000024                       58  .BB@LABEL@1_6:	; bb
+00000024 A1                    59  	incw ax
+00000025                       60  .BB@LABEL@1_7:	; bb
+00000025 B802                  61  	movw [sp+0x02], ax
+00000027 13                    62  	movw ax, bc
+00000028 B800                  63  	movw [sp+0x00], ax
+0000002A                       64  .BB@LABEL@1_8:	; bb3
+0000002A                       65  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 13
+0000002A A802                  66  	movw ax, [sp+0x02]
+0000002C 440000                67  	cmpw ax, #0x0000
+0000002F A800                  68  	movw ax, [sp+0x00]
+00000031 61F8                  69  	sknz
+00000033                       70  .BB@LABEL@1_9:	; bb3
+00000033 441F00                71  	cmpw ax, #0x001F
+00000036                       72  .BB@LABEL@1_10:	; bb3
+00000036 DC00                  73  	bc $.BB@LABEL@1_5
+00000038                       74  .BB@LABEL@1_11:	; bb7
+00000038                       75  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 18
+00000038 F5F300                76  	clrb !0x00F3
+0000003B                       77  .BB@LABEL@1_12:	; bb7.split
+0000003B                       78  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 19
+0000003B 716BA4                79  	clr1 0xFFFA4.6
+0000003E                       80  .BB@LABEL@1_13:	; bb7.split4
+0000003E                       81  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 20
+0000003E 710BA1                82  	clr1 0xFFFA1.0
+00000041                       83  .BB@LABEL@1_14:	; bb7.split5
+00000041                       84  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 21
+00000041 CEA508                85  	mov 0xFFFA5, #0x08
+00000044                       86  .BB@LABEL@1_15:	; bb7.split6
+00000044                       87  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 22
+00000044 5A04F7                88  	and 0xFFF04, #0xF7
+00000047                       89  .BB@LABEL@1_16:	; bb7.split7
+00000047                       90  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 0
+00000047 51F7                  91  	mov a, #0xF7
+00000049                       92  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 23
+00000049 5F24FF                93  	and a, !0xFF24
+0000004C 9E24                  94  	mov 0xFFF24, a
+0000004E                       95  .BB@LABEL@1_17:	; bb7.split8
+0000004E                       96  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/my_cgc.c", 24
+0000004E 717AA5                97  	set1 0xFFFA5.7
+00000051 1004                  98  	addw sp, #0x04
+00000053 D7                    99  	ret
+00000054                      100  .LFE1:
+
+Section List
+Attr     Size                Name
+
+TEXTF                84 (00000054) .textf
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\asrl.exe" @C:\Users\sys_f\AppData\Local\Temp\$ccrl000\my_cgc.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120000 -cpu=S3 -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\BootCode\BootCode\Release_BQFR" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\BootCode\BootCode\V2.21\incrl78" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\BootCode\BootCode" -character_set=none -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\BootCode\BootCode\Release_BQFR\my_cgc.obj" C:\Users\sys_f\AppData\Local\Temp\$ccrl000\my_cgc.asm 
+

@@ -1,0 +1,644 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  #CC-RL Compiler RL78 Assembler Source
+00000000                        2  #@  CC-RL Version : V1.12.00  [02 Dec 2022]
+00000000                        3  #@  Commmand :
+00000000                        4  #@   FrequencyDisturbance.c
+00000000                        5  #@   -cpu=S3
+00000000                        6  #@   -cref=Build/Release_BQFR\FrequencyDisturbance.cref
+00000000                        7  #@   -o Build/Release_BQFR\FrequencyDisturbance.obj
+00000000                        8  #@   -no_warning_num=20177,20550,20494,20174
+00000000                        9  #@   -dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+00000000                       10  #@   -g
+00000000                       11  #@   -Onothing
+00000000                       12  #@   -goptimize
+00000000                       13  #@   -I Release_BQFR
+00000000                       14  #@   -I rl78i1c\application\dlms\physical
+00000000                       15  #@   -I rl78i1c\application\dlms\objects
+00000000                       16  #@   -I rl78i1c\application\dlms\meter_app\hash
+00000000                       17  #@   -I rl78i1c\application\dlms\meter_app\aes
+00000000                       18  #@   -I rl78i1c\application\dlms\meter_app
+00000000                       19  #@   -I rl78i1c\application\dlms
+00000000                       20  #@   -I rl78i1c\application
+00000000                       21  #@   -I rl78i1c\application\debug\loadtest
+00000000                       22  #@   -I rl78i1c\application\services\64bit_process
+00000000                       23  #@   -I .
+00000000                       24  #@   -I rl78i1c\wrapper\core\sw\filter\config
+00000000                       25  #@   -I rl78i1c\wrapper\core\sw\filter\include
+00000000                       26  #@   -I rl78i1c\application\powermgmt
+00000000                       27  #@   -I rl78i1c\application\storage\meterdata
+00000000                       28  #@   -I rl78i1c\application\storage\config
+00000000                       29  #@   -I rl78i1c\application\dataflash\fdl\incrl78
+00000000                       30  #@   -I rl78i1c\application\dataflash
+00000000                       31  #@   -I rl78i1c\application\services
+00000000                       32  #@   -I rl78i1c\application\interpreter\mlsHeaders
+00000000                       33  #@   -I rl78i1c\application\interpreter\mlsCIHandler
+00000000                       34  #@   -I rl78i1c\application\interpreter\mlsCIEng
+00000000                       35  #@   -I rl78i1c\application\interpreter\mlsCIComm
+00000000                       36  #@   -I rl78i1c\application\interpreter\mlsCIApp
+00000000                       37  #@   -I rl78i1c\driver\mcu
+00000000                       38  #@   -I rl78i1c\application\calibration
+00000000                       39  #@   -I rl78i1c\application\debug
+00000000                       40  #@   -I rl78i1c\application\display&button
+00000000                       41  #@   -I rl78i1c\application\display&button\lcd
+00000000                       42  #@   -I rl78i1c\application\eeprom
+00000000                       43  #@   -I rl78i1c\application\event
+00000000                       44  #@   -I rl78i1c\application\startup
+00000000                       45  #@   -I rl78i1c\application\storage
+00000000                       46  #@   -I rl78i1c\middleware\headers
+00000000                       47  #@   -I rl78i1c\middleware\plugin
+00000000                       48  #@   -I rl78i1c\wrapper\user
+00000000                       49  #@   -I rl78i1c\wrapper\core\sw
+00000000                       50  #@   -I rl78i1c\wrapper\core\shared
+00000000                       51  #@   -I .\
+00000000                       52  #@   -D __BOARD_REVISION=2,FEATURES_BQFR
+00000000                       53  #@   -refs_without_declaration
+00000000                       54  #@   -signed_char
+00000000                       55  #@   -merge_string
+00000000                       56  #@   -asmopt=-prn_path=Release_BQFR
+00000000                       57  #@   -convert_cc=ca78k0r
+00000000                       58  #@   -c
+00000000                       59  #@   -MAKEUD=Build/Release_BQFR
+00000000                       60  #@   -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_9fd0fb6c57da4227ae14f2266da036edojpbufjo.mie
+00000000                       61  #@  compiled at Tue Aug 12 17:41:52 2025
+00000000                       62  
+00000000                       63  	.PUBLIC _frequencyArr_R
+00000000                       64  	.PUBLIC _frequencyArr_Y
+00000000                       65  	.PUBLIC _frequencyArr_B
+00000000                       66  	.PUBLIC _freqArrIndex
+00000000                       67  	.PUBLIC _clearFrequencyArray
+00000000                       68  	.PUBLIC _initFreqDisturbance
+00000000                       69  	.PUBLIC _computeVariance_R
+00000000                       70  	.PUBLIC _computeVariance_Y
+00000000                       71  	.PUBLIC _computeVariance_B
+00000000                       72  	.PUBLIC _addFreshValuesToArrays
+00000000                       73  	.EXTERN _EM_GetLineFrequency
+00000000                       74  	.PUBLIC _checkFrequencyDisturbance
+00000000                       75  
+00000000                       76  	.SECTION .textf,TEXTF
+00000000                       77  	.TYPE _clearFrequencyArray,function,.LFE1-_clearFrequencyArray
+00000000                       78  _clearFrequencyArray:
+00000000                       79  	.STACK _clearFrequencyArray = 4
+00000000                       80  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 22
+00000000 F50000                81  	clrb !LOWW(_freqArrIndex)
+00000003 D7                    82  	ret
+00000004                       83  .LFE1:
+00000004                       84  	.TYPE _initFreqDisturbance,function,.LFE2-_initFreqDisturbance
+00000004                       85  _initFreqDisturbance:
+00000004                       86  	.STACK _initFreqDisturbance = 6
+00000004                       87  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 24
+00000004 C7                    88  	push hl
+00000005                       89  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 27
+00000005 C80000                90  	mov [sp+0x00], #0x00
+00000008 EF00                  91  	br $.BB@LABEL@2_4
+0000000A                       92  .BB@LABEL@2_1:	; bb
+0000000A                       93  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 29
+0000000A 8800                  94  	mov a, [sp+0x00]
+0000000C 318F                  95  	sarw ax, 8+0x00000
+0000000E 12                    96  	movw bc, ax
+0000000F 311C                  97  	shlw bc, 0x01
+00000011 30F401                98  	movw ax, #0x01F4
+00000014 780000                99  	movw LOWW(_frequencyArr_R)[bc], ax
+00000017                      100  .BB@LABEL@2_2:	; bb.split
+00000017                      101  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 30
+00000017 8800                 102  	mov a, [sp+0x00]
+00000019 318F                 103  	sarw ax, 8+0x00000
+0000001B 12                   104  	movw bc, ax
+0000001C 311C                 105  	shlw bc, 0x01
+0000001E 30F401               106  	movw ax, #0x01F4
+00000021 780000               107  	movw LOWW(_frequencyArr_Y)[bc], ax
+00000024                      108  .BB@LABEL@2_3:	; bb.split1
+00000024                      109  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 31
+00000024 8800                 110  	mov a, [sp+0x00]
+00000026 318F                 111  	sarw ax, 8+0x00000
+00000028 12                   112  	movw bc, ax
+00000029 311C                 113  	shlw bc, 0x01
+0000002B 30F401               114  	movw ax, #0x01F4
+0000002E 780000               115  	movw LOWW(_frequencyArr_B)[bc], ax
+00000031 8800                 116  	mov a, [sp+0x00]
+00000033 81                   117  	inc a
+00000034 9800                 118  	mov [sp+0x00], a
+00000036                      119  .BB@LABEL@2_4:	; bb12
+00000036                      120  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 27
+00000036 8800                 121  	mov a, [sp+0x00]
+00000038 318F                 122  	sarw ax, 8+0x00000
+0000003A 7C80                 123  	xor a, #0x80
+0000003C 441080               124  	cmpw ax, #0x8010
+0000003F DC00                 125  	bc $.BB@LABEL@2_1
+00000041                      126  .BB@LABEL@2_5:	; bb17
+00000041                      127  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 33
+00000041 F50000               128  	clrb !LOWW(_freqArrIndex)
+00000044 C0                   129  	pop ax
+00000045 D7                   130  	ret
+00000046                      131  .LFE2:
+00000046                      132  	.TYPE _computeVariance_R,function,.LFE3-_computeVariance_R
+00000046                      133  _computeVariance_R:
+00000046                      134  	.STACK _computeVariance_R = 26
+00000046                      135  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 36
+00000046 2012                 136  	subw sp, #0x12
+00000048 F6                   137  	clrw ax
+00000049                      138  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 44
+00000049 B804                 139  	movw [sp+0x04], ax
+0000004B B802                 140  	movw [sp+0x02], ax
+0000004D                      141  .BB@LABEL@3_1:	; entry.split
+0000004D                      142  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 46
+0000004D AF0000               143  	movw ax, !LOWW(_frequencyArr_R+0x0001E)
+00000050 B806                 144  	movw [sp+0x06], ax
+00000052                      145  .BB@LABEL@3_2:	; entry.split1
+00000052                      146  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 47
+00000052 C80000               147  	mov [sp+0x00], #0x00
+00000055 EF00                 148  	br $.BB@LABEL@3_9
+00000057                      149  .BB@LABEL@3_3:	; bb
+00000057                      150  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 49
+00000057 A806                 151  	movw ax, [sp+0x06]
+00000059 14                   152  	movw de, ax
+0000005A 8800                 153  	mov a, [sp+0x00]
+0000005C 318F                 154  	sarw ax, 8+0x00000
+0000005E 12                   155  	movw bc, ax
+0000005F 311C                 156  	shlw bc, 0x01
+00000061 790000               157  	movw ax, LOWW(_frequencyArr_R)[bc]
+00000064 25                   158  	subw ax, de
+00000065 B80C                 159  	movw [sp+0x0C], ax
+00000067                      160  .BB@LABEL@3_4:	; bb.split
+00000067                      161  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 50
+00000067 A80C                 162  	movw ax, [sp+0x0C]
+00000069 12                   163  	movw bc, ax
+0000006A CEFB02               164  	mulh
+0000006D B808                 165  	movw [sp+0x08], ax
+0000006F 13                   166  	movw ax, bc
+00000070 B80A                 167  	movw [sp+0x0A], ax
+00000072                      168  .BB@LABEL@3_5:	; bb.split2
+00000072                      169  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 51
+00000072 A80A                 170  	movw ax, [sp+0x0A]
+00000074 14                   171  	movw de, ax
+00000075 A808                 172  	movw ax, [sp+0x08]
+00000077 12                   173  	movw bc, ax
+00000078 A802                 174  	movw ax, [sp+0x02]
+0000007A 03                   175  	addw ax, bc
+0000007B B802                 176  	movw [sp+0x02], ax
+0000007D A804                 177  	movw ax, [sp+0x04]
+0000007F 61D8                 178  	sknc
+00000081                      179  .BB@LABEL@3_6:	; bb.split2
+00000081 A1                   180  	incw ax
+00000082                      181  .BB@LABEL@3_7:	; bb.split2
+00000082 05                   182  	addw ax, de
+00000083 B804                 183  	movw [sp+0x04], ax
+00000085                      184  .BB@LABEL@3_8:	; bb.split3
+00000085                      185  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 52
+00000085 8800                 186  	mov a, [sp+0x00]
+00000087 318F                 187  	sarw ax, 8+0x00000
+00000089 12                   188  	movw bc, ax
+0000008A 311C                 189  	shlw bc, 0x01
+0000008C 790000               190  	movw ax, LOWW(_frequencyArr_R)[bc]
+0000008F B806                 191  	movw [sp+0x06], ax
+00000091 8800                 192  	mov a, [sp+0x00]
+00000093 81                   193  	inc a
+00000094 9800                 194  	mov [sp+0x00], a
+00000096                      195  .BB@LABEL@3_9:	; bb26
+00000096                      196  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 47
+00000096 8800                 197  	mov a, [sp+0x00]
+00000098 318F                 198  	sarw ax, 8+0x00000
+0000009A 7C80                 199  	xor a, #0x80
+0000009C 441080               200  	cmpw ax, #0x8010
+0000009F DC00                 201  	bc $.BB@LABEL@3_3
+000000A1                      202  .BB@LABEL@3_10:	; bb31
+000000A1                      203  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 55
+000000A1 8800                 204  	mov a, [sp+0x00]
+000000A3 318F                 205  	sarw ax, 8+0x00000
+000000A5 12                   206  	movw bc, ax
+000000A6 31FF                 207  	sarw ax, 0x0F
+000000A8 C1                   208  	push ax
+000000A9 C3                   209  	push bc
+000000AA A808                 210  	movw ax, [sp+0x08]
+000000AC 12                   211  	movw bc, ax
+000000AD A806                 212  	movw ax, [sp+0x06]
+000000AF FC000000             213  	call !!__COM_sldiv
+000000B3 14                   214  	movw de, ax
+000000B4 B812                 215  	movw [sp+0x12], ax
+000000B6 13                   216  	movw ax, bc
+000000B7 B814                 217  	movw [sp+0x14], ax
+000000B9 1004                 218  	addw sp, #0x04
+000000BB                      219  .BB@LABEL@3_11:	; bb31.split
+000000BB                      220  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 56
+000000BB 12                   221  	movw bc, ax
+000000BC 15                   222  	movw ax, de
+000000BD 1012                 223  	addw sp, #0x12
+000000BF D7                   224  	ret
+000000C0                      225  .LFE3:
+000000C0                      226  	.TYPE _computeVariance_Y,function,.LFE4-_computeVariance_Y
+000000C0                      227  _computeVariance_Y:
+000000C0                      228  	.STACK _computeVariance_Y = 26
+000000C0                      229  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 58
+000000C0 2012                 230  	subw sp, #0x12
+000000C2 F6                   231  	clrw ax
+000000C3                      232  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 66
+000000C3 B804                 233  	movw [sp+0x04], ax
+000000C5 B802                 234  	movw [sp+0x02], ax
+000000C7                      235  .BB@LABEL@4_1:	; entry.split
+000000C7                      236  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 68
+000000C7 AF0000               237  	movw ax, !LOWW(_frequencyArr_Y+0x0001E)
+000000CA B806                 238  	movw [sp+0x06], ax
+000000CC                      239  .BB@LABEL@4_2:	; entry.split1
+000000CC                      240  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 69
+000000CC C80000               241  	mov [sp+0x00], #0x00
+000000CF EF00                 242  	br $.BB@LABEL@4_9
+000000D1                      243  .BB@LABEL@4_3:	; bb
+000000D1                      244  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 71
+000000D1 A806                 245  	movw ax, [sp+0x06]
+000000D3 14                   246  	movw de, ax
+000000D4 8800                 247  	mov a, [sp+0x00]
+000000D6 318F                 248  	sarw ax, 8+0x00000
+000000D8 12                   249  	movw bc, ax
+000000D9 311C                 250  	shlw bc, 0x01
+000000DB 790000               251  	movw ax, LOWW(_frequencyArr_Y)[bc]
+000000DE 25                   252  	subw ax, de
+000000DF B80C                 253  	movw [sp+0x0C], ax
+000000E1                      254  .BB@LABEL@4_4:	; bb.split
+000000E1                      255  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 72
+000000E1 A80C                 256  	movw ax, [sp+0x0C]
+000000E3 12                   257  	movw bc, ax
+000000E4 CEFB02               258  	mulh
+000000E7 B808                 259  	movw [sp+0x08], ax
+000000E9 13                   260  	movw ax, bc
+000000EA B80A                 261  	movw [sp+0x0A], ax
+000000EC                      262  .BB@LABEL@4_5:	; bb.split2
+000000EC                      263  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 73
+000000EC A80A                 264  	movw ax, [sp+0x0A]
+000000EE 14                   265  	movw de, ax
+000000EF A808                 266  	movw ax, [sp+0x08]
+000000F1 12                   267  	movw bc, ax
+000000F2 A802                 268  	movw ax, [sp+0x02]
+000000F4 03                   269  	addw ax, bc
+000000F5 B802                 270  	movw [sp+0x02], ax
+000000F7 A804                 271  	movw ax, [sp+0x04]
+000000F9 61D8                 272  	sknc
+000000FB                      273  .BB@LABEL@4_6:	; bb.split2
+000000FB A1                   274  	incw ax
+000000FC                      275  .BB@LABEL@4_7:	; bb.split2
+000000FC 05                   276  	addw ax, de
+000000FD B804                 277  	movw [sp+0x04], ax
+000000FF                      278  .BB@LABEL@4_8:	; bb.split3
+000000FF                      279  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 74
+000000FF 8800                 280  	mov a, [sp+0x00]
+00000101 318F                 281  	sarw ax, 8+0x00000
+00000103 12                   282  	movw bc, ax
+00000104 311C                 283  	shlw bc, 0x01
+00000106 790000               284  	movw ax, LOWW(_frequencyArr_Y)[bc]
+00000109 B806                 285  	movw [sp+0x06], ax
+0000010B 8800                 286  	mov a, [sp+0x00]
+0000010D 81                   287  	inc a
+0000010E 9800                 288  	mov [sp+0x00], a
+00000110                      289  .BB@LABEL@4_9:	; bb26
+00000110                      290  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 69
+00000110 8800                 291  	mov a, [sp+0x00]
+00000112 318F                 292  	sarw ax, 8+0x00000
+00000114 7C80                 293  	xor a, #0x80
+00000116 441080               294  	cmpw ax, #0x8010
+00000119 DC00                 295  	bc $.BB@LABEL@4_3
+0000011B                      296  .BB@LABEL@4_10:	; bb31
+0000011B F6                   297  	clrw ax
+0000011C                      298  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 77
+0000011C C1                   299  	push ax
+0000011D 301000               300  	movw ax, #0x0010
+00000120 C1                   301  	push ax
+00000121 A808                 302  	movw ax, [sp+0x08]
+00000123 12                   303  	movw bc, ax
+00000124 A806                 304  	movw ax, [sp+0x06]
+00000126 FC000000             305  	call !!__COM_sldiv
+0000012A 14                   306  	movw de, ax
+0000012B B812                 307  	movw [sp+0x12], ax
+0000012D 13                   308  	movw ax, bc
+0000012E B814                 309  	movw [sp+0x14], ax
+00000130 1004                 310  	addw sp, #0x04
+00000132                      311  .BB@LABEL@4_11:	; bb31.split
+00000132                      312  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 78
+00000132 12                   313  	movw bc, ax
+00000133 15                   314  	movw ax, de
+00000134 1012                 315  	addw sp, #0x12
+00000136 D7                   316  	ret
+00000137                      317  .LFE4:
+00000137                      318  	.TYPE _computeVariance_B,function,.LFE5-_computeVariance_B
+00000137                      319  _computeVariance_B:
+00000137                      320  	.STACK _computeVariance_B = 26
+00000137                      321  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 80
+00000137 2012                 322  	subw sp, #0x12
+00000139 F6                   323  	clrw ax
+0000013A                      324  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 88
+0000013A B804                 325  	movw [sp+0x04], ax
+0000013C B802                 326  	movw [sp+0x02], ax
+0000013E                      327  .BB@LABEL@5_1:	; entry.split
+0000013E                      328  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 90
+0000013E AF0000               329  	movw ax, !LOWW(_frequencyArr_B+0x0001E)
+00000141 B806                 330  	movw [sp+0x06], ax
+00000143                      331  .BB@LABEL@5_2:	; entry.split1
+00000143                      332  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 91
+00000143 C80000               333  	mov [sp+0x00], #0x00
+00000146 EF00                 334  	br $.BB@LABEL@5_9
+00000148                      335  .BB@LABEL@5_3:	; bb
+00000148                      336  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 93
+00000148 A806                 337  	movw ax, [sp+0x06]
+0000014A 14                   338  	movw de, ax
+0000014B 8800                 339  	mov a, [sp+0x00]
+0000014D 318F                 340  	sarw ax, 8+0x00000
+0000014F 12                   341  	movw bc, ax
+00000150 311C                 342  	shlw bc, 0x01
+00000152 790000               343  	movw ax, LOWW(_frequencyArr_B)[bc]
+00000155 25                   344  	subw ax, de
+00000156 B80C                 345  	movw [sp+0x0C], ax
+00000158                      346  .BB@LABEL@5_4:	; bb.split
+00000158                      347  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 94
+00000158 A80C                 348  	movw ax, [sp+0x0C]
+0000015A 12                   349  	movw bc, ax
+0000015B CEFB02               350  	mulh
+0000015E B808                 351  	movw [sp+0x08], ax
+00000160 13                   352  	movw ax, bc
+00000161 B80A                 353  	movw [sp+0x0A], ax
+00000163                      354  .BB@LABEL@5_5:	; bb.split2
+00000163                      355  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 95
+00000163 A80A                 356  	movw ax, [sp+0x0A]
+00000165 14                   357  	movw de, ax
+00000166 A808                 358  	movw ax, [sp+0x08]
+00000168 12                   359  	movw bc, ax
+00000169 A802                 360  	movw ax, [sp+0x02]
+0000016B 03                   361  	addw ax, bc
+0000016C B802                 362  	movw [sp+0x02], ax
+0000016E A804                 363  	movw ax, [sp+0x04]
+00000170 61D8                 364  	sknc
+00000172                      365  .BB@LABEL@5_6:	; bb.split2
+00000172 A1                   366  	incw ax
+00000173                      367  .BB@LABEL@5_7:	; bb.split2
+00000173 05                   368  	addw ax, de
+00000174 B804                 369  	movw [sp+0x04], ax
+00000176                      370  .BB@LABEL@5_8:	; bb.split3
+00000176                      371  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 96
+00000176 8800                 372  	mov a, [sp+0x00]
+00000178 318F                 373  	sarw ax, 8+0x00000
+0000017A 12                   374  	movw bc, ax
+0000017B 311C                 375  	shlw bc, 0x01
+0000017D 790000               376  	movw ax, LOWW(_frequencyArr_B)[bc]
+00000180 B806                 377  	movw [sp+0x06], ax
+00000182 8800                 378  	mov a, [sp+0x00]
+00000184 81                   379  	inc a
+00000185 9800                 380  	mov [sp+0x00], a
+00000187                      381  .BB@LABEL@5_9:	; bb26
+00000187                      382  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 91
+00000187 8800                 383  	mov a, [sp+0x00]
+00000189 318F                 384  	sarw ax, 8+0x00000
+0000018B 7C80                 385  	xor a, #0x80
+0000018D 441080               386  	cmpw ax, #0x8010
+00000190 DC00                 387  	bc $.BB@LABEL@5_3
+00000192                      388  .BB@LABEL@5_10:	; bb31
+00000192 F6                   389  	clrw ax
+00000193                      390  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 99
+00000193 C1                   391  	push ax
+00000194 301000               392  	movw ax, #0x0010
+00000197 C1                   393  	push ax
+00000198 A808                 394  	movw ax, [sp+0x08]
+0000019A 12                   395  	movw bc, ax
+0000019B A806                 396  	movw ax, [sp+0x06]
+0000019D FC000000             397  	call !!__COM_sldiv
+000001A1 14                   398  	movw de, ax
+000001A2 B812                 399  	movw [sp+0x12], ax
+000001A4 13                   400  	movw ax, bc
+000001A5 B814                 401  	movw [sp+0x14], ax
+000001A7 1004                 402  	addw sp, #0x04
+000001A9                      403  .BB@LABEL@5_11:	; bb31.split
+000001A9                      404  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 100
+000001A9 12                   405  	movw bc, ax
+000001AA 15                   406  	movw ax, de
+000001AB 1012                 407  	addw sp, #0x12
+000001AD D7                   408  	ret
+000001AE                      409  .LFE5:
+000001AE                      410  	.TYPE _addFreshValuesToArrays,function,.LFE6-_addFreshValuesToArrays
+000001AE                      411  _addFreshValuesToArrays:
+000001AE                      412  	.STACK _addFreshValuesToArrays = 10
+000001AE                      413  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 102
+000001AE C7                   414  	push hl
+000001AF                      415  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 104
+000001AF 8F0000               416  	mov a, !LOWW(_freqArrIndex)
+000001B2 9800                 417  	mov [sp+0x00], a
+000001B4 F1                   418  	clrb a
+000001B5 FC000000             419  	call !!_EM_GetLineFrequency
+000001B9 14                   420  	movw de, ax
+000001BA 302041               421  	movw ax, #0x4120
+000001BD C1                   422  	push ax
+000001BE F6                   423  	clrw ax
+000001BF C1                   424  	push ax
+000001C0 15                   425  	movw ax, de
+000001C1 FC000000             426  	call !!__COM_fmul
+000001C5 1004                 427  	addw sp, #0x04
+000001C7 FC000000             428  	call !!__COM_ftosl
+000001CB 14                   429  	movw de, ax
+000001CC 8800                 430  	mov a, [sp+0x00]
+000001CE 318F                 431  	sarw ax, 8+0x00000
+000001D0 12                   432  	movw bc, ax
+000001D1 311C                 433  	shlw bc, 0x01
+000001D3 15                   434  	movw ax, de
+000001D4 780000               435  	movw LOWW(_frequencyArr_R)[bc], ax
+000001D7                      436  .BB@LABEL@6_1:	; entry.split
+000001D7                      437  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 105
+000001D7 8F0000               438  	mov a, !LOWW(_freqArrIndex)
+000001DA 9800                 439  	mov [sp+0x00], a
+000001DC E1                   440  	oneb a
+000001DD FC000000             441  	call !!_EM_GetLineFrequency
+000001E1 14                   442  	movw de, ax
+000001E2 302041               443  	movw ax, #0x4120
+000001E5 C1                   444  	push ax
+000001E6 F6                   445  	clrw ax
+000001E7 C1                   446  	push ax
+000001E8 15                   447  	movw ax, de
+000001E9 FC000000             448  	call !!__COM_fmul
+000001ED 1004                 449  	addw sp, #0x04
+000001EF FC000000             450  	call !!__COM_ftosl
+000001F3 14                   451  	movw de, ax
+000001F4 8800                 452  	mov a, [sp+0x00]
+000001F6 318F                 453  	sarw ax, 8+0x00000
+000001F8 12                   454  	movw bc, ax
+000001F9 311C                 455  	shlw bc, 0x01
+000001FB 15                   456  	movw ax, de
+000001FC 780000               457  	movw LOWW(_frequencyArr_Y)[bc], ax
+000001FF                      458  .BB@LABEL@6_2:	; entry.split1
+000001FF                      459  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 106
+000001FF 8F0000               460  	mov a, !LOWW(_freqArrIndex)
+00000202 9800                 461  	mov [sp+0x00], a
+00000204 5102                 462  	mov a, #0x02
+00000206 FC000000             463  	call !!_EM_GetLineFrequency
+0000020A 14                   464  	movw de, ax
+0000020B 302041               465  	movw ax, #0x4120
+0000020E C1                   466  	push ax
+0000020F F6                   467  	clrw ax
+00000210 C1                   468  	push ax
+00000211 15                   469  	movw ax, de
+00000212 FC000000             470  	call !!__COM_fmul
+00000216 1004                 471  	addw sp, #0x04
+00000218 FC000000             472  	call !!__COM_ftosl
+0000021C 14                   473  	movw de, ax
+0000021D 8800                 474  	mov a, [sp+0x00]
+0000021F 318F                 475  	sarw ax, 8+0x00000
+00000221 12                   476  	movw bc, ax
+00000222 311C                 477  	shlw bc, 0x01
+00000224 15                   478  	movw ax, de
+00000225 780000               479  	movw LOWW(_frequencyArr_B)[bc], ax
+00000228                      480  .BB@LABEL@6_3:	; entry.split2
+00000228                      481  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 108
+00000228 A00000               482  	inc !LOWW(_freqArrIndex)
+0000022B                      483  .BB@LABEL@6_4:	; entry.split3
+0000022B                      484  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 109
+0000022B 8F0000               485  	mov a, !LOWW(_freqArrIndex)
+0000022E 318F                 486  	sarw ax, 8+0x00000
+00000230 7C80                 487  	xor a, #0x80
+00000232 441080               488  	cmpw ax, #0x8010
+00000235 DC00                 489  	bc $.BB@LABEL@6_6
+00000237                      490  .BB@LABEL@6_5:	; if_then_bb
+00000237                      491  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 110
+00000237 F50000               492  	clrb !LOWW(_freqArrIndex)
+0000023A C0                   493  	pop ax
+0000023B D7                   494  	ret
+0000023C                      495  .BB@LABEL@6_6:	; return
+0000023C                      496  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 111
+0000023C C0                   497  	pop ax
+0000023D D7                   498  	ret
+0000023E                      499  .LFE6:
+0000023E                      500  	.TYPE _checkFrequencyDisturbance,function,.LFE7-_checkFrequencyDisturbance
+0000023E                      501  _checkFrequencyDisturbance:
+0000023E                      502  	.STACK _checkFrequencyDisturbance = 20
+0000023E                      503  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 115
+0000023E 2010                 504  	subw sp, #0x10
+00000240                      505  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 117
+00000240 C80200               506  	mov [sp+0x02], #0x00
+00000243                      507  .BB@LABEL@7_1:	; entry.split
+00000243 F6                   508  	clrw ax
+00000244                      509  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 119
+00000244 B806                 510  	movw [sp+0x06], ax
+00000246 B804                 511  	movw [sp+0x04], ax
+00000248                      512  .BB@LABEL@7_2:	; entry.split1
+00000248                      513  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 120
+00000248 B80E                 514  	movw [sp+0x0E], ax
+0000024A B80C                 515  	movw [sp+0x0C], ax
+0000024C                      516  .BB@LABEL@7_3:	; entry.split2
+0000024C                      517  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 121
+0000024C B80A                 518  	movw [sp+0x0A], ax
+0000024E B808                 519  	movw [sp+0x08], ax
+00000250                      520  .BB@LABEL@7_4:	; entry.split3
+00000250                      521  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 123
+00000250 FE0000               522  	call $!_addFreshValuesToArrays
+00000253                      523  .BB@LABEL@7_5:	; entry.split4
+00000253                      524  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 125
+00000253 8F0000               525  	mov a, !LOWW(_freqArrIndex)
+00000256 318F                 526  	sarw ax, 8+0x00000
+00000258 6168                 527  	or a, x
+0000025A DF00                 528  	bnz $.BB@LABEL@7_9
+0000025C                      529  .BB@LABEL@7_6:	; if_then_bb
+0000025C                      530  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 127
+0000025C FE0000               531  	call $!_computeVariance_R
+0000025F B804                 532  	movw [sp+0x04], ax
+00000261 13                   533  	movw ax, bc
+00000262 B806                 534  	movw [sp+0x06], ax
+00000264                      535  .BB@LABEL@7_7:	; if_then_bb.split
+00000264                      536  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 128
+00000264 FE0000               537  	call $!_computeVariance_Y
+00000267 B80C                 538  	movw [sp+0x0C], ax
+00000269 13                   539  	movw ax, bc
+0000026A B80E                 540  	movw [sp+0x0E], ax
+0000026C                      541  .BB@LABEL@7_8:	; if_then_bb.split5
+0000026C                      542  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 129
+0000026C FE0000               543  	call $!_computeVariance_B
+0000026F B808                 544  	movw [sp+0x08], ax
+00000271 13                   545  	movw ax, bc
+00000272 B80A                 546  	movw [sp+0x0A], ax
+00000274                      547  .BB@LABEL@7_9:	; if_break_bb
+00000274                      548  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 133
+00000274 A806                 549  	movw ax, [sp+0x06]
+00000276 7C80                 550  	xor a, #0x80
+00000278 440080               551  	cmpw ax, #0x8000
+0000027B A804                 552  	movw ax, [sp+0x04]
+0000027D 61F8                 553  	sknz
+0000027F                      554  .BB@LABEL@7_10:	; if_break_bb
+0000027F 443300               555  	cmpw ax, #0x0033
+00000282                      556  .BB@LABEL@7_11:	; if_break_bb
+00000282 DE00                 557  	bnc $.BB@LABEL@7_15
+00000284                      558  .BB@LABEL@7_12:	; bb
+00000284 A80E                 559  	movw ax, [sp+0x0E]
+00000286 7C80                 560  	xor a, #0x80
+00000288 440080               561  	cmpw ax, #0x8000
+0000028B A80C                 562  	movw ax, [sp+0x0C]
+0000028D 61F8                 563  	sknz
+0000028F                      564  .BB@LABEL@7_13:	; bb
+0000028F 443300               565  	cmpw ax, #0x0033
+00000292                      566  .BB@LABEL@7_14:	; bb
+00000292 DC00                 567  	bc $.BB@LABEL@7_16
+00000294                      568  .BB@LABEL@7_15:	; bb18
+00000294 E6                   569  	onew ax
+00000295 B800                 570  	movw [sp+0x00], ax
+00000297 EF00                 571  	br $.BB@LABEL@7_17
+00000299                      572  .BB@LABEL@7_16:	; bb19
+00000299 F6                   573  	clrw ax
+0000029A B800                 574  	movw [sp+0x00], ax
+0000029C                      575  .BB@LABEL@7_17:	; bb20
+0000029C A800                 576  	movw ax, [sp+0x00]
+0000029E 6168                 577  	or a, x
+000002A0 DF00                 578  	bnz $.BB@LABEL@7_21
+000002A2                      579  .BB@LABEL@7_18:	; bb24
+000002A2 A80A                 580  	movw ax, [sp+0x0A]
+000002A4 7C80                 581  	xor a, #0x80
+000002A6 440080               582  	cmpw ax, #0x8000
+000002A9 A808                 583  	movw ax, [sp+0x08]
+000002AB 61F8                 584  	sknz
+000002AD                      585  .BB@LABEL@7_19:	; bb24
+000002AD 443300               586  	cmpw ax, #0x0033
+000002B0                      587  .BB@LABEL@7_20:	; bb24
+000002B0 DC00                 588  	bc $.BB@LABEL@7_22
+000002B2                      589  .BB@LABEL@7_21:	; bb28
+000002B2 E6                   590  	onew ax
+000002B3 B800                 591  	movw [sp+0x00], ax
+000002B5 EF00                 592  	br $.BB@LABEL@7_23
+000002B7                      593  .BB@LABEL@7_22:	; bb29
+000002B7 F6                   594  	clrw ax
+000002B8 B800                 595  	movw [sp+0x00], ax
+000002BA                      596  .BB@LABEL@7_23:	; bb30
+000002BA A800                 597  	movw ax, [sp+0x00]
+000002BC 6168                 598  	or a, x
+000002BE 61E8                 599  	skz
+000002C0                      600  .BB@LABEL@7_24:	; if_then_bb35
+000002C0                      601  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 134
+000002C0 C80201               602  	mov [sp+0x02], #0x01
+000002C3                      603  .BB@LABEL@7_25:	; if_break_bb36
+000002C3                      604  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 136
+000002C3 8802                 605  	mov a, [sp+0x02]
+000002C5 9803                 606  	mov [sp+0x03], a
+000002C7                      607  .BB@LABEL@7_26:	; if_break_bb36.split
+000002C7                      608  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/FrequencyDisturbance.c", 137
+000002C7 1010                 609  	addw sp, #0x10
+000002C9 D7                   610  	ret
+000002CA                      611  .LFE7:
+00000000                      612  	.SECTION .bss,BSS
+00000000                      613  	.ALIGN 2
+00000000                      614  	.TYPE _frequencyArr_R,object,32
+00000000                      615  _frequencyArr_R:
+00000000                      616  	.DS (32)
+00000020                      617  	.ALIGN 2
+00000020                      618  	.TYPE _frequencyArr_Y,object,32
+00000020                      619  _frequencyArr_Y:
+00000020                      620  	.DS (32)
+00000040                      621  	.ALIGN 2
+00000040                      622  	.TYPE _frequencyArr_B,object,32
+00000040                      623  _frequencyArr_B:
+00000040                      624  	.DS (32)
+00000060                      625  	.TYPE _freqArrIndex,object,1
+00000060                      626  _freqArrIndex:
+00000060                      627  	.DS (1)
+
+Section List
+Attr     Size                Name
+
+TEXTF               714 (000002CA) .textf
+BSS                  97 (00000061) .bss
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\asrl.exe" @C:\Users\sys_f\AppData\Local\Temp\$ccrl\FrequencyDisturbance.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120000 -cpu=S3 -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\Release_BQFR" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\physical" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\objects" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\meter_app\hash" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\meter_app\aes" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\meter_app" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\debug\loadtest" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\services\64bit_process" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\core\sw\filter\config" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\core\sw\filter\include" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\powermgmt" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\storage\meterdata" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\storage\config" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dataflash\fdl\incrl78" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dataflash" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\services" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsHeaders" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsCIHandler" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsCIEng" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsCIComm" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsCIApp" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\driver\mcu" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\calibration" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\debug" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\display&button" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\display&button\lcd" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\eeprom" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\event" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\startup" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\storage" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\middleware\headers" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\middleware\plugin" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\user" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\core\sw" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\core\shared" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\" -character_set=none -goptimize -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\Build\Release_BQFR\FrequencyDisturbance.obj" C:\Users\sys_f\AppData\Local\Temp\$ccrl\FrequencyDisturbance.asm 
+

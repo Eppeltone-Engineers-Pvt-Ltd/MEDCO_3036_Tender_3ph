@@ -1,0 +1,268 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  #CC-RL Compiler RL78 Assembler Source
+00000000                        2  #@  CC-RL Version : V1.12.00  [02 Dec 2022]
+00000000                        3  #@  Commmand :
+00000000                        4  #@   rl78i1c\driver\mcu\r_cg_port.c
+00000000                        5  #@   -cpu=S3
+00000000                        6  #@   -cref=Build/Release_BQFR\r_cg_port.cref
+00000000                        7  #@   -o Build/Release_BQFR\r_cg_port.obj
+00000000                        8  #@   -no_warning_num=20177,20550,20494,20174
+00000000                        9  #@   -dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+00000000                       10  #@   -g
+00000000                       11  #@   -Onothing
+00000000                       12  #@   -goptimize
+00000000                       13  #@   -I Release_BQFR
+00000000                       14  #@   -I rl78i1c\application\dlms\physical
+00000000                       15  #@   -I rl78i1c\application\dlms\objects
+00000000                       16  #@   -I rl78i1c\application\dlms\meter_app\hash
+00000000                       17  #@   -I rl78i1c\application\dlms\meter_app\aes
+00000000                       18  #@   -I rl78i1c\application\dlms\meter_app
+00000000                       19  #@   -I rl78i1c\application\dlms
+00000000                       20  #@   -I rl78i1c\application
+00000000                       21  #@   -I rl78i1c\application\debug\loadtest
+00000000                       22  #@   -I rl78i1c\application\services\64bit_process
+00000000                       23  #@   -I .
+00000000                       24  #@   -I rl78i1c\wrapper\core\sw\filter\config
+00000000                       25  #@   -I rl78i1c\wrapper\core\sw\filter\include
+00000000                       26  #@   -I rl78i1c\application\powermgmt
+00000000                       27  #@   -I rl78i1c\application\storage\meterdata
+00000000                       28  #@   -I rl78i1c\application\storage\config
+00000000                       29  #@   -I rl78i1c\application\dataflash\fdl\incrl78
+00000000                       30  #@   -I rl78i1c\application\dataflash
+00000000                       31  #@   -I rl78i1c\application\services
+00000000                       32  #@   -I rl78i1c\application\interpreter\mlsHeaders
+00000000                       33  #@   -I rl78i1c\application\interpreter\mlsCIHandler
+00000000                       34  #@   -I rl78i1c\application\interpreter\mlsCIEng
+00000000                       35  #@   -I rl78i1c\application\interpreter\mlsCIComm
+00000000                       36  #@   -I rl78i1c\application\interpreter\mlsCIApp
+00000000                       37  #@   -I rl78i1c\driver\mcu
+00000000                       38  #@   -I rl78i1c\application\calibration
+00000000                       39  #@   -I rl78i1c\application\debug
+00000000                       40  #@   -I rl78i1c\application\display&button
+00000000                       41  #@   -I rl78i1c\application\display&button\lcd
+00000000                       42  #@   -I rl78i1c\application\eeprom
+00000000                       43  #@   -I rl78i1c\application\event
+00000000                       44  #@   -I rl78i1c\application\startup
+00000000                       45  #@   -I rl78i1c\application\storage
+00000000                       46  #@   -I rl78i1c\middleware\headers
+00000000                       47  #@   -I rl78i1c\middleware\plugin
+00000000                       48  #@   -I rl78i1c\wrapper\user
+00000000                       49  #@   -I rl78i1c\wrapper\core\sw
+00000000                       50  #@   -I rl78i1c\wrapper\core\shared
+00000000                       51  #@   -I .\
+00000000                       52  #@   -D __BOARD_REVISION=2,FEATURES_BQFR
+00000000                       53  #@   -refs_without_declaration
+00000000                       54  #@   -signed_char
+00000000                       55  #@   -merge_string
+00000000                       56  #@   -asmopt=-prn_path=Release_BQFR
+00000000                       57  #@   -convert_cc=ca78k0r
+00000000                       58  #@   -c
+00000000                       59  #@   -MAKEUD=Build/Release_BQFR
+00000000                       60  #@   -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_883cbe61de0c4df4877760941a03d564aotnlo00.zou
+00000000                       61  #@  compiled at Tue Aug 12 17:41:51 2025
+00000000                       62  
+00000000                       63  	.PUBLIC _R_PORT_Create
+00000000                       64  	.PUBLIC _R_PORT_StopCreate
+00000000                       65  
+00000000                       66  	.SECTION .textf,TEXTF
+00000000                       67  	.TYPE _R_PORT_Create,function,.LFE1-_R_PORT_Create
+00000000                       68  _R_PORT_Create:
+00000000                       69  	.STACK _R_PORT_Create = 4
+00000000                       70  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 55
+00000000 F57700                71  	clrb !0x0077
+00000003                       72  .BB@LABEL@1_1:	; entry.split
+00000003                       73  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 61
+00000003 CF0003F0              74  	mov !0x0300, #0xF0
+00000007                       75  .BB@LABEL@1_2:	; entry.split1
+00000007                       76  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 62
+00000007 CF0103FF              77  	mov !0x0301, #0xFF
+0000000B                       78  .BB@LABEL@1_3:	; entry.split2
+0000000B                       79  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 65
+0000000B CF0203FF              80  	mov !0x0302, #0xFF
+0000000F                       81  .BB@LABEL@1_4:	; entry.split3
+0000000F                       82  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 67
+0000000F F50303                83  	clrb !0x0303
+00000012                       84  .BB@LABEL@1_5:	; entry.split4
+00000012                       85  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 69
+00000012 F50403                86  	clrb !0x0304
+00000015                       87  .BB@LABEL@1_6:	; entry.split5
+00000015                       88  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 71
+00000015 F50503                89  	clrb !0x0305
+00000018                       90  .BB@LABEL@1_7:	; entry.split6
+00000018                       91  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 75
+00000018 CD0038                92  	mov 0xFFF00, #0x38
+0000001B                       93  .BB@LABEL@1_8:	; entry.split7
+0000001B                       94  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 78
+0000001B CD0380                95  	mov 0xFFF03, #0x80
+0000001E                       96  .BB@LABEL@1_9:	; entry.split8
+0000001E                       97  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 81
+0000001E F404                  98  	clrb 0xFFF04
+00000020                       99  .BB@LABEL@1_10:	; entry.split9
+00000020                      100  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 83
+00000020 CD05C8               101  	mov 0xFFF05, #0xC8
+00000023                      102  .BB@LABEL@1_11:	; entry.split10
+00000023                      103  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 86
+00000023 E406                 104  	oneb 0xFFF06
+00000025                      105  .BB@LABEL@1_12:	; entry.split11
+00000025                      106  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 106
+00000025 CD0820               107  	mov 0xFFF08, #0x20
+00000028                      108  .BB@LABEL@1_13:	; entry.split12
+00000028                      109  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 110
+00000028 F40F                 110  	clrb 0xFFF0F
+0000002A                      111  .BB@LABEL@1_14:	; entry.split13
+0000002A                      112  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 117
+0000002A CF080302             113  	mov !0x0308, #0x02
+0000002E                      114  .BB@LABEL@1_15:	; entry.split14
+0000002E                      115  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 120
+0000002E CD0C20               116  	mov 0xFFF0C, #0x20
+00000031                      117  .BB@LABEL@1_16:	; entry.split15
+00000031                      118  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 130
+00000031 F57600               119  	clrb !0x0076
+00000034                      120  .BB@LABEL@1_17:	; entry.split16
+00000034                      121  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 132
+00000034 CF080302             122  	mov !0x0308, #0x02
+00000038                      123  .BB@LABEL@1_18:	; entry.split17
+00000038                      124  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 134
+00000038 CE2004               125  	mov 0xFFF20, #0x04
+0000003B                      126  .BB@LABEL@1_19:	; entry.split18
+0000003B                      127  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 137
+0000003B CE2100               128  	mov 0xFFF21, #0x00
+0000003E                      129  .BB@LABEL@1_20:	; entry.split19
+0000003E                      130  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 143
+0000003E CE2301               131  	mov 0xFFF23, #0x01
+00000041                      132  .BB@LABEL@1_21:	; entry.split20
+00000041                      133  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 147
+00000041 CE2401               134  	mov 0xFFF24, #0x01
+00000044                      135  .BB@LABEL@1_22:	; entry.split21
+00000044                      136  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 153
+00000044 CE2531               137  	mov 0xFFF25, #0x31
+00000047                      138  .BB@LABEL@1_23:	; entry.split22
+00000047                      139  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 160
+00000047 CE26FA               140  	mov 0xFFF26, #0xFA
+0000004A                      141  .BB@LABEL@1_24:	; entry.split23
+0000004A                      142  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 162
+0000004A CE2700               143  	mov 0xFFF27, #0x00
+0000004D                      144  .BB@LABEL@1_25:	; entry.split24
+0000004D                      145  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 164
+0000004D CE2810               146  	mov 0xFFF28, #0x10
+00000050                      147  .BB@LABEL@1_26:	; entry.split25
+00000050                      148  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 167
+00000050 CE2C1E               149  	mov 0xFFF2C, #0x1E
+00000053                      150  .BB@LABEL@1_27:	; entry.split26
+00000053                      151  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 172
+00000053 CE2F06               152  	mov 0xFFF2F, #0x06
+00000056                      153  .BB@LABEL@1_28:	; entry.split27
+00000056                      154  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 174
+00000056 F53F00               155  	clrb !0x003F
+00000059                      156  .BB@LABEL@1_29:	; entry.split28
+00000059                      157  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 177
+00000059 F53400               158  	clrb !0x0034
+0000005C                      159  .BB@LABEL@1_30:	; entry.split29
+0000005C                      160  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 178
+0000005C CF350011             161  	mov !0x0035, #0x11
+00000060                      162  .BB@LABEL@1_31:	; entry.split30
+00000060                      163  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 179
+00000060 F53C00               164  	clrb !0x003C
+00000063 D7                   165  	ret
+00000064                      166  .LFE1:
+00000064                      167  	.TYPE _R_PORT_StopCreate,function,.LFE2-_R_PORT_StopCreate
+00000064                      168  _R_PORT_StopCreate:
+00000064                      169  	.STACK _R_PORT_StopCreate = 4
+00000064                      170  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 203
+00000064 F400                 171  	clrb 0xFFF00
+00000066                      172  .BB@LABEL@2_1:	; entry.split
+00000066                      173  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 204
+00000066 F401                 174  	clrb 0xFFF01
+00000068                      175  .BB@LABEL@2_2:	; entry.split1
+00000068                      176  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 205
+00000068 F402                 177  	clrb 0xFFF02
+0000006A                      178  .BB@LABEL@2_3:	; entry.split2
+0000006A                      179  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 206
+0000006A CD0380               180  	mov 0xFFF03, #0x80
+0000006D                      181  .BB@LABEL@2_4:	; entry.split3
+0000006D                      182  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 209
+0000006D F404                 183  	clrb 0xFFF04
+0000006F                      184  .BB@LABEL@2_5:	; entry.split4
+0000006F                      185  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 213
+0000006F F405                 186  	clrb 0xFFF05
+00000071                      187  .BB@LABEL@2_6:	; entry.split5
+00000071                      188  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 222
+00000071 F406                 189  	clrb 0xFFF06
+00000073                      190  .BB@LABEL@2_7:	; entry.split6
+00000073                      191  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 228
+00000073 F407                 192  	clrb 0xFFF07
+00000075                      193  .BB@LABEL@2_8:	; entry.split7
+00000075                      194  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 230
+00000075 F408                 195  	clrb 0xFFF08
+00000077                      196  .BB@LABEL@2_9:	; entry.split8
+00000077                      197  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 232
+00000077 CF080302             198  	mov !0x0308, #0x02
+0000007B                      199  .BB@LABEL@2_10:	; entry.split9
+0000007B                      200  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 234
+0000007B CD0C20               201  	mov 0xFFF0C, #0x20
+0000007E                      202  .BB@LABEL@2_11:	; entry.split10
+0000007E                      203  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 241
+0000007E F40F                 204  	clrb 0xFFF0F
+00000080                      205  .BB@LABEL@2_12:	; entry.split11
+00000080                      206  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 247
+00000080 CE2004               207  	mov 0xFFF20, #0x04
+00000083                      208  .BB@LABEL@2_13:	; entry.split12
+00000083                      209  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 249
+00000083 CE2100               210  	mov 0xFFF21, #0x00
+00000086                      211  .BB@LABEL@2_14:	; entry.split13
+00000086                      212  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 250
+00000086 CE2200               213  	mov 0xFFF22, #0x00
+00000089                      214  .BB@LABEL@2_15:	; entry.split14
+00000089                      215  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 252
+00000089 CE2301               216  	mov 0xFFF23, #0x01
+0000008C                      217  .BB@LABEL@2_16:	; entry.split15
+0000008C                      218  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 255
+0000008C CE2401               219  	mov 0xFFF24, #0x01
+0000008F                      220  .BB@LABEL@2_17:	; entry.split16
+0000008F 5131                 221  	mov a, #0x31
+00000091                      222  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 261
+00000091 6F25FF               223  	or a, !0xFF25
+00000094 9E25                 224  	mov 0xFFF25, a
+00000096                      225  .BB@LABEL@2_18:	; entry.split17
+00000096                      226  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 266
+00000096 CE26FB               227  	mov 0xFFF26, #0xFB
+00000099                      228  .BB@LABEL@2_19:	; entry.split18
+00000099                      229  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 268
+00000099 CE2700               230  	mov 0xFFF27, #0x00
+0000009C                      231  .BB@LABEL@2_20:	; entry.split19
+0000009C 5110                 232  	mov a, #0x10
+0000009E                      233  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 269
+0000009E 6F28FF               234  	or a, !0xFF28
+000000A1 9E28                 235  	mov 0xFFF28, a
+000000A3                      236  .BB@LABEL@2_21:	; entry.split20
+000000A3                      237  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 272
+000000A3 CE2C1E               238  	mov 0xFFF2C, #0x1E
+000000A6                      239  .BB@LABEL@2_22:	; entry.split21
+000000A6                      240  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 277
+000000A6 CE2F06               241  	mov 0xFFF2F, #0x06
+000000A9                      242  .BB@LABEL@2_23:	; entry.split22
+000000A9                      243  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 279
+000000A9 F53400               244  	clrb !0x0034
+000000AC                      245  .BB@LABEL@2_24:	; entry.split23
+000000AC                      246  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 280
+000000AC F53500               247  	clrb !0x0035
+000000AF                      248  .BB@LABEL@2_25:	; entry.split24
+000000AF                      249  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/driver/mcu/r_cg_port.c", 281
+000000AF F53C00               250  	clrb !0x003C
+000000B2 D7                   251  	ret
+000000B3                      252  .LFE2:
+
+Section List
+Attr     Size                Name
+
+TEXTF               179 (000000B3) .textf
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\asrl.exe" @C:\Users\sys_f\AppData\Local\Temp\$ccrl000\r_cg_port.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120000 -cpu=S3 -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\Release_BQFR" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\physical" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\objects" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\meter_app\hash" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\meter_app\aes" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\meter_app" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\debug\loadtest" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\services\64bit_process" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\core\sw\filter\config" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\core\sw\filter\include" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\powermgmt" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\storage\meterdata" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\storage\config" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dataflash\fdl\incrl78" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dataflash" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\services" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsHeaders" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsCIHandler" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsCIEng" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsCIComm" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsCIApp" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\driver\mcu" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\calibration" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\debug" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\display&button" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\display&button\lcd" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\eeprom" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\event" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\startup" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\storage" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\middleware\headers" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\middleware\plugin" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\user" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\core\sw" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\core\shared" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\" -character_set=none -goptimize -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\Build\Release_BQFR\r_cg_port.obj" C:\Users\sys_f\AppData\Local\Temp\$ccrl000\r_cg_port.asm 
+

@@ -1,0 +1,757 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  #CC-RL Compiler RL78 Assembler Source
+00000000                        2  #@  CC-RL Version : V1.12.00  [02 Dec 2022]
+00000000                        3  #@  Commmand :
+00000000                        4  #@   rl78i1c\application\dataflash\dataflash.c
+00000000                        5  #@   -cpu=S3
+00000000                        6  #@   -cref=Build/Release_BQFR\dataflash.cref
+00000000                        7  #@   -o Build/Release_BQFR\dataflash.obj
+00000000                        8  #@   -no_warning_num=20177,20550,20494,20174
+00000000                        9  #@   -dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+00000000                       10  #@   -g
+00000000                       11  #@   -Onothing
+00000000                       12  #@   -goptimize
+00000000                       13  #@   -I Release_BQFR
+00000000                       14  #@   -I rl78i1c\application\dlms\physical
+00000000                       15  #@   -I rl78i1c\application\dlms\objects
+00000000                       16  #@   -I rl78i1c\application\dlms\meter_app\hash
+00000000                       17  #@   -I rl78i1c\application\dlms\meter_app\aes
+00000000                       18  #@   -I rl78i1c\application\dlms\meter_app
+00000000                       19  #@   -I rl78i1c\application\dlms
+00000000                       20  #@   -I rl78i1c\application
+00000000                       21  #@   -I rl78i1c\application\debug\loadtest
+00000000                       22  #@   -I rl78i1c\application\services\64bit_process
+00000000                       23  #@   -I .
+00000000                       24  #@   -I rl78i1c\wrapper\core\sw\filter\config
+00000000                       25  #@   -I rl78i1c\wrapper\core\sw\filter\include
+00000000                       26  #@   -I rl78i1c\application\powermgmt
+00000000                       27  #@   -I rl78i1c\application\storage\meterdata
+00000000                       28  #@   -I rl78i1c\application\storage\config
+00000000                       29  #@   -I rl78i1c\application\dataflash\fdl\incrl78
+00000000                       30  #@   -I rl78i1c\application\dataflash
+00000000                       31  #@   -I rl78i1c\application\services
+00000000                       32  #@   -I rl78i1c\application\interpreter\mlsHeaders
+00000000                       33  #@   -I rl78i1c\application\interpreter\mlsCIHandler
+00000000                       34  #@   -I rl78i1c\application\interpreter\mlsCIEng
+00000000                       35  #@   -I rl78i1c\application\interpreter\mlsCIComm
+00000000                       36  #@   -I rl78i1c\application\interpreter\mlsCIApp
+00000000                       37  #@   -I rl78i1c\driver\mcu
+00000000                       38  #@   -I rl78i1c\application\calibration
+00000000                       39  #@   -I rl78i1c\application\debug
+00000000                       40  #@   -I rl78i1c\application\display&button
+00000000                       41  #@   -I rl78i1c\application\display&button\lcd
+00000000                       42  #@   -I rl78i1c\application\eeprom
+00000000                       43  #@   -I rl78i1c\application\event
+00000000                       44  #@   -I rl78i1c\application\startup
+00000000                       45  #@   -I rl78i1c\application\storage
+00000000                       46  #@   -I rl78i1c\middleware\headers
+00000000                       47  #@   -I rl78i1c\middleware\plugin
+00000000                       48  #@   -I rl78i1c\wrapper\user
+00000000                       49  #@   -I rl78i1c\wrapper\core\sw
+00000000                       50  #@   -I rl78i1c\wrapper\core\shared
+00000000                       51  #@   -I .\
+00000000                       52  #@   -D __BOARD_REVISION=2,FEATURES_BQFR
+00000000                       53  #@   -refs_without_declaration
+00000000                       54  #@   -signed_char
+00000000                       55  #@   -merge_string
+00000000                       56  #@   -asmopt=-prn_path=Release_BQFR
+00000000                       57  #@   -convert_cc=ca78k0r
+00000000                       58  #@   -c
+00000000                       59  #@   -MAKEUD=Build/Release_BQFR
+00000000                       60  #@   -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_2fd0451c145d43c4b59063710edc1469geqsuzao.tnj
+00000000                       61  #@  compiled at Tue Aug 12 17:41:59 2025
+00000000                       62  
+00000000                       63  	.PUBLIC _g_data_flash_descriptor
+00000000                       64  	.PUBLIC _g_data_flash_req
+00000000                       65  	.PUBLIC _DATAFLASH_Init
+00000000                       66  	.PUBLIC _DATAFLASH_Read
+00000000                       67  	.EXTERN _PFDL_Open
+00000000                       68  	.EXTERN _PFDL_Handler
+00000000                       69  	.EXTERN _PFDL_Execute
+00000000                       70  	.EXTERN _PFDL_Close
+00000000                       71  	.PUBLIC _DATAFLASH_Write
+00000000                       72  	.EXTERN _R_WDT_Restart
+00000000                       73  	.PUBLIC _DATAFLASH_WriteBlock
+00000000                       74  	.PUBLIC _DATAFLASH_Format
+00000000                       75  
+00000000                       76  	.SECTION .textf,TEXTF
+00000000                       77  	.TYPE _DATAFLASH_Init,function,.LFE1-_DATAFLASH_Init
+00000000                       78  _DATAFLASH_Init:
+00000000                       79  	.STACK _DATAFLASH_Init = 6
+00000000                       80  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 84
+00000000 C7                    81  	push hl
+00000001                       82  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 91
+00000001 C80000                83  	mov [sp+0x00], #0x00
+00000004                       84  .BB@LABEL@1_1:	; entry.split
+00000004                       85  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 92
+00000004 F1                    86  	clrb a
+00000005 C2                    87  	pop bc
+00000006 D7                    88  	ret
+00000007                       89  .LFE1:
+00000007                       90  	.TYPE _DATAFLASH_Read,function,.LFE2-_DATAFLASH_Read
+00000007                       91  _DATAFLASH_Read:
+00000007                       92  	.STACK _DATAFLASH_Read = 18
+00000007                       93  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 105
+00000007 200E                  94  	subw sp, #0x0E
+00000009 B808                  95  	movw [sp+0x08], ax
+0000000B 13                    96  	movw ax, bc
+0000000C B80A                  97  	movw [sp+0x0A], ax
+0000000E 15                    98  	movw ax, de
+0000000F B806                  99  	movw [sp+0x06], ax
+00000011 A812                 100  	movw ax, [sp+0x12]
+00000013 B802                 101  	movw [sp+0x02], ax
+00000015                      102  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 110
+00000015 A806                 103  	movw ax, [sp+0x06]
+00000017 6168                 104  	or a, x
+00000019 DF00                 105  	bnz $.BB@LABEL@2_2
+0000001B                      106  .BB@LABEL@2_1:	; if_then_bb
+0000001B                      107  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 112
+0000001B C80101               108  	mov [sp+0x01], #0x01
+0000001E EE0000               109  	br $!.BB@LABEL@2_25
+00000021                      110  .BB@LABEL@2_2:	; if_break_bb
+00000021                      111  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 116
+00000021 A802                 112  	movw ax, [sp+0x02]
+00000023 6168                 113  	or a, x
+00000025 DD00                 114  	bz $.BB@LABEL@2_8
+00000027                      115  .BB@LABEL@2_3:	; bb11
+00000027 A802                 116  	movw ax, [sp+0x02]
+00000029 12                   117  	movw bc, ax
+0000002A A808                 118  	movw ax, [sp+0x08]
+0000002C 03                   119  	addw ax, bc
+0000002D 12                   120  	movw bc, ax
+0000002E A80A                 121  	movw ax, [sp+0x0A]
+00000030 61D8                 122  	sknc
+00000032                      123  .BB@LABEL@2_4:	; bb11
+00000032 A1                   124  	incw ax
+00000033                      125  .BB@LABEL@2_5:	; bb11
+00000033 440000               126  	cmpw ax, #0x0000
+00000036 13                   127  	movw ax, bc
+00000037 61F8                 128  	sknz
+00000039                      129  .BB@LABEL@2_6:	; bb11
+00000039 440108               130  	cmpw ax, #0x0801
+0000003C                      131  .BB@LABEL@2_7:	; bb11
+0000003C DC00                 132  	bc $.BB@LABEL@2_9
+0000003E                      133  .BB@LABEL@2_8:	; bb18
+0000003E E6                   134  	onew ax
+0000003F B804                 135  	movw [sp+0x04], ax
+00000041 EF00                 136  	br $.BB@LABEL@2_10
+00000043                      137  .BB@LABEL@2_9:	; bb19
+00000043 F6                   138  	clrw ax
+00000044 B804                 139  	movw [sp+0x04], ax
+00000046                      140  .BB@LABEL@2_10:	; bb20
+00000046 A804                 141  	movw ax, [sp+0x04]
+00000048 6168                 142  	or a, x
+0000004A DD00                 143  	bz $.BB@LABEL@2_12
+0000004C                      144  .BB@LABEL@2_11:	; if_then_bb25
+0000004C                      145  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 119
+0000004C C80103               146  	mov [sp+0x01], #0x03
+0000004F EF00                 147  	br $.BB@LABEL@2_25
+00000051                      148  .BB@LABEL@2_12:	; if_break_bb27
+00000051                      149  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 123
+00000051 300000               150  	movw ax, #SMRLW(_g_data_flash_descriptor)
+00000054 FC000000             151  	call !!_PFDL_Open
+00000058 9800                 152  	mov [sp+0x00], a
+0000005A EF00                 153  	br $.BB@LABEL@2_14
+0000005C                      154  .BB@LABEL@2_13:	; bb29
+0000005C                      155  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 126
+0000005C FC000000             156  	call !!_PFDL_Handler
+00000060 9800                 157  	mov [sp+0x00], a
+00000062                      158  .BB@LABEL@2_14:	; bb31
+00000062                      159  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 124
+00000062 8800                 160  	mov a, [sp+0x00]
+00000064 81                   161  	inc a
+00000065 DD00                 162  	bz $.BB@LABEL@2_13
+00000067                      163  .BB@LABEL@2_15:	; bb37
+00000067                      164  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 128
+00000067 8800                 165  	mov a, [sp+0x00]
+00000069 D1                   166  	cmp0 a
+0000006A DD00                 167  	bz $.BB@LABEL@2_17
+0000006C                      168  .BB@LABEL@2_16:	; if_then_bb43
+0000006C                      169  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 130
+0000006C C80101               170  	mov [sp+0x01], #0x01
+0000006F EF00                 171  	br $.BB@LABEL@2_25
+00000071                      172  .BB@LABEL@2_17:	; if_break_bb45
+00000071                      173  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 134
+00000071 A808                 174  	movw ax, [sp+0x08]
+00000073 BF0000               175  	movw !LOWW(_g_data_flash_req), ax
+00000076 A806                 176  	movw ax, [sp+0x06]
+00000078 BF0000               177  	movw !LOWW(_g_data_flash_req+0x00002), ax
+0000007B A802                 178  	movw ax, [sp+0x02]
+0000007D BF0000               179  	movw !LOWW(_g_data_flash_req+0x00004), ax
+00000080 F50000               180  	clrb !LOWW(_g_data_flash_req+0x00006)
+00000083                      181  .BB@LABEL@2_18:	; if_break_bb45.split
+00000083                      182  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 135
+00000083 300000               183  	movw ax, #LOWW(_g_data_flash_req)
+00000086 FC000000             184  	call !!_PFDL_Execute
+0000008A 9800                 185  	mov [sp+0x00], a
+0000008C EF00                 186  	br $.BB@LABEL@2_20
+0000008E                      187  .BB@LABEL@2_19:	; bb51
+0000008E                      188  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 138
+0000008E FC000000             189  	call !!_PFDL_Handler
+00000092 9800                 190  	mov [sp+0x00], a
+00000094                      191  .BB@LABEL@2_20:	; bb53
+00000094                      192  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 136
+00000094 8800                 193  	mov a, [sp+0x00]
+00000096 81                   194  	inc a
+00000097 DD00                 195  	bz $.BB@LABEL@2_19
+00000099                      196  .BB@LABEL@2_21:	; bb59
+00000099                      197  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 140
+00000099 8800                 198  	mov a, [sp+0x00]
+0000009B D1                   199  	cmp0 a
+0000009C DD00                 200  	bz $.BB@LABEL@2_23
+0000009E                      201  .BB@LABEL@2_22:	; if_then_bb65
+0000009E                      202  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 142
+0000009E C80101               203  	mov [sp+0x01], #0x01
+000000A1 EF00                 204  	br $.BB@LABEL@2_25
+000000A3                      205  .BB@LABEL@2_23:	; if_break_bb67
+000000A3                      206  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 146
+000000A3 FC000000             207  	call !!_PFDL_Close
+000000A7                      208  .BB@LABEL@2_24:	; if_break_bb67.split
+000000A7                      209  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 148
+000000A7 C80100               210  	mov [sp+0x01], #0x00
+000000AA                      211  .BB@LABEL@2_25:	; bb69
+000000AA 8801                 212  	mov a, [sp+0x01]
+000000AC 980C                 213  	mov [sp+0x0C], a
+000000AE                      214  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 149
+000000AE 100E                 215  	addw sp, #0x0E
+000000B0 D7                   216  	ret
+000000B1                      217  .LFE2:
+000000B1                      218  	.TYPE _DATAFLASH_Write,function,.LFE3-_DATAFLASH_Write
+000000B1                      219  _DATAFLASH_Write:
+000000B1                      220  	.STACK _DATAFLASH_Write = 1054
+000000B1                      221  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 162
+000000B1 16                   222  	movw hl, ax
+000000B2 AEF8                 223  	movw ax, sp
+000000B4 04E8FB               224  	addw ax, #0xFBE8
+000000B7 BEF8                 225  	movw sp, ax
+000000B9 17                   226  	movw ax, hl
+000000BA B806                 227  	movw [sp+0x06], ax
+000000BC 13                   228  	movw ax, bc
+000000BD B808                 229  	movw [sp+0x08], ax
+000000BF 15                   230  	movw ax, de
+000000C0 B80C                 231  	movw [sp+0x0C], ax
+000000C2 DBF8FF               232  	movw bc, sp
+000000C5 791C04               233  	movw ax, 0x041C[bc]
+000000C8 B802                 234  	movw [sp+0x02], ax
+000000CA                      235  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 168
+000000CA A80C                 236  	movw ax, [sp+0x0C]
+000000CC 6168                 237  	or a, x
+000000CE DF00                 238  	bnz $.BB@LABEL@3_2
+000000D0                      239  .BB@LABEL@3_1:	; if_then_bb
+000000D0                      240  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 170
+000000D0 C80101               241  	mov [sp+0x01], #0x01
+000000D3 EE0000               242  	br $!.BB@LABEL@3_48
+000000D6                      243  .BB@LABEL@3_2:	; if_break_bb
+000000D6                      244  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 174
+000000D6 A802                 245  	movw ax, [sp+0x02]
+000000D8 6168                 246  	or a, x
+000000DA DD00                 247  	bz $.BB@LABEL@3_8
+000000DC                      248  .BB@LABEL@3_3:	; bb17
+000000DC A802                 249  	movw ax, [sp+0x02]
+000000DE 12                   250  	movw bc, ax
+000000DF A806                 251  	movw ax, [sp+0x06]
+000000E1 03                   252  	addw ax, bc
+000000E2 12                   253  	movw bc, ax
+000000E3 A808                 254  	movw ax, [sp+0x08]
+000000E5 61D8                 255  	sknc
+000000E7                      256  .BB@LABEL@3_4:	; bb17
+000000E7 A1                   257  	incw ax
+000000E8                      258  .BB@LABEL@3_5:	; bb17
+000000E8 440000               259  	cmpw ax, #0x0000
+000000EB 13                   260  	movw ax, bc
+000000EC 61F8                 261  	sknz
+000000EE                      262  .BB@LABEL@3_6:	; bb17
+000000EE 440108               263  	cmpw ax, #0x0801
+000000F1                      264  .BB@LABEL@3_7:	; bb17
+000000F1 DC00                 265  	bc $.BB@LABEL@3_9
+000000F3                      266  .BB@LABEL@3_8:	; bb24
+000000F3 E6                   267  	onew ax
+000000F4 B80E                 268  	movw [sp+0x0E], ax
+000000F6 EF00                 269  	br $.BB@LABEL@3_10
+000000F8                      270  .BB@LABEL@3_9:	; bb25
+000000F8 F6                   271  	clrw ax
+000000F9 B80E                 272  	movw [sp+0x0E], ax
+000000FB                      273  .BB@LABEL@3_10:	; bb26
+000000FB A80E                 274  	movw ax, [sp+0x0E]
+000000FD 6168                 275  	or a, x
+000000FF DD00                 276  	bz $.BB@LABEL@3_12
+00000101                      277  .BB@LABEL@3_11:	; if_then_bb31
+00000101                      278  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 177
+00000101 C80103               279  	mov [sp+0x01], #0x03
+00000104 EE0000               280  	br $!.BB@LABEL@3_48
+00000107                      281  .BB@LABEL@3_12:	; if_break_bb33
+00000107                      282  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 181
+00000107 300000               283  	movw ax, #SMRLW(_g_data_flash_descriptor)
+0000010A FC000000             284  	call !!_PFDL_Open
+0000010E 9800                 285  	mov [sp+0x00], a
+00000110 EF00                 286  	br $.BB@LABEL@3_14
+00000112                      287  .BB@LABEL@3_13:	; bb35
+00000112                      288  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 184
+00000112 FC000000             289  	call !!_PFDL_Handler
+00000116 9800                 290  	mov [sp+0x00], a
+00000118                      291  .BB@LABEL@3_14:	; bb37
+00000118                      292  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 182
+00000118 8800                 293  	mov a, [sp+0x00]
+0000011A 81                   294  	inc a
+0000011B DD00                 295  	bz $.BB@LABEL@3_13
+0000011D                      296  .BB@LABEL@3_15:	; bb43
+0000011D                      297  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 186
+0000011D 8800                 298  	mov a, [sp+0x00]
+0000011F D1                   299  	cmp0 a
+00000120                      300  	.bz $!.BB@LABEL@3_45
+00000120 61F8                    	 -- Skncond
+00000122 EE0000                  	 -- br	**.target1
+00000125                      301  .BB@LABEL@3_16:	; if_then_bb49
+00000125                      302  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 188
+00000125 C80101               303  	mov [sp+0x01], #0x01
+00000128 EE0000               304  	br $!.BB@LABEL@3_48
+0000012B                      305  .BB@LABEL@3_17:	; bb52
+0000012B                      306  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 194
+0000012B A808                 307  	movw ax, [sp+0x08]
+0000012D 12                   308  	movw bc, ax
+0000012E 316C                 309  	shlw bc, 0x06
+00000130 A806                 310  	movw ax, [sp+0x06]
+00000132 31AE                 311  	shrw ax, 0x0A
+00000134 03                   312  	addw ax, bc
+00000135 B814                 313  	movw [sp+0x14], ax
+00000137                      314  .BB@LABEL@3_18:	; bb52.split
+00000137                      315  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 195
+00000137 A814                 316  	movw ax, [sp+0x14]
+00000139 31AD                 317  	shlw ax, 0x0A
+0000013B B812                 318  	movw [sp+0x12], ax
+0000013D                      319  .BB@LABEL@3_19:	; bb52.split1
+0000013D                      320  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 196
+0000013D A806                 321  	movw ax, [sp+0x06]
+0000013F 5C03                 322  	and a, #0x03
+00000141 B810                 323  	movw [sp+0x10], ax
+00000143                      324  .BB@LABEL@3_20:	; bb52.split2
+00000143                      325  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 201
+00000143 A810                 326  	movw ax, [sp+0x10]
+00000145 12                   327  	movw bc, ax
+00000146 300004               328  	movw ax, #0x0400
+00000149 23                   329  	subw ax, bc
+0000014A B804                 330  	movw [sp+0x04], ax
+0000014C                      331  .BB@LABEL@3_21:	; bb52.split3
+0000014C                      332  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 202
+0000014C A804                 333  	movw ax, [sp+0x04]
+0000014E 12                   334  	movw bc, ax
+0000014F A802                 335  	movw ax, [sp+0x02]
+00000151 43                   336  	cmpw ax, bc
+00000152 DE00                 337  	bnc $.BB@LABEL@3_23
+00000154                      338  .BB@LABEL@3_22:	; if_then_bb68
+00000154                      339  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 204
+00000154 A802                 340  	movw ax, [sp+0x02]
+00000156 B804                 341  	movw [sp+0x04], ax
+00000158                      342  .BB@LABEL@3_23:	; if_break_bb70
+00000158 300004               343  	movw ax, #0x0400
+0000015B                      344  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 208
+0000015B C1                   345  	push ax
+0000015C AEF8                 346  	movw ax, sp
+0000015E 041900               347  	addw ax, #0x0019
+00000161 14                   348  	movw de, ax
+00000162 A814                 349  	movw ax, [sp+0x14]
+00000164 F7                   350  	clrw bc
+00000165 FE0000               351  	call $!_DATAFLASH_Read
+00000168 C0                   352  	pop ax
+00000169                      353  .BB@LABEL@3_24:	; if_break_bb70.split
+00000169                      354  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 211
+00000169 A814                 355  	movw ax, [sp+0x14]
+0000016B BF0000               356  	movw !LOWW(_g_data_flash_req), ax
+0000016E F6                   357  	clrw ax
+0000016F BF0000               358  	movw !LOWW(_g_data_flash_req+0x00002), ax
+00000172 BF0000               359  	movw !LOWW(_g_data_flash_req+0x00004), ax
+00000175 CF000003             360  	mov !LOWW(_g_data_flash_req+0x00006), #0x03
+00000179                      361  .BB@LABEL@3_25:	; if_break_bb70.split4
+00000179                      362  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 212
+00000179 300000               363  	movw ax, #LOWW(_g_data_flash_req)
+0000017C FC000000             364  	call !!_PFDL_Execute
+00000180 9800                 365  	mov [sp+0x00], a
+00000182 EF00                 366  	br $.BB@LABEL@3_27
+00000184                      367  .BB@LABEL@3_26:	; bb77
+00000184                      368  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 215
+00000184 FC000000             369  	call !!_PFDL_Handler
+00000188 9800                 370  	mov [sp+0x00], a
+0000018A                      371  .BB@LABEL@3_27:	; bb79
+0000018A                      372  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 213
+0000018A 8800                 373  	mov a, [sp+0x00]
+0000018C 81                   374  	inc a
+0000018D DD00                 375  	bz $.BB@LABEL@3_26
+0000018F                      376  .BB@LABEL@3_28:	; bb85
+0000018F                      377  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 217
+0000018F 8800                 378  	mov a, [sp+0x00]
+00000191 D1                   379  	cmp0 a
+00000192 DD00                 380  	bz $.BB@LABEL@3_30
+00000194                      381  .BB@LABEL@3_29:	; if_then_bb91
+00000194                      382  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 219
+00000194 C80101               383  	mov [sp+0x01], #0x01
+00000197 EE0000               384  	br $!.BB@LABEL@3_48
+0000019A                      385  .BB@LABEL@3_30:	; if_break_bb93
+0000019A F6                   386  	clrw ax
+0000019B                      387  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 223
+0000019B B80A                 388  	movw [sp+0x0A], ax
+0000019D EF00                 389  	br $.BB@LABEL@3_32
+0000019F                      390  .BB@LABEL@3_31:	; bb94
+0000019F                      391  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 225
+0000019F A80A                 392  	movw ax, [sp+0x0A]
+000001A1 12                   393  	movw bc, ax
+000001A2 A810                 394  	movw ax, [sp+0x10]
+000001A4 03                   395  	addw ax, bc
+000001A5 14                   396  	movw de, ax
+000001A6 AEF8                 397  	movw ax, sp
+000001A8 041700               398  	addw ax, #0x0017
+000001AB 05                   399  	addw ax, de
+000001AC 16                   400  	movw hl, ax
+000001AD A80C                 401  	movw ax, [sp+0x0C]
+000001AF 03                   402  	addw ax, bc
+000001B0 14                   403  	movw de, ax
+000001B1 89                   404  	mov a, [de]
+000001B2 9B                   405  	mov [hl], a
+000001B3 A80A                 406  	movw ax, [sp+0x0A]
+000001B5 A1                   407  	incw ax
+000001B6 B80A                 408  	movw [sp+0x0A], ax
+000001B8                      409  .BB@LABEL@3_32:	; bb108
+000001B8                      410  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 223
+000001B8 A804                 411  	movw ax, [sp+0x04]
+000001BA 12                   412  	movw bc, ax
+000001BB A80A                 413  	movw ax, [sp+0x0A]
+000001BD 43                   414  	cmpw ax, bc
+000001BE DC00                 415  	bc $.BB@LABEL@3_31
+000001C0                      416  .BB@LABEL@3_33:	; bb114
+000001C0                      417  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 227
+000001C0 A812                 418  	movw ax, [sp+0x12]
+000001C2 BF0000               419  	movw !LOWW(_g_data_flash_req), ax
+000001C5 AEF8                 420  	movw ax, sp
+000001C7 041700               421  	addw ax, #0x0017
+000001CA BF0000               422  	movw !LOWW(_g_data_flash_req+0x00002), ax
+000001CD 300004               423  	movw ax, #0x0400
+000001D0 BF0000               424  	movw !LOWW(_g_data_flash_req+0x00004), ax
+000001D3 CF000004             425  	mov !LOWW(_g_data_flash_req+0x00006), #0x04
+000001D7                      426  .BB@LABEL@3_34:	; bb114.split
+000001D7                      427  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 228
+000001D7 300000               428  	movw ax, #LOWW(_g_data_flash_req)
+000001DA FC000000             429  	call !!_PFDL_Execute
+000001DE 9800                 430  	mov [sp+0x00], a
+000001E0 EF00                 431  	br $.BB@LABEL@3_36
+000001E2                      432  .BB@LABEL@3_35:	; bb118
+000001E2                      433  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 231
+000001E2 FC000000             434  	call !!_PFDL_Handler
+000001E6 9800                 435  	mov [sp+0x00], a
+000001E8                      436  .BB@LABEL@3_36:	; bb120
+000001E8                      437  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 229
+000001E8 8800                 438  	mov a, [sp+0x00]
+000001EA 81                   439  	inc a
+000001EB DD00                 440  	bz $.BB@LABEL@3_35
+000001ED                      441  .BB@LABEL@3_37:	; bb126
+000001ED                      442  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 233
+000001ED 8800                 443  	mov a, [sp+0x00]
+000001EF D1                   444  	cmp0 a
+000001F0 DD00                 445  	bz $.BB@LABEL@3_39
+000001F2                      446  .BB@LABEL@3_38:	; if_then_bb132
+000001F2                      447  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 235
+000001F2 C80101               448  	mov [sp+0x01], #0x01
+000001F5 EF00                 449  	br $.BB@LABEL@3_48
+000001F7                      450  .BB@LABEL@3_39:	; if_break_bb134
+000001F7                      451  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 239
+000001F7 A804                 452  	movw ax, [sp+0x04]
+000001F9 12                   453  	movw bc, ax
+000001FA A806                 454  	movw ax, [sp+0x06]
+000001FC 03                   455  	addw ax, bc
+000001FD B806                 456  	movw [sp+0x06], ax
+000001FF A808                 457  	movw ax, [sp+0x08]
+00000201 61D8                 458  	sknc
+00000203                      459  .BB@LABEL@3_40:	; if_break_bb134
+00000203 A1                   460  	incw ax
+00000204                      461  .BB@LABEL@3_41:	; if_break_bb134
+00000204 B808                 462  	movw [sp+0x08], ax
+00000206                      463  .BB@LABEL@3_42:	; if_break_bb134.split
+00000206                      464  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 240
+00000206 A804                 465  	movw ax, [sp+0x04]
+00000208 12                   466  	movw bc, ax
+00000209 A80C                 467  	movw ax, [sp+0x0C]
+0000020B 03                   468  	addw ax, bc
+0000020C B80C                 469  	movw [sp+0x0C], ax
+0000020E                      470  .BB@LABEL@3_43:	; if_break_bb134.split5
+0000020E                      471  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 241
+0000020E A804                 472  	movw ax, [sp+0x04]
+00000210 12                   473  	movw bc, ax
+00000211 A802                 474  	movw ax, [sp+0x02]
+00000213 23                   475  	subw ax, bc
+00000214 B802                 476  	movw [sp+0x02], ax
+00000216                      477  .BB@LABEL@3_44:	; if_break_bb134.split6
+00000216                      478  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 243
+00000216 FC000000             479  	call !!_R_WDT_Restart
+0000021A                      480  .BB@LABEL@3_45:	; bb146
+0000021A                      481  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 192
+0000021A A802                 482  	movw ax, [sp+0x02]
+0000021C 6168                 483  	or a, x
+0000021E                      484  	.bnz $!.BB@LABEL@3_17
+0000021E 61E8                    	 -- Skncond
+00000220 EE0000                  	 -- br	**.target1
+00000223                      485  .BB@LABEL@3_46:	; bb151
+00000223                      486  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 247
+00000223 FC000000             487  	call !!_PFDL_Close
+00000227                      488  .BB@LABEL@3_47:	; bb151.split
+00000227                      489  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 249
+00000227 C80100               490  	mov [sp+0x01], #0x00
+0000022A                      491  .BB@LABEL@3_48:	; bb153
+0000022A 8801                 492  	mov a, [sp+0x01]
+0000022C 9816                 493  	mov [sp+0x16], a
+0000022E                      494  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 250
+0000022E 73                   495  	mov b, a
+0000022F AEF8                 496  	movw ax, sp
+00000231 041804               497  	addw ax, #0x0418
+00000234 BEF8                 498  	movw sp, ax
+00000236 63                   499  	mov a, b
+00000237 D7                   500  	ret
+00000238                      501  .LFE3:
+00000238                      502  	.TYPE _DATAFLASH_WriteBlock,function,.LFE4-_DATAFLASH_WriteBlock
+00000238                      503  _DATAFLASH_WriteBlock:
+00000238                      504  	.STACK _DATAFLASH_WriteBlock = 12
+00000238                      505  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 263
+00000238 2008                 506  	subw sp, #0x08
+0000023A 9802                 507  	mov [sp+0x02], a
+0000023C 13                   508  	movw ax, bc
+0000023D B804                 509  	movw [sp+0x04], ax
+0000023F                      510  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 268
+0000023F 6168                 511  	or a, x
+00000241 DF00                 512  	bnz $.BB@LABEL@4_2
+00000243                      513  .BB@LABEL@4_1:	; if_then_bb
+00000243                      514  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 270
+00000243 C80101               515  	mov [sp+0x01], #0x01
+00000246 EE0000               516  	br $!.BB@LABEL@4_25
+00000249                      517  .BB@LABEL@4_2:	; if_break_bb
+00000249                      518  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 274
+00000249 8802                 519  	mov a, [sp+0x02]
+0000024B 318E                 520  	shrw ax, 8+0x00000
+0000024D 440200               521  	cmpw ax, #0x0002
+00000250 DC00                 522  	bc $.BB@LABEL@4_4
+00000252                      523  .BB@LABEL@4_3:	; if_then_bb13
+00000252                      524  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 276
+00000252 C80103               525  	mov [sp+0x01], #0x03
+00000255 EE0000               526  	br $!.BB@LABEL@4_25
+00000258                      527  .BB@LABEL@4_4:	; if_break_bb15
+00000258                      528  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 280
+00000258 300000               529  	movw ax, #SMRLW(_g_data_flash_descriptor)
+0000025B FC000000             530  	call !!_PFDL_Open
+0000025F 9800                 531  	mov [sp+0x00], a
+00000261 EF00                 532  	br $.BB@LABEL@4_6
+00000263                      533  .BB@LABEL@4_5:	; bb17
+00000263                      534  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 283
+00000263 FC000000             535  	call !!_PFDL_Handler
+00000267 9800                 536  	mov [sp+0x00], a
+00000269                      537  .BB@LABEL@4_6:	; bb19
+00000269                      538  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 281
+00000269 8800                 539  	mov a, [sp+0x00]
+0000026B 81                   540  	inc a
+0000026C DD00                 541  	bz $.BB@LABEL@4_5
+0000026E                      542  .BB@LABEL@4_7:	; bb25
+0000026E                      543  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 285
+0000026E 8800                 544  	mov a, [sp+0x00]
+00000270 D1                   545  	cmp0 a
+00000271 DD00                 546  	bz $.BB@LABEL@4_9
+00000273                      547  .BB@LABEL@4_8:	; if_then_bb31
+00000273                      548  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 287
+00000273 C80101               549  	mov [sp+0x01], #0x01
+00000276 EF00                 550  	br $.BB@LABEL@4_25
+00000278                      551  .BB@LABEL@4_9:	; if_break_bb33
+00000278                      552  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 291
+00000278 8802                 553  	mov a, [sp+0x02]
+0000027A 318E                 554  	shrw ax, 8+0x00000
+0000027C BF0000               555  	movw !LOWW(_g_data_flash_req), ax
+0000027F F6                   556  	clrw ax
+00000280 BF0000               557  	movw !LOWW(_g_data_flash_req+0x00002), ax
+00000283 BF0000               558  	movw !LOWW(_g_data_flash_req+0x00004), ax
+00000286 CF000003             559  	mov !LOWW(_g_data_flash_req+0x00006), #0x03
+0000028A                      560  .BB@LABEL@4_10:	; if_break_bb33.split
+0000028A                      561  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 292
+0000028A 300000               562  	movw ax, #LOWW(_g_data_flash_req)
+0000028D FC000000             563  	call !!_PFDL_Execute
+00000291 9800                 564  	mov [sp+0x00], a
+00000293 EF00                 565  	br $.BB@LABEL@4_12
+00000295                      566  .BB@LABEL@4_11:	; bb37
+00000295                      567  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 295
+00000295 FC000000             568  	call !!_PFDL_Handler
+00000299 9800                 569  	mov [sp+0x00], a
+0000029B                      570  .BB@LABEL@4_12:	; bb39
+0000029B                      571  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 293
+0000029B 8800                 572  	mov a, [sp+0x00]
+0000029D 81                   573  	inc a
+0000029E DD00                 574  	bz $.BB@LABEL@4_11
+000002A0                      575  .BB@LABEL@4_13:	; bb45
+000002A0                      576  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 297
+000002A0 8800                 577  	mov a, [sp+0x00]
+000002A2 D1                   578  	cmp0 a
+000002A3 DD00                 579  	bz $.BB@LABEL@4_15
+000002A5                      580  .BB@LABEL@4_14:	; if_then_bb51
+000002A5                      581  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 299
+000002A5 C80101               582  	mov [sp+0x01], #0x01
+000002A8 EF00                 583  	br $.BB@LABEL@4_25
+000002AA                      584  .BB@LABEL@4_15:	; if_break_bb53
+000002AA                      585  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 303
+000002AA 8802                 586  	mov a, [sp+0x02]
+000002AC 318E                 587  	shrw ax, 8+0x00000
+000002AE 31AD                 588  	shlw ax, 0x0A
+000002B0 B806                 589  	movw [sp+0x06], ax
+000002B2                      590  .BB@LABEL@4_16:	; if_break_bb53.split
+000002B2                      591  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 305
+000002B2 A806                 592  	movw ax, [sp+0x06]
+000002B4 BF0000               593  	movw !LOWW(_g_data_flash_req), ax
+000002B7 A804                 594  	movw ax, [sp+0x04]
+000002B9 BF0000               595  	movw !LOWW(_g_data_flash_req+0x00002), ax
+000002BC 300004               596  	movw ax, #0x0400
+000002BF BF0000               597  	movw !LOWW(_g_data_flash_req+0x00004), ax
+000002C2 CF000004             598  	mov !LOWW(_g_data_flash_req+0x00006), #0x04
+000002C6                      599  .BB@LABEL@4_17:	; if_break_bb53.split1
+000002C6                      600  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 306
+000002C6 300000               601  	movw ax, #LOWW(_g_data_flash_req)
+000002C9 FC000000             602  	call !!_PFDL_Execute
+000002CD 9800                 603  	mov [sp+0x00], a
+000002CF EF00                 604  	br $.BB@LABEL@4_19
+000002D1                      605  .BB@LABEL@4_18:	; bb60
+000002D1                      606  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 309
+000002D1 FC000000             607  	call !!_PFDL_Handler
+000002D5 9800                 608  	mov [sp+0x00], a
+000002D7                      609  .BB@LABEL@4_19:	; bb62
+000002D7                      610  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 307
+000002D7 8800                 611  	mov a, [sp+0x00]
+000002D9 81                   612  	inc a
+000002DA DD00                 613  	bz $.BB@LABEL@4_18
+000002DC                      614  .BB@LABEL@4_20:	; bb68
+000002DC                      615  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 311
+000002DC 8800                 616  	mov a, [sp+0x00]
+000002DE D1                   617  	cmp0 a
+000002DF DD00                 618  	bz $.BB@LABEL@4_22
+000002E1                      619  .BB@LABEL@4_21:	; if_then_bb74
+000002E1                      620  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 313
+000002E1 C80101               621  	mov [sp+0x01], #0x01
+000002E4 EF00                 622  	br $.BB@LABEL@4_25
+000002E6                      623  .BB@LABEL@4_22:	; if_break_bb76
+000002E6                      624  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 316
+000002E6 FC000000             625  	call !!_R_WDT_Restart
+000002EA                      626  .BB@LABEL@4_23:	; if_break_bb76.split
+000002EA                      627  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 319
+000002EA FC000000             628  	call !!_PFDL_Close
+000002EE                      629  .BB@LABEL@4_24:	; if_break_bb76.split2
+000002EE                      630  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 321
+000002EE C80100               631  	mov [sp+0x01], #0x00
+000002F1                      632  .BB@LABEL@4_25:	; bb78
+000002F1 8801                 633  	mov a, [sp+0x01]
+000002F3 9803                 634  	mov [sp+0x03], a
+000002F5                      635  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 322
+000002F5 1008                 636  	addw sp, #0x08
+000002F7 D7                   637  	ret
+000002F8                      638  .LFE4:
+000002F8                      639  	.TYPE _DATAFLASH_Format,function,.LFE5-_DATAFLASH_Format
+000002F8                      640  _DATAFLASH_Format:
+000002F8                      641  	.STACK _DATAFLASH_Format = 8
+000002F8                      642  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 335
+000002F8 2004                 643  	subw sp, #0x04
+000002FA 9802                 644  	mov [sp+0x02], a
+000002FC                      645  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 340
+000002FC 318E                 646  	shrw ax, 8+0x00000
+000002FE 440200               647  	cmpw ax, #0x0002
+00000301 DC00                 648  	bc $.BB@LABEL@5_2
+00000303                      649  .BB@LABEL@5_1:	; if_then_bb
+00000303                      650  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 342
+00000303 C80103               651  	mov [sp+0x01], #0x03
+00000306 EF00                 652  	br $.BB@LABEL@5_16
+00000308                      653  .BB@LABEL@5_2:	; if_break_bb
+00000308                      654  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 346
+00000308 300000               655  	movw ax, #SMRLW(_g_data_flash_descriptor)
+0000030B FC000000             656  	call !!_PFDL_Open
+0000030F 9800                 657  	mov [sp+0x00], a
+00000311 EF00                 658  	br $.BB@LABEL@5_4
+00000313                      659  .BB@LABEL@5_3:	; bb8
+00000313                      660  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 349
+00000313 FC000000             661  	call !!_PFDL_Handler
+00000317 9800                 662  	mov [sp+0x00], a
+00000319                      663  .BB@LABEL@5_4:	; bb10
+00000319                      664  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 347
+00000319 8800                 665  	mov a, [sp+0x00]
+0000031B 81                   666  	inc a
+0000031C DD00                 667  	bz $.BB@LABEL@5_3
+0000031E                      668  .BB@LABEL@5_5:	; bb16
+0000031E                      669  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 352
+0000031E 8800                 670  	mov a, [sp+0x00]
+00000320 D1                   671  	cmp0 a
+00000321 DD00                 672  	bz $.BB@LABEL@5_7
+00000323                      673  .BB@LABEL@5_6:	; if_then_bb22
+00000323                      674  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 354
+00000323 C80101               675  	mov [sp+0x01], #0x01
+00000326 EF00                 676  	br $.BB@LABEL@5_16
+00000328                      677  .BB@LABEL@5_7:	; if_break_bb24
+00000328                      678  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 358
+00000328 8802                 679  	mov a, [sp+0x02]
+0000032A 318E                 680  	shrw ax, 8+0x00000
+0000032C BF0000               681  	movw !LOWW(_g_data_flash_req), ax
+0000032F F6                   682  	clrw ax
+00000330 BF0000               683  	movw !LOWW(_g_data_flash_req+0x00002), ax
+00000333 BF0000               684  	movw !LOWW(_g_data_flash_req+0x00004), ax
+00000336 CF000003             685  	mov !LOWW(_g_data_flash_req+0x00006), #0x03
+0000033A                      686  .BB@LABEL@5_8:	; if_break_bb24.split
+0000033A                      687  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 359
+0000033A 300000               688  	movw ax, #LOWW(_g_data_flash_req)
+0000033D FC000000             689  	call !!_PFDL_Execute
+00000341 9800                 690  	mov [sp+0x00], a
+00000343 EF00                 691  	br $.BB@LABEL@5_10
+00000345                      692  .BB@LABEL@5_9:	; bb28
+00000345                      693  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 362
+00000345 FC000000             694  	call !!_PFDL_Handler
+00000349 9800                 695  	mov [sp+0x00], a
+0000034B                      696  .BB@LABEL@5_10:	; bb30
+0000034B                      697  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 360
+0000034B 8800                 698  	mov a, [sp+0x00]
+0000034D 81                   699  	inc a
+0000034E DD00                 700  	bz $.BB@LABEL@5_9
+00000350                      701  .BB@LABEL@5_11:	; bb37
+00000350                      702  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 364
+00000350 8800                 703  	mov a, [sp+0x00]
+00000352 D1                   704  	cmp0 a
+00000353 DD00                 705  	bz $.BB@LABEL@5_13
+00000355                      706  .BB@LABEL@5_12:	; if_then_bb43
+00000355                      707  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 366
+00000355 C80101               708  	mov [sp+0x01], #0x01
+00000358 EF00                 709  	br $.BB@LABEL@5_16
+0000035A                      710  .BB@LABEL@5_13:	; if_break_bb45
+0000035A                      711  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 369
+0000035A FC000000             712  	call !!_R_WDT_Restart
+0000035E                      713  .BB@LABEL@5_14:	; if_break_bb45.split
+0000035E                      714  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 372
+0000035E FC000000             715  	call !!_PFDL_Close
+00000362                      716  .BB@LABEL@5_15:	; if_break_bb45.split1
+00000362                      717  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 374
+00000362 C80100               718  	mov [sp+0x01], #0x00
+00000365                      719  .BB@LABEL@5_16:	; bb47
+00000365 8801                 720  	mov a, [sp+0x01]
+00000367 9803                 721  	mov [sp+0x03], a
+00000369                      722  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/rl78i1c/application/dataflash/dataflash.c", 375
+00000369 1004                 723  	addw sp, #0x04
+0000036B D7                   724  	ret
+0000036C                      725  .LFE5:
+00000000                      726  	.SECTION .const,CONST
+00000000                      727  	.TYPE _g_data_flash_descriptor,object,2
+00000000                      728  _g_data_flash_descriptor:
+00000000 18                   729  	.DB 0x18
+00000001 00                   730  	.DS (1)
+00000000                      731  	.SECTION .bss,BSS
+00000000                      732  	.ALIGN 2
+00000000                      733  	.TYPE _g_data_flash_req,object,8
+00000000                      734  _g_data_flash_req:
+00000000                      735  	.DS (8)
+
+Section List
+Attr     Size                Name
+
+TEXTF               876 (0000036C) .textf
+CONST                 2 (00000002) .const
+BSS                   8 (00000008) .bss
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\asrl.exe" @C:\Users\sys_f\AppData\Local\Temp\$ccrl002\dataflash.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120000 -cpu=S3 -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\Release_BQFR" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\physical" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\objects" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\meter_app\hash" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\meter_app\aes" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\meter_app" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\debug\loadtest" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\services\64bit_process" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\core\sw\filter\config" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\core\sw\filter\include" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\powermgmt" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\storage\meterdata" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\storage\config" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dataflash\fdl\incrl78" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dataflash" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\services" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsHeaders" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsCIHandler" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsCIEng" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsCIComm" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsCIApp" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\driver\mcu" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\calibration" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\debug" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\display&button" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\display&button\lcd" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\eeprom" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\event" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\startup" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\storage" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\middleware\headers" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\middleware\plugin" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\user" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\core\sw" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\core\shared" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\" -character_set=none -goptimize -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\Build\Release_BQFR\dataflash.obj" C:\Users\sys_f\AppData\Local\Temp\$ccrl002\dataflash.asm 
+

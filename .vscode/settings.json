@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "r_cg_macrodriver.h": "c",
+        "r_cg_userdefine.h": "c",
+        "iodefine.h": "c"
+    }
+}

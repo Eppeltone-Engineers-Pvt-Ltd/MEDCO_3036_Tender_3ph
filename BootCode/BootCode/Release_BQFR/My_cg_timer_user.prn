@@ -1,0 +1,68 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  #CC-RL Compiler RL78 Assembler Source
+00000000                        2  #@  CC-RL Version : V1.12.00  [02 Dec 2022]
+00000000                        3  #@  Commmand :
+00000000                        4  #@   My_cg_timer_user.c
+00000000                        5  #@   -cpu=S3
+00000000                        6  #@   -o Release_BQFR\My_cg_timer_user.obj
+00000000                        7  #@   -dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+00000000                        8  #@   -g
+00000000                        9  #@   -g_line
+00000000                       10  #@   -Onothing
+00000000                       11  #@   -I Release_BQFR
+00000000                       12  #@   -I V2.21\incrl78
+00000000                       13  #@   -I .
+00000000                       14  #@   -asmopt=-prn_path=Release_BQFR
+00000000                       15  #@   -c
+00000000                       16  #@   -MAKEUD=Release_BQFR
+00000000                       17  #@   -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_746fcdc3df7841bcb463075053f0e4cfgwaeejr1.dbj
+00000000                       18  #@  compiled at Tue Aug 12 17:41:39 2025
+00000000                       19  
+00000000                       20  	.PUBLIC _counter
+00000000                       21  	.EXTERN _flg1
+00000000                       22  	.PUBLIC _DelayTimerUnderFlowFlag
+00000000                       23  	.PUBLIC _r_tau0_channel0_interrupt
+00000000                       24  	.EXTERN _R_TAU0_Channel0_Stop
+00000000                       25  
+00000000                       26  	.SECTION .textf,TEXTF
+00000000                       27  	.TYPE _r_tau0_channel0_interrupt,function,.LFE1-_r_tau0_channel0_interrupt
+00000000                       28  _r_tau0_channel0_interrupt:
+00000000                       29  	.STACK _r_tau0_channel0_interrupt = 4
+00000000                       30  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/My_cg_timer_user.c", 11
+00000000 E50000                31  	oneb !LOWW(_DelayTimerUnderFlowFlag)
+00000003                       32  .BB@LABEL@1_1:	; entry.split
+00000003                       33  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/My_cg_timer_user.c", 12
+00000003 AF0000                34  	movw ax, !LOWW(_flg1)
+00000006 440100                35  	cmpw ax, #0x0001
+00000009 61E8                  36  	skz
+0000000B                       37  .BB@LABEL@1_2:	; if_else_bb
+0000000B                       38  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/My_cg_timer_user.c", 18
+0000000B FC000000              39  	call !!_R_TAU0_Channel0_Stop
+0000000F                       40  .BB@LABEL@1_3:	; if_break_bb
+0000000F                       41  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/BootCode/BootCode/My_cg_timer_user.c", 20
+0000000F A00000                42  	inc !LOWW(_counter)
+00000012 D7                    43  	ret
+00000013                       44  .LFE1:
+00000000                       45  	.SECTION .bss,BSS
+00000000                       46  	.TYPE _counter,object,1
+00000000                       47  _counter:
+00000000                       48  	.DS (1)
+00000001                       49  	.TYPE _DelayTimerUnderFlowFlag,object,1
+00000001                       50  _DelayTimerUnderFlowFlag:
+00000001                       51  	.DS (1)
+
+Section List
+Attr     Size                Name
+
+TEXTF                19 (00000013) .textf
+BSS                   2 (00000002) .bss
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\asrl.exe" @C:\Users\sys_f\AppData\Local\Temp\$ccrl\My_cg_timer_user.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120000 -cpu=S3 -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\BootCode\BootCode\Release_BQFR" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\BootCode\BootCode\V2.21\incrl78" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\BootCode\BootCode" -character_set=none -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\BootCode\BootCode\Release_BQFR\My_cg_timer_user.obj" C:\Users\sys_f\AppData\Local\Temp\$ccrl\My_cg_timer_user.asm 
+

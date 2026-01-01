@@ -1,0 +1,1549 @@
+RL78 Family Assembler V1.12.00.04 Assemble Source List
+
+OFFSET   CODE                  NO  SOURCE STATEMENT
+
+00000000                        1  #CC-RL Compiler RL78 Assembler Source
+00000000                        2  #@  CC-RL Version : V1.12.00  [02 Dec 2022]
+00000000                        3  #@  Commmand :
+00000000                        4  #@   energyIntegration.c
+00000000                        5  #@   -cpu=S3
+00000000                        6  #@   -cref=Build/Release_BQFR\energyIntegration.cref
+00000000                        7  #@   -o Build/Release_BQFR\energyIntegration.obj
+00000000                        8  #@   -no_warning_num=20177,20550,20494,20174
+00000000                        9  #@   -dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+00000000                       10  #@   -g
+00000000                       11  #@   -Onothing
+00000000                       12  #@   -goptimize
+00000000                       13  #@   -I Release_BQFR
+00000000                       14  #@   -I rl78i1c\application\dlms\physical
+00000000                       15  #@   -I rl78i1c\application\dlms\objects
+00000000                       16  #@   -I rl78i1c\application\dlms\meter_app\hash
+00000000                       17  #@   -I rl78i1c\application\dlms\meter_app\aes
+00000000                       18  #@   -I rl78i1c\application\dlms\meter_app
+00000000                       19  #@   -I rl78i1c\application\dlms
+00000000                       20  #@   -I rl78i1c\application
+00000000                       21  #@   -I rl78i1c\application\debug\loadtest
+00000000                       22  #@   -I rl78i1c\application\services\64bit_process
+00000000                       23  #@   -I .
+00000000                       24  #@   -I rl78i1c\wrapper\core\sw\filter\config
+00000000                       25  #@   -I rl78i1c\wrapper\core\sw\filter\include
+00000000                       26  #@   -I rl78i1c\application\powermgmt
+00000000                       27  #@   -I rl78i1c\application\storage\meterdata
+00000000                       28  #@   -I rl78i1c\application\storage\config
+00000000                       29  #@   -I rl78i1c\application\dataflash\fdl\incrl78
+00000000                       30  #@   -I rl78i1c\application\dataflash
+00000000                       31  #@   -I rl78i1c\application\services
+00000000                       32  #@   -I rl78i1c\application\interpreter\mlsHeaders
+00000000                       33  #@   -I rl78i1c\application\interpreter\mlsCIHandler
+00000000                       34  #@   -I rl78i1c\application\interpreter\mlsCIEng
+00000000                       35  #@   -I rl78i1c\application\interpreter\mlsCIComm
+00000000                       36  #@   -I rl78i1c\application\interpreter\mlsCIApp
+00000000                       37  #@   -I rl78i1c\driver\mcu
+00000000                       38  #@   -I rl78i1c\application\calibration
+00000000                       39  #@   -I rl78i1c\application\debug
+00000000                       40  #@   -I rl78i1c\application\display&button
+00000000                       41  #@   -I rl78i1c\application\display&button\lcd
+00000000                       42  #@   -I rl78i1c\application\eeprom
+00000000                       43  #@   -I rl78i1c\application\event
+00000000                       44  #@   -I rl78i1c\application\startup
+00000000                       45  #@   -I rl78i1c\application\storage
+00000000                       46  #@   -I rl78i1c\middleware\headers
+00000000                       47  #@   -I rl78i1c\middleware\plugin
+00000000                       48  #@   -I rl78i1c\wrapper\user
+00000000                       49  #@   -I rl78i1c\wrapper\core\sw
+00000000                       50  #@   -I rl78i1c\wrapper\core\shared
+00000000                       51  #@   -I .\
+00000000                       52  #@   -D __BOARD_REVISION=2,FEATURES_BQFR
+00000000                       53  #@   -refs_without_declaration
+00000000                       54  #@   -signed_char
+00000000                       55  #@   -merge_string
+00000000                       56  #@   -asmopt=-prn_path=Release_BQFR
+00000000                       57  #@   -convert_cc=ca78k0r
+00000000                       58  #@   -c
+00000000                       59  #@   -MAKEUD=Build/Release_BQFR
+00000000                       60  #@   -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_4cf051d6507a4ee4954dc3d54786a42armoyilf0.4e4
+00000000                       61  #@  compiled at Tue Aug 12 17:41:53 2025
+00000000                       62  
+00000000                       63  	.EXTERN _myenergydata
+00000000                       64  	.EXTERN _total_active_power
+00000000                       65  	.EXTERN _total_consumed_active_energy
+00000000                       66  	.EXTERN _total_consumed_fundamental_active_energy
+00000000                       67  	.EXTERN _total_energy_lastSaved
+00000000                       68  	.EXTERN _total_reactive_power
+00000000                       69  	.EXTERN _total_consumed_reactive_energy_lag
+00000000                       70  	.EXTERN _total_consumed_reactive_energy_lead
+00000000                       71  	.EXTERN _reactive_energy_lead_lastSaved
+00000000                       72  	.EXTERN _reactive_energy_lag_lastSaved
+00000000                       73  	.EXTERN _total_apparent_power
+00000000                       74  	.EXTERN _total_consumed_apparent_energy
+00000000                       75  	.EXTERN _g_TamperStatus
+00000000                       76  	.EXTERN _high_resolution_kwh_value
+00000000                       77  	.EXTERN _high_resolution_kvah_value
+00000000                       78  	.EXTERN _high_resolution_kvarh_lag_value
+00000000                       79  	.EXTERN _high_resolution_kvarh_lead_value
+00000000                       80  	.EXTERN _high_resolution_kwh_fundamental_value
+00000000                       81  	.EXTERN _total_active_power_pulsing
+00000000                       82  	.EXTERN _total_apparent_power_pulsing
+00000000                       83  	.EXTERN _total_reactive_power_pulsing
+00000000                       84  	.PUBLIC _systemPF
+00000000                       85  	.PUBLIC _mixedPowers
+00000000                       86  	.PUBLIC _getPower
+00000000                       87  	.EXTERN _getInstantaneousParams
+00000000                       88  	.PUBLIC _energy_incrementation
+00000000                       89  	.EXTERN _EM_GetPowerFactor
+00000000                       90  	.EXTERN _checkForVoltageHarmonics
+00000000                       91  	.EXTERN _checkForCurrentHarmonics
+00000000                       92  	.EXTERN _EM_sqrt
+00000000                       93  	.EXTERN _EM_pow
+00000000                       94  	.EXTERN _calcChecksum
+00000000                       95  	.EXTERN _isSameSign
+00000000                       96  	.EXTERN _update_energies_stored
+00000000                       97  
+00000000                       98  	.SECTION .textf,TEXTF
+00000000                       99  	.TYPE _getPower,function,.LFE1-_getPower
+00000000                      100  _getPower:
+00000000                      101  	.STACK _getPower = 22
+00000000                      102  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 39
+00000000 200E                 103  	subw sp, #0x0E
+00000002 9808                 104  	mov [sp+0x08], a
+00000004 60                   105  	mov a, x
+00000005 9809                 106  	mov [sp+0x09], a
+00000007                      107  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 46
+00000007 70                   108  	mov x, a
+00000008 8808                 109  	mov a, [sp+0x08]
+0000000A FC000000             110  	call !!_getInstantaneousParams
+0000000E 14                   111  	movw de, ax
+0000000F 30C842               112  	movw ax, #0x42C8
+00000012 C1                   113  	push ax
+00000013 F6                   114  	clrw ax
+00000014 C1                   115  	push ax
+00000015 15                   116  	movw ax, de
+00000016 FC000000             117  	call !!__COM_fmul
+0000001A 1004                 118  	addw sp, #0x04
+0000001C FC000000             119  	call !!__COM_ftosl
+00000020 B800                 120  	movw [sp+0x00], ax
+00000022 13                   121  	movw ax, bc
+00000023 B802                 122  	movw [sp+0x02], ax
+00000025                      123  .BB@LABEL@1_1:	; entry.split
+00000025                      124  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 49
+00000025 A802                 125  	movw ax, [sp+0x02]
+00000027 B806                 126  	movw [sp+0x06], ax
+00000029 A800                 127  	movw ax, [sp+0x00]
+0000002B B804                 128  	movw [sp+0x04], ax
+0000002D                      129  .BB@LABEL@1_2:	; entry.split1
+0000002D                      130  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 50
+0000002D A802                 131  	movw ax, [sp+0x02]
+0000002F 31FE                 132  	shrw ax, 0x0F
+00000031 60                   133  	mov a, x
+00000032 D1                   134  	cmp0 a
+00000033 DD00                 135  	bz $.BB@LABEL@1_6
+00000035                      136  .BB@LABEL@1_3:	; if_then_bb
+00000035                      137  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 51
+00000035 A806                 138  	movw ax, [sp+0x06]
+00000037 14                   139  	movw de, ax
+00000038 A804                 140  	movw ax, [sp+0x04]
+0000003A 12                   141  	movw bc, ax
+0000003B F6                   142  	clrw ax
+0000003C 16                   143  	movw hl, ax
+0000003D 23                   144  	subw ax, bc
+0000003E B804                 145  	movw [sp+0x04], ax
+00000040 17                   146  	movw ax, hl
+00000041 61D8                 147  	sknc
+00000043                      148  .BB@LABEL@1_4:	; if_then_bb
+00000043 B1                   149  	decw ax
+00000044                      150  .BB@LABEL@1_5:	; if_then_bb
+00000044 25                   151  	subw ax, de
+00000045 B806                 152  	movw [sp+0x06], ax
+00000047                      153  .BB@LABEL@1_6:	; if_break_bb
+00000047                      154  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 66
+00000047 A806                 155  	movw ax, [sp+0x06]
+00000049 7C80                 156  	xor a, #0x80
+0000004B 442480               157  	cmpw ax, #0x8024
+0000004E A804                 158  	movw ax, [sp+0x04]
+00000050 61F8                 159  	sknz
+00000052                      160  .BB@LABEL@1_7:	; if_break_bb
+00000052 44019F               161  	cmpw ax, #0x9F01
+00000055                      162  .BB@LABEL@1_8:	; if_break_bb
+00000055 DC00                 163  	bc $.BB@LABEL@1_10
+00000057                      164  .BB@LABEL@1_9:	; if_then_bb19
+00000057 F6                   165  	clrw ax
+00000058                      166  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 67
+00000058 B802                 167  	movw [sp+0x02], ax
+0000005A B800                 168  	movw [sp+0x00], ax
+0000005C                      169  .BB@LABEL@1_10:	; if_break_bb20
+0000005C                      170  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 70
+0000005C A806                 171  	movw ax, [sp+0x06]
+0000005E 7C80                 172  	xor a, #0x80
+00000060 440080               173  	cmpw ax, #0x8000
+00000063 A804                 174  	movw ax, [sp+0x04]
+00000065 61F8                 175  	sknz
+00000067                      176  .BB@LABEL@1_11:	; if_break_bb20
+00000067 44E700               177  	cmpw ax, #0x00E7
+0000006A                      178  .BB@LABEL@1_12:	; if_break_bb20
+0000006A DE00                 179  	bnc $.BB@LABEL@1_14
+0000006C                      180  .BB@LABEL@1_13:	; if_then_bb25
+0000006C F6                   181  	clrw ax
+0000006D                      182  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 71
+0000006D B802                 183  	movw [sp+0x02], ax
+0000006F B800                 184  	movw [sp+0x00], ax
+00000071                      185  .BB@LABEL@1_14:	; if_break_bb26
+00000071                      186  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 78
+00000071 A802                 187  	movw ax, [sp+0x02]
+00000073 12                   188  	movw bc, ax
+00000074 B80C                 189  	movw [sp+0x0C], ax
+00000076 A800                 190  	movw ax, [sp+0x00]
+00000078 14                   191  	movw de, ax
+00000079 B80A                 192  	movw [sp+0x0A], ax
+0000007B                      193  .BB@LABEL@1_15:	; if_break_bb26.split
+0000007B                      194  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 79
+0000007B 15                   195  	movw ax, de
+0000007C 100E                 196  	addw sp, #0x0E
+0000007E D7                   197  	ret
+0000007F                      198  .LFE1:
+0000007F                      199  	.TYPE _energy_incrementation,function,.LFE2-_energy_incrementation
+0000007F                      200  _energy_incrementation:
+0000007F                      201  	.STACK _energy_incrementation = 76
+0000007F                      202  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 639
+0000007F 2042                 203  	subw sp, #0x42
+00000081 F6                   204  	clrw ax
+00000082                      205  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 669
+00000082 B818                 206  	movw [sp+0x18], ax
+00000084 B816                 207  	movw [sp+0x16], ax
+00000086                      208  .BB@LABEL@2_1:	; entry.split
+00000086                      209  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 670
+00000086 B828                 210  	movw [sp+0x28], ax
+00000088 B826                 211  	movw [sp+0x26], ax
+0000008A                      212  .BB@LABEL@2_2:	; entry.split1
+0000008A                      213  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 671
+0000008A B81C                 214  	movw [sp+0x1C], ax
+0000008C B81A                 215  	movw [sp+0x1A], ax
+0000008E                      216  .BB@LABEL@2_3:	; entry.split2
+0000008E                      217  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 672
+0000008E B82C                 218  	movw [sp+0x2C], ax
+00000090 B82A                 219  	movw [sp+0x2A], ax
+00000092                      220  .BB@LABEL@2_4:	; entry.split3
+00000092                      221  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 673
+00000092 B834                 222  	movw [sp+0x34], ax
+00000094 B832                 223  	movw [sp+0x32], ax
+00000096                      224  .BB@LABEL@2_5:	; entry.split4
+00000096                      225  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 675
+00000096 C80A00               226  	mov [sp+0x0A], #0x00
+00000099 EE0000               227  	br $!.BB@LABEL@2_137
+0000009C                      228  .BB@LABEL@2_6:	; bb
+0000009C                      229  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 677
+0000009C 880A                 230  	mov a, [sp+0x0A]
+0000009E 70                   231  	mov x, a
+0000009F 5104                 232  	mov a, #0x04
+000000A1 FE0000               233  	call $!_getPower
+000000A4 B822                 234  	movw [sp+0x22], ax
+000000A6 13                   235  	movw ax, bc
+000000A7 B824                 236  	movw [sp+0x24], ax
+000000A9                      237  .BB@LABEL@2_7:	; bb.split
+000000A9                      238  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 680
+000000A9 A824                 239  	movw ax, [sp+0x24]
+000000AB B80E                 240  	movw [sp+0x0E], ax
+000000AD A822                 241  	movw ax, [sp+0x22]
+000000AF B80C                 242  	movw [sp+0x0C], ax
+000000B1                      243  .BB@LABEL@2_8:	; bb.split5
+000000B1                      244  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 681
+000000B1 A824                 245  	movw ax, [sp+0x24]
+000000B3 31FE                 246  	shrw ax, 0x0F
+000000B5 60                   247  	mov a, x
+000000B6 D1                   248  	cmp0 a
+000000B7 DD00                 249  	bz $.BB@LABEL@2_12
+000000B9                      250  .BB@LABEL@2_9:	; if_then_bb
+000000B9                      251  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 682
+000000B9 A824                 252  	movw ax, [sp+0x24]
+000000BB 14                   253  	movw de, ax
+000000BC A822                 254  	movw ax, [sp+0x22]
+000000BE 12                   255  	movw bc, ax
+000000BF F6                   256  	clrw ax
+000000C0 16                   257  	movw hl, ax
+000000C1 23                   258  	subw ax, bc
+000000C2 B80C                 259  	movw [sp+0x0C], ax
+000000C4 17                   260  	movw ax, hl
+000000C5 61D8                 261  	sknc
+000000C7                      262  .BB@LABEL@2_10:	; if_then_bb
+000000C7 B1                   263  	decw ax
+000000C8                      264  .BB@LABEL@2_11:	; if_then_bb
+000000C8 25                   265  	subw ax, de
+000000C9 B80E                 266  	movw [sp+0x0E], ax
+000000CB                      267  .BB@LABEL@2_12:	; if_break_bb
+000000CB                      268  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 685
+000000CB 8F0000               269  	mov a, !LOWW(_g_TamperStatus)
+000000CE 318E                 270  	shrw ax, 8+0x00000
+000000D0 31ED                 271  	shlw ax, 0x0E
+000000D2 DC00                 272  	bc $.BB@LABEL@2_15
+000000D4                      273  .BB@LABEL@2_13:	; bb31
+000000D4 8F0000               274  	mov a, !LOWW(_g_TamperStatus)
+000000D7 318E                 275  	shrw ax, 8+0x00000
+000000D9 319D                 276  	shlw ax, 0x09
+000000DB DC00                 277  	bc $.BB@LABEL@2_15
+000000DD                      278  .BB@LABEL@2_14:	; bb37
+000000DD E6                   279  	onew ax
+000000DE B814                 280  	movw [sp+0x14], ax
+000000E0 EF00                 281  	br $.BB@LABEL@2_16
+000000E2                      282  .BB@LABEL@2_15:	; bb38
+000000E2 F6                   283  	clrw ax
+000000E3 B814                 284  	movw [sp+0x14], ax
+000000E5                      285  .BB@LABEL@2_16:	; bb39
+000000E5 A814                 286  	movw ax, [sp+0x14]
+000000E7 6168                 287  	or a, x
+000000E9                      288  	.bz $!.BB@LABEL@2_32
+000000E9 61F8                    	 -- Skncond
+000000EB EE0000                  	 -- br	**.target1
+000000EE                      289  .BB@LABEL@2_17:	; if_then_bb44
+000000EE                      290  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 687
+000000EE 5104                 291  	mov a, #0x04
+000000F0 FC000000             292  	call !!_EM_GetPowerFactor
+000000F4 B82E                 293  	movw [sp+0x2E], ax
+000000F6 13                   294  	movw ax, bc
+000000F7 B830                 295  	movw [sp+0x30], ax
+000000F9                      296  .BB@LABEL@2_18:	; if_then_bb44.split
+000000F9 F6                   297  	clrw ax
+000000FA B806                 298  	movw [sp+0x06], ax
+000000FC                      299  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 688
+000000FC C1                   300  	push ax
+000000FD C1                   301  	push ax
+000000FE A834                 302  	movw ax, [sp+0x34]
+00000100 B808                 303  	movw [sp+0x08], ax
+00000102 12                   304  	movw bc, ax
+00000103 A832                 305  	movw ax, [sp+0x32]
+00000105 B804                 306  	movw [sp+0x04], ax
+00000107 FC000000             307  	call !!__COM_funordered
+0000010B 9806                 308  	mov [sp+0x06], a
+0000010D 1004                 309  	addw sp, #0x04
+0000010F A806                 310  	movw ax, [sp+0x06]
+00000111 C1                   311  	push ax
+00000112 C1                   312  	push ax
+00000113 A808                 313  	movw ax, [sp+0x08]
+00000115 12                   314  	movw bc, ax
+00000116 A804                 315  	movw ax, [sp+0x04]
+00000118 FC000000             316  	call !!__COM_fge
+0000011C 70                   317  	mov x, a
+0000011D 1004                 318  	addw sp, #0x04
+0000011F 8802                 319  	mov a, [sp+0x02]
+00000121 D1                   320  	cmp0 a
+00000122 E1                   321  	oneb a
+00000123 61F8                 322  	sknz
+00000125                      323  .BB@LABEL@2_19:	; if_then_bb44.split
+00000125 F1                   324  	clrb a
+00000126                      325  .BB@LABEL@2_20:	; if_then_bb44.split
+00000126 D0                   326  	cmp0 x
+00000127 E0                   327  	oneb x
+00000128 61F8                 328  	sknz
+0000012A                      329  .BB@LABEL@2_21:	; if_then_bb44.split
+0000012A F0                   330  	clrb x
+0000012B                      331  .BB@LABEL@2_22:	; if_then_bb44.split
+0000012B 6160                 332  	or x, a
+0000012D D0                   333  	cmp0 x
+0000012E DF00                 334  	bnz $.BB@LABEL@2_24
+00000130                      335  .BB@LABEL@2_23:	; if_then_bb50
+00000130                      336  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 689
+00000130 A830                 337  	movw ax, [sp+0x30]
+00000132 7C80                 338  	xor a, #0x80
+00000134 B830                 339  	movw [sp+0x30], ax
+00000136                      340  .BB@LABEL@2_24:	; if_break_bb53
+00000136                      341  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 691
+00000136 880A                 342  	mov a, [sp+0x0A]
+00000138 FC000000             343  	call !!_checkForVoltageHarmonics
+0000013C D1                   344  	cmp0 a
+0000013D DD00                 345  	bz $.BB@LABEL@2_32
+0000013F                      346  .BB@LABEL@2_25:	; if_then_bb60
+0000013F                      347  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 693
+0000013F 880A                 348  	mov a, [sp+0x0A]
+00000141 FC000000             349  	call !!_checkForCurrentHarmonics
+00000145 D1                   350  	cmp0 a
+00000146 DD00                 351  	bz $.BB@LABEL@2_32
+00000148                      352  .BB@LABEL@2_26:	; if_then_bb67
+00000148 306E3F               353  	movw ax, #0x3F6E
+0000014B B808                 354  	movw [sp+0x08], ax
+0000014D                      355  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 695
+0000014D C1                   356  	push ax
+0000014E 307B14               357  	movw ax, #0x147B
+00000151 B808                 358  	movw [sp+0x08], ax
+00000153 C1                   359  	push ax
+00000154 A834                 360  	movw ax, [sp+0x34]
+00000156 B808                 361  	movw [sp+0x08], ax
+00000158 12                   362  	movw bc, ax
+00000159 A832                 363  	movw ax, [sp+0x32]
+0000015B B804                 364  	movw [sp+0x04], ax
+0000015D FC000000             365  	call !!__COM_funordered
+00000161 9806                 366  	mov [sp+0x06], a
+00000163 1004                 367  	addw sp, #0x04
+00000165 A808                 368  	movw ax, [sp+0x08]
+00000167 C1                   369  	push ax
+00000168 A808                 370  	movw ax, [sp+0x08]
+0000016A C1                   371  	push ax
+0000016B A808                 372  	movw ax, [sp+0x08]
+0000016D 12                   373  	movw bc, ax
+0000016E A804                 374  	movw ax, [sp+0x04]
+00000170 FC000000             375  	call !!__COM_fge
+00000174 70                   376  	mov x, a
+00000175 1004                 377  	addw sp, #0x04
+00000177 8802                 378  	mov a, [sp+0x02]
+00000179 D1                   379  	cmp0 a
+0000017A E1                   380  	oneb a
+0000017B 61F8                 381  	sknz
+0000017D                      382  .BB@LABEL@2_27:	; if_then_bb67
+0000017D F1                   383  	clrb a
+0000017E                      384  .BB@LABEL@2_28:	; if_then_bb67
+0000017E D0                   385  	cmp0 x
+0000017F E0                   386  	oneb x
+00000180 61F8                 387  	sknz
+00000182                      388  .BB@LABEL@2_29:	; if_then_bb67
+00000182 F0                   389  	clrb x
+00000183                      390  .BB@LABEL@2_30:	; if_then_bb67
+00000183 6160                 391  	or x, a
+00000185 D0                   392  	cmp0 x
+00000186 DF00                 393  	bnz $.BB@LABEL@2_32
+00000188                      394  .BB@LABEL@2_31:	; if_then_bb72
+00000188                      395  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 697
+00000188 A80E                 396  	movw ax, [sp+0x0E]
+0000018A 12                   397  	movw bc, ax
+0000018B A80C                 398  	movw ax, [sp+0x0C]
+0000018D FC000000             399  	call !!__COM_sltof
+00000191 14                   400  	movw de, ax
+00000192 308A3F               401  	movw ax, #0x3F8A
+00000195 C1                   402  	push ax
+00000196 30986E               403  	movw ax, #0x6E98
+00000199 C1                   404  	push ax
+0000019A 15                   405  	movw ax, de
+0000019B FC000000             406  	call !!__COM_fmul
+0000019F 1004                 407  	addw sp, #0x04
+000001A1 FC000000             408  	call !!__COM_ftosl
+000001A5 B80C                 409  	movw [sp+0x0C], ax
+000001A7 13                   410  	movw ax, bc
+000001A8 B80E                 411  	movw [sp+0x0E], ax
+000001AA                      412  .BB@LABEL@2_32:	; if_break_bb80
+000001AA                      413  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 703
+000001AA A80E                 414  	movw ax, [sp+0x0E]
+000001AC B840                 415  	movw [sp+0x40], ax
+000001AE A80C                 416  	movw ax, [sp+0x0C]
+000001B0 B83E                 417  	movw [sp+0x3E], ax
+000001B2                      418  .BB@LABEL@2_33:	; if_break_bb80.split
+000001B2                      419  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 705
+000001B2 A824                 420  	movw ax, [sp+0x24]
+000001B4 14                   421  	movw de, ax
+000001B5 A822                 422  	movw ax, [sp+0x22]
+000001B7 12                   423  	movw bc, ax
+000001B8 A82A                 424  	movw ax, [sp+0x2A]
+000001BA 03                   425  	addw ax, bc
+000001BB B82A                 426  	movw [sp+0x2A], ax
+000001BD A82C                 427  	movw ax, [sp+0x2C]
+000001BF 61D8                 428  	sknc
+000001C1                      429  .BB@LABEL@2_34:	; if_break_bb80.split
+000001C1 A1                   430  	incw ax
+000001C2                      431  .BB@LABEL@2_35:	; if_break_bb80.split
+000001C2 05                   432  	addw ax, de
+000001C3 B82C                 433  	movw [sp+0x2C], ax
+000001C5                      434  .BB@LABEL@2_36:	; if_break_bb80.split6
+000001C5                      435  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 706
+000001C5 A80E                 436  	movw ax, [sp+0x0E]
+000001C7 14                   437  	movw de, ax
+000001C8 A80C                 438  	movw ax, [sp+0x0C]
+000001CA 12                   439  	movw bc, ax
+000001CB A816                 440  	movw ax, [sp+0x16]
+000001CD 03                   441  	addw ax, bc
+000001CE B816                 442  	movw [sp+0x16], ax
+000001D0 A818                 443  	movw ax, [sp+0x18]
+000001D2 61D8                 444  	sknc
+000001D4                      445  .BB@LABEL@2_37:	; if_break_bb80.split6
+000001D4 A1                   446  	incw ax
+000001D5                      447  .BB@LABEL@2_38:	; if_break_bb80.split6
+000001D5 05                   448  	addw ax, de
+000001D6 B818                 449  	movw [sp+0x18], ax
+000001D8                      450  .BB@LABEL@2_39:	; if_break_bb80.split7
+000001D8                      451  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 708
+000001D8 A80C                 452  	movw ax, [sp+0x0C]
+000001DA 020000               453  	addw ax, !LOWW(_total_consumed_active_energy)
+000001DD BF0000               454  	movw !LOWW(_total_consumed_active_energy), ax
+000001E0 A80E                 455  	movw ax, [sp+0x0E]
+000001E2 61D8                 456  	sknc
+000001E4                      457  .BB@LABEL@2_40:	; if_break_bb80.split7
+000001E4 A1                   458  	incw ax
+000001E5                      459  .BB@LABEL@2_41:	; if_break_bb80.split7
+000001E5 020000               460  	addw ax, !LOWW(_total_consumed_active_energy+0x00002)
+000001E8 BF0000               461  	movw !LOWW(_total_consumed_active_energy+0x00002), ax
+000001EB                      462  .BB@LABEL@2_42:	; if_break_bb80.split8
+000001EB 300500               463  	movw ax, #0x0005
+000001EE                      464  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 709
+000001EE C1                   465  	push ax
+000001EF 30407E               466  	movw ax, #0x7E40
+000001F2 C1                   467  	push ax
+000001F3 DB0000               468  	movw bc, !LOWW(_total_consumed_active_energy+0x00002)
+000001F6 AF0000               469  	movw ax, !LOWW(_total_consumed_active_energy)
+000001F9 FC000000             470  	call !!__COM_sldiv
+000001FD B814                 471  	movw [sp+0x14], ax
+000001FF 13                   472  	movw ax, bc
+00000200 B816                 473  	movw [sp+0x16], ax
+00000202 1004                 474  	addw sp, #0x04
+00000204                      475  .BB@LABEL@2_43:	; if_break_bb80.split9
+00000204                      476  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 711
+00000204 AF0000               477  	movw ax, !LOWW(_total_consumed_active_energy+0x00002)
+00000207 7C80                 478  	xor a, #0x80
+00000209 440080               479  	cmpw ax, #0x8000
+0000020C AF0000               480  	movw ax, !LOWW(_total_consumed_active_energy)
+0000020F 61F8                 481  	sknz
+00000211                      482  .BB@LABEL@2_44:	; if_break_bb80.split9
+00000211 440100               483  	cmpw ax, #0x0001
+00000214                      484  .BB@LABEL@2_45:	; if_break_bb80.split9
+00000214 DC00                 485  	bc $.BB@LABEL@2_54
+00000216                      486  .BB@LABEL@2_46:	; if_then_bb97
+00000216                      487  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 713
+00000216 A810                 488  	movw ax, [sp+0x10]
+00000218 020000               489  	addw ax, !LOWW(_myenergydata)
+0000021B BF0000               490  	movw !LOWW(_myenergydata), ax
+0000021E A812                 491  	movw ax, [sp+0x12]
+00000220 61D8                 492  	sknc
+00000222                      493  .BB@LABEL@2_47:	; if_then_bb97
+00000222 A1                   494  	incw ax
+00000223                      495  .BB@LABEL@2_48:	; if_then_bb97
+00000223 020000               496  	addw ax, !LOWW(_myenergydata+0x00002)
+00000226 BF0000               497  	movw !LOWW(_myenergydata+0x00002), ax
+00000229                      498  .BB@LABEL@2_49:	; if_then_bb97.split
+00000229                      499  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 714
+00000229 A810                 500  	movw ax, [sp+0x10]
+0000022B 020000               501  	addw ax, !LOWW(_myenergydata+0x0001C)
+0000022E BF0000               502  	movw !LOWW(_myenergydata+0x0001C), ax
+00000231 A812                 503  	movw ax, [sp+0x12]
+00000233 61D8                 504  	sknc
+00000235                      505  .BB@LABEL@2_50:	; if_then_bb97.split
+00000235 A1                   506  	incw ax
+00000236                      507  .BB@LABEL@2_51:	; if_then_bb97.split
+00000236 020000               508  	addw ax, !LOWW(_myenergydata+0x0001E)
+00000239 BF0000               509  	movw !LOWW(_myenergydata+0x0001E), ax
+0000023C                      510  .BB@LABEL@2_52:	; if_then_bb97.split10
+0000023C 300500               511  	movw ax, #0x0005
+0000023F                      512  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 715
+0000023F C1                   513  	push ax
+00000240 30407E               514  	movw ax, #0x7E40
+00000243 C1                   515  	push ax
+00000244 DB0000               516  	movw bc, !LOWW(_total_consumed_active_energy+0x00002)
+00000247 AF0000               517  	movw ax, !LOWW(_total_consumed_active_energy)
+0000024A FC000000             518  	call !!__COM_slrem
+0000024E BF0000               519  	movw !LOWW(_total_consumed_active_energy), ax
+00000251 13                   520  	movw ax, bc
+00000252 BF0000               521  	movw !LOWW(_total_consumed_active_energy+0x00002), ax
+00000255 1004                 522  	addw sp, #0x04
+00000257                      523  .BB@LABEL@2_53:	; if_then_bb97.split11
+00000257 F6                   524  	clrw ax
+00000258                      525  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 716
+00000258 C1                   526  	push ax
+00000259 30100E               527  	movw ax, #0x0E10
+0000025C C1                   528  	push ax
+0000025D DB0000               529  	movw bc, !LOWW(_total_consumed_active_energy+0x00002)
+00000260 AF0000               530  	movw ax, !LOWW(_total_consumed_active_energy)
+00000263 FC000000             531  	call !!__COM_sldiv
+00000267 60                   532  	mov a, x
+00000268 9F0000               533  	mov !LOWW(_high_resolution_kwh_value), a
+0000026B 1004                 534  	addw sp, #0x04
+0000026D                      535  .BB@LABEL@2_54:	; if_break_bb109
+0000026D 30803F               536  	movw ax, #0x3F80
+00000270                      537  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 748
+00000270 B83C                 538  	movw [sp+0x3C], ax
+00000272 F6                   539  	clrw ax
+00000273 B83A                 540  	movw [sp+0x3A], ax
+00000275                      541  .BB@LABEL@2_55:	; if_break_bb109.split
+00000275                      542  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 750
+00000275 8F0000               543  	mov a, !LOWW(_g_TamperStatus)
+00000278 318E                 544  	shrw ax, 8+0x00000
+0000027A 31ED                 545  	shlw ax, 0x0E
+0000027C DC00                 546  	bc $.BB@LABEL@2_58
+0000027E                      547  .BB@LABEL@2_56:	; bb115
+0000027E 8F0000               548  	mov a, !LOWW(_g_TamperStatus)
+00000281 318E                 549  	shrw ax, 8+0x00000
+00000283 319D                 550  	shlw ax, 0x09
+00000285 DC00                 551  	bc $.BB@LABEL@2_58
+00000287                      552  .BB@LABEL@2_57:	; bb121
+00000287 E6                   553  	onew ax
+00000288 B814                 554  	movw [sp+0x14], ax
+0000028A EF00                 555  	br $.BB@LABEL@2_59
+0000028C                      556  .BB@LABEL@2_58:	; bb122
+0000028C F6                   557  	clrw ax
+0000028D B814                 558  	movw [sp+0x14], ax
+0000028F                      559  .BB@LABEL@2_59:	; bb123
+0000028F A814                 560  	movw ax, [sp+0x14]
+00000291 6168                 561  	or a, x
+00000293 DD00                 562  	bz $.BB@LABEL@2_63
+00000295                      563  .BB@LABEL@2_60:	; if_then_bb128
+00000295                      564  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 752
+00000295 880A                 565  	mov a, [sp+0x0A]
+00000297 FC000000             566  	call !!_checkForVoltageHarmonics
+0000029B D1                   567  	cmp0 a
+0000029C DD00                 568  	bz $.BB@LABEL@2_63
+0000029E                      569  .BB@LABEL@2_61:	; if_then_bb135
+0000029E                      570  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 754
+0000029E 880A                 571  	mov a, [sp+0x0A]
+000002A0 FC000000             572  	call !!_checkForCurrentHarmonics
+000002A4 D1                   573  	cmp0 a
+000002A5 DD00                 574  	bz $.BB@LABEL@2_63
+000002A7                      575  .BB@LABEL@2_62:	; if_then_bb142
+000002A7 30763F               576  	movw ax, #0x3F76
+000002AA                      577  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 756
+000002AA B83C                 578  	movw [sp+0x3C], ax
+000002AC 306327               579  	movw ax, #0x2763
+000002AF B83A                 580  	movw [sp+0x3A], ax
+000002B1                      581  .BB@LABEL@2_63:	; if_break_bb145
+000002B1                      582  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 761
+000002B1 A80E                 583  	movw ax, [sp+0x0E]
+000002B3 12                   584  	movw bc, ax
+000002B4 A80C                 585  	movw ax, [sp+0x0C]
+000002B6 FC000000             586  	call !!__COM_sltof
+000002BA 14                   587  	movw de, ax
+000002BB A83C                 588  	movw ax, [sp+0x3C]
+000002BD C1                   589  	push ax
+000002BE A83C                 590  	movw ax, [sp+0x3C]
+000002C0 C1                   591  	push ax
+000002C1 15                   592  	movw ax, de
+000002C2 FC000000             593  	call !!__COM_fmul
+000002C6 B806                 594  	movw [sp+0x06], ax
+000002C8 13                   595  	movw ax, bc
+000002C9 B804                 596  	movw [sp+0x04], ax
+000002CB 1004                 597  	addw sp, #0x04
+000002CD DB0000               598  	movw bc, !LOWW(_total_consumed_fundamental_active_energy+0x00002)
+000002D0 AF0000               599  	movw ax, !LOWW(_total_consumed_fundamental_active_energy)
+000002D3 FC000000             600  	call !!__COM_sltof
+000002D7 14                   601  	movw de, ax
+000002D8 A800                 602  	movw ax, [sp+0x00]
+000002DA C1                   603  	push ax
+000002DB A804                 604  	movw ax, [sp+0x04]
+000002DD C1                   605  	push ax
+000002DE 15                   606  	movw ax, de
+000002DF FC000000             607  	call !!__COM_fadd
+000002E3 1004                 608  	addw sp, #0x04
+000002E5 FC000000             609  	call !!__COM_ftosl
+000002E9 BF0000               610  	movw !LOWW(_total_consumed_fundamental_active_energy), ax
+000002EC 13                   611  	movw ax, bc
+000002ED BF0000               612  	movw !LOWW(_total_consumed_fundamental_active_energy+0x00002), ax
+000002F0                      613  .BB@LABEL@2_64:	; if_break_bb145.split
+000002F0 300500               614  	movw ax, #0x0005
+000002F3                      615  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 763
+000002F3 C1                   616  	push ax
+000002F4 30407E               617  	movw ax, #0x7E40
+000002F7 C1                   618  	push ax
+000002F8 DB0000               619  	movw bc, !LOWW(_total_consumed_fundamental_active_energy+0x00002)
+000002FB AF0000               620  	movw ax, !LOWW(_total_consumed_fundamental_active_energy)
+000002FE FC000000             621  	call !!__COM_sldiv
+00000302 B814                 622  	movw [sp+0x14], ax
+00000304 13                   623  	movw ax, bc
+00000305 B816                 624  	movw [sp+0x16], ax
+00000307 1004                 625  	addw sp, #0x04
+00000309                      626  .BB@LABEL@2_65:	; if_break_bb145.split12
+00000309                      627  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 765
+00000309 AF0000               628  	movw ax, !LOWW(_total_consumed_fundamental_active_energy+0x00002)
+0000030C 7C80                 629  	xor a, #0x80
+0000030E 440080               630  	cmpw ax, #0x8000
+00000311 AF0000               631  	movw ax, !LOWW(_total_consumed_fundamental_active_energy)
+00000314 61F8                 632  	sknz
+00000316                      633  .BB@LABEL@2_66:	; if_break_bb145.split12
+00000316 440100               634  	cmpw ax, #0x0001
+00000319                      635  .BB@LABEL@2_67:	; if_break_bb145.split12
+00000319 DC00                 636  	bc $.BB@LABEL@2_73
+0000031B                      637  .BB@LABEL@2_68:	; if_then_bb160
+0000031B                      638  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 767
+0000031B A810                 639  	movw ax, [sp+0x10]
+0000031D 020000               640  	addw ax, !LOWW(_myenergydata+0x00004)
+00000320 BF0000               641  	movw !LOWW(_myenergydata+0x00004), ax
+00000323 A812                 642  	movw ax, [sp+0x12]
+00000325 61D8                 643  	sknc
+00000327                      644  .BB@LABEL@2_69:	; if_then_bb160
+00000327 A1                   645  	incw ax
+00000328                      646  .BB@LABEL@2_70:	; if_then_bb160
+00000328 020000               647  	addw ax, !LOWW(_myenergydata+0x00006)
+0000032B BF0000               648  	movw !LOWW(_myenergydata+0x00006), ax
+0000032E                      649  .BB@LABEL@2_71:	; if_then_bb160.split
+0000032E 300500               650  	movw ax, #0x0005
+00000331                      651  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 768
+00000331 C1                   652  	push ax
+00000332 30407E               653  	movw ax, #0x7E40
+00000335 C1                   654  	push ax
+00000336 DB0000               655  	movw bc, !LOWW(_total_consumed_fundamental_active_energy+0x00002)
+00000339 AF0000               656  	movw ax, !LOWW(_total_consumed_fundamental_active_energy)
+0000033C FC000000             657  	call !!__COM_slrem
+00000340 BF0000               658  	movw !LOWW(_total_consumed_fundamental_active_energy), ax
+00000343 13                   659  	movw ax, bc
+00000344 BF0000               660  	movw !LOWW(_total_consumed_fundamental_active_energy+0x00002), ax
+00000347 1004                 661  	addw sp, #0x04
+00000349                      662  .BB@LABEL@2_72:	; if_then_bb160.split13
+00000349 F6                   663  	clrw ax
+0000034A                      664  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 769
+0000034A C1                   665  	push ax
+0000034B 30100E               666  	movw ax, #0x0E10
+0000034E C1                   667  	push ax
+0000034F DB0000               668  	movw bc, !LOWW(_total_consumed_fundamental_active_energy+0x00002)
+00000352 AF0000               669  	movw ax, !LOWW(_total_consumed_fundamental_active_energy)
+00000355 FC000000             670  	call !!__COM_sldiv
+00000359 60                   671  	mov a, x
+0000035A 9F0000               672  	mov !LOWW(_high_resolution_kwh_fundamental_value), a
+0000035D 1004                 673  	addw sp, #0x04
+0000035F                      674  .BB@LABEL@2_73:	; if_break_bb169
+0000035F                      675  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 775
+0000035F 880A                 676  	mov a, [sp+0x0A]
+00000361 70                   677  	mov x, a
+00000362 510A                 678  	mov a, #0x0A
+00000364 FE0000               679  	call $!_getPower
+00000367 B81E                 680  	movw [sp+0x1E], ax
+00000369 13                   681  	movw ax, bc
+0000036A B820                 682  	movw [sp+0x20], ax
+0000036C                      683  .BB@LABEL@2_74:	; if_break_bb169.split
+0000036C                      684  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 776
+0000036C A820                 685  	movw ax, [sp+0x20]
+0000036E 14                   686  	movw de, ax
+0000036F A81E                 687  	movw ax, [sp+0x1E]
+00000371 12                   688  	movw bc, ax
+00000372 A832                 689  	movw ax, [sp+0x32]
+00000374 03                   690  	addw ax, bc
+00000375 B832                 691  	movw [sp+0x32], ax
+00000377 A834                 692  	movw ax, [sp+0x34]
+00000379 61D8                 693  	sknc
+0000037B                      694  .BB@LABEL@2_75:	; if_break_bb169.split
+0000037B A1                   695  	incw ax
+0000037C                      696  .BB@LABEL@2_76:	; if_break_bb169.split
+0000037C 05                   697  	addw ax, de
+0000037D B834                 698  	movw [sp+0x34], ax
+0000037F                      699  .BB@LABEL@2_77:	; if_break_bb169.split14
+0000037F                      700  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 778
+0000037F A820                 701  	movw ax, [sp+0x20]
+00000381 B80E                 702  	movw [sp+0x0E], ax
+00000383 A81E                 703  	movw ax, [sp+0x1E]
+00000385 B80C                 704  	movw [sp+0x0C], ax
+00000387                      705  .BB@LABEL@2_78:	; if_break_bb169.split15
+00000387                      706  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 779
+00000387 A820                 707  	movw ax, [sp+0x20]
+00000389 31FE                 708  	shrw ax, 0x0F
+0000038B 60                   709  	mov a, x
+0000038C D1                   710  	cmp0 a
+0000038D DD00                 711  	bz $.BB@LABEL@2_82
+0000038F                      712  .BB@LABEL@2_79:	; if_then_bb180
+0000038F                      713  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 780
+0000038F A820                 714  	movw ax, [sp+0x20]
+00000391 14                   715  	movw de, ax
+00000392 A81E                 716  	movw ax, [sp+0x1E]
+00000394 12                   717  	movw bc, ax
+00000395 F6                   718  	clrw ax
+00000396 16                   719  	movw hl, ax
+00000397 23                   720  	subw ax, bc
+00000398 B80C                 721  	movw [sp+0x0C], ax
+0000039A 17                   722  	movw ax, hl
+0000039B 61D8                 723  	sknc
+0000039D                      724  .BB@LABEL@2_80:	; if_then_bb180
+0000039D B1                   725  	decw ax
+0000039E                      726  .BB@LABEL@2_81:	; if_then_bb180
+0000039E 25                   727  	subw ax, de
+0000039F B80E                 728  	movw [sp+0x0E], ax
+000003A1                      729  .BB@LABEL@2_82:	; if_break_bb183
+000003A1                      730  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 782
+000003A1 A80E                 731  	movw ax, [sp+0x0E]
+000003A3 14                   732  	movw de, ax
+000003A4 A80C                 733  	movw ax, [sp+0x0C]
+000003A6 12                   734  	movw bc, ax
+000003A7 A826                 735  	movw ax, [sp+0x26]
+000003A9 03                   736  	addw ax, bc
+000003AA B826                 737  	movw [sp+0x26], ax
+000003AC A828                 738  	movw ax, [sp+0x28]
+000003AE 61D8                 739  	sknc
+000003B0                      740  .BB@LABEL@2_83:	; if_break_bb183
+000003B0 A1                   741  	incw ax
+000003B1                      742  .BB@LABEL@2_84:	; if_break_bb183
+000003B1 05                   743  	addw ax, de
+000003B2 B828                 744  	movw [sp+0x28], ax
+000003B4                      745  .BB@LABEL@2_85:	; if_break_bb183.split
+000003B4                      746  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 784
+000003B4 880A                 747  	mov a, [sp+0x0A]
+000003B6 70                   748  	mov x, a
+000003B7 5109                 749  	mov a, #0x09
+000003B9 FC000000             750  	call !!_getInstantaneousParams
+000003BD FC000000             751  	call !!__COM_ftosl
+000003C1 60                   752  	mov a, x
+000003C2 980B                 753  	mov [sp+0x0B], a
+000003C4                      754  .BB@LABEL@2_86:	; if_break_bb183.split16
+000003C4                      755  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 786
+000003C4 880B                 756  	mov a, [sp+0x0B]
+000003C6 318F                 757  	sarw ax, 8+0x00000
+000003C8 44FFFF               758  	cmpw ax, #0xFFFF
+000003CB                      759  	.bnz $!.BB@LABEL@2_99
+000003CB 61E8                    	 -- Skncond
+000003CD EE0000                  	 -- br	**.target1
+000003D0                      760  .BB@LABEL@2_87:	; if_then_bb195
+000003D0                      761  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 788
+000003D0 A80C                 762  	movw ax, [sp+0x0C]
+000003D2 020000               763  	addw ax, !LOWW(_total_consumed_reactive_energy_lead)
+000003D5 BF0000               764  	movw !LOWW(_total_consumed_reactive_energy_lead), ax
+000003D8 A80E                 765  	movw ax, [sp+0x0E]
+000003DA 61D8                 766  	sknc
+000003DC                      767  .BB@LABEL@2_88:	; if_then_bb195
+000003DC A1                   768  	incw ax
+000003DD                      769  .BB@LABEL@2_89:	; if_then_bb195
+000003DD 020000               770  	addw ax, !LOWW(_total_consumed_reactive_energy_lead+0x00002)
+000003E0 BF0000               771  	movw !LOWW(_total_consumed_reactive_energy_lead+0x00002), ax
+000003E3                      772  .BB@LABEL@2_90:	; if_then_bb195.split
+000003E3 300500               773  	movw ax, #0x0005
+000003E6                      774  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 789
+000003E6 C1                   775  	push ax
+000003E7 30407E               776  	movw ax, #0x7E40
+000003EA C1                   777  	push ax
+000003EB DB0000               778  	movw bc, !LOWW(_total_consumed_reactive_energy_lead+0x00002)
+000003EE AF0000               779  	movw ax, !LOWW(_total_consumed_reactive_energy_lead)
+000003F1 FC000000             780  	call !!__COM_sldiv
+000003F5 B814                 781  	movw [sp+0x14], ax
+000003F7 13                   782  	movw ax, bc
+000003F8 B816                 783  	movw [sp+0x16], ax
+000003FA 1004                 784  	addw sp, #0x04
+000003FC                      785  .BB@LABEL@2_91:	; if_then_bb195.split17
+000003FC                      786  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 791
+000003FC AF0000               787  	movw ax, !LOWW(_total_consumed_reactive_energy_lead+0x00002)
+000003FF 7C80                 788  	xor a, #0x80
+00000401 440080               789  	cmpw ax, #0x8000
+00000404 AF0000               790  	movw ax, !LOWW(_total_consumed_reactive_energy_lead)
+00000407 61F8                 791  	sknz
+00000409                      792  .BB@LABEL@2_92:	; if_then_bb195.split17
+00000409 440100               793  	cmpw ax, #0x0001
+0000040C                      794  .BB@LABEL@2_93:	; if_then_bb195.split17
+0000040C DC00                 795  	bc $.BB@LABEL@2_99
+0000040E                      796  .BB@LABEL@2_94:	; if_then_bb205
+0000040E                      797  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 793
+0000040E A810                 798  	movw ax, [sp+0x10]
+00000410 020000               799  	addw ax, !LOWW(_myenergydata+0x00010)
+00000413 BF0000               800  	movw !LOWW(_myenergydata+0x00010), ax
+00000416 A812                 801  	movw ax, [sp+0x12]
+00000418 61D8                 802  	sknc
+0000041A                      803  .BB@LABEL@2_95:	; if_then_bb205
+0000041A A1                   804  	incw ax
+0000041B                      805  .BB@LABEL@2_96:	; if_then_bb205
+0000041B 020000               806  	addw ax, !LOWW(_myenergydata+0x00012)
+0000041E BF0000               807  	movw !LOWW(_myenergydata+0x00012), ax
+00000421                      808  .BB@LABEL@2_97:	; if_then_bb205.split
+00000421 300500               809  	movw ax, #0x0005
+00000424                      810  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 797
+00000424 C1                   811  	push ax
+00000425 30407E               812  	movw ax, #0x7E40
+00000428 C1                   813  	push ax
+00000429 DB0000               814  	movw bc, !LOWW(_total_consumed_reactive_energy_lead+0x00002)
+0000042C AF0000               815  	movw ax, !LOWW(_total_consumed_reactive_energy_lead)
+0000042F FC000000             816  	call !!__COM_slrem
+00000433 BF0000               817  	movw !LOWW(_total_consumed_reactive_energy_lead), ax
+00000436 13                   818  	movw ax, bc
+00000437 BF0000               819  	movw !LOWW(_total_consumed_reactive_energy_lead+0x00002), ax
+0000043A 1004                 820  	addw sp, #0x04
+0000043C                      821  .BB@LABEL@2_98:	; if_then_bb205.split18
+0000043C F6                   822  	clrw ax
+0000043D                      823  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 798
+0000043D C1                   824  	push ax
+0000043E 30100E               825  	movw ax, #0x0E10
+00000441 C1                   826  	push ax
+00000442 DB0000               827  	movw bc, !LOWW(_total_consumed_reactive_energy_lead+0x00002)
+00000445 AF0000               828  	movw ax, !LOWW(_total_consumed_reactive_energy_lead)
+00000448 FC000000             829  	call !!__COM_sldiv
+0000044C 60                   830  	mov a, x
+0000044D 9F0000               831  	mov !LOWW(_high_resolution_kvarh_lead_value), a
+00000450 1004                 832  	addw sp, #0x04
+00000452                      833  .BB@LABEL@2_99:	; if_break_bb215
+00000452                      834  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 803
+00000452 880B                 835  	mov a, [sp+0x0B]
+00000454 318F                 836  	sarw ax, 8+0x00000
+00000456 440100               837  	cmpw ax, #0x0001
+00000459                      838  	.bnz $!.BB@LABEL@2_112
+00000459 61E8                    	 -- Skncond
+0000045B EE0000                  	 -- br	**.target1
+0000045E                      839  .BB@LABEL@2_100:	; if_then_bb221
+0000045E                      840  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 805
+0000045E A80C                 841  	movw ax, [sp+0x0C]
+00000460 020000               842  	addw ax, !LOWW(_total_consumed_reactive_energy_lag)
+00000463 BF0000               843  	movw !LOWW(_total_consumed_reactive_energy_lag), ax
+00000466 A80E                 844  	movw ax, [sp+0x0E]
+00000468 61D8                 845  	sknc
+0000046A                      846  .BB@LABEL@2_101:	; if_then_bb221
+0000046A A1                   847  	incw ax
+0000046B                      848  .BB@LABEL@2_102:	; if_then_bb221
+0000046B 020000               849  	addw ax, !LOWW(_total_consumed_reactive_energy_lag+0x00002)
+0000046E BF0000               850  	movw !LOWW(_total_consumed_reactive_energy_lag+0x00002), ax
+00000471                      851  .BB@LABEL@2_103:	; if_then_bb221.split
+00000471 300500               852  	movw ax, #0x0005
+00000474                      853  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 806
+00000474 C1                   854  	push ax
+00000475 30407E               855  	movw ax, #0x7E40
+00000478 C1                   856  	push ax
+00000479 DB0000               857  	movw bc, !LOWW(_total_consumed_reactive_energy_lag+0x00002)
+0000047C AF0000               858  	movw ax, !LOWW(_total_consumed_reactive_energy_lag)
+0000047F FC000000             859  	call !!__COM_sldiv
+00000483 B814                 860  	movw [sp+0x14], ax
+00000485 13                   861  	movw ax, bc
+00000486 B816                 862  	movw [sp+0x16], ax
+00000488 1004                 863  	addw sp, #0x04
+0000048A                      864  .BB@LABEL@2_104:	; if_then_bb221.split19
+0000048A                      865  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 808
+0000048A AF0000               866  	movw ax, !LOWW(_total_consumed_reactive_energy_lag+0x00002)
+0000048D 7C80                 867  	xor a, #0x80
+0000048F 440080               868  	cmpw ax, #0x8000
+00000492 AF0000               869  	movw ax, !LOWW(_total_consumed_reactive_energy_lag)
+00000495 61F8                 870  	sknz
+00000497                      871  .BB@LABEL@2_105:	; if_then_bb221.split19
+00000497 440100               872  	cmpw ax, #0x0001
+0000049A                      873  .BB@LABEL@2_106:	; if_then_bb221.split19
+0000049A DC00                 874  	bc $.BB@LABEL@2_112
+0000049C                      875  .BB@LABEL@2_107:	; if_then_bb231
+0000049C                      876  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 810
+0000049C A810                 877  	movw ax, [sp+0x10]
+0000049E 020000               878  	addw ax, !LOWW(_myenergydata+0x0000C)
+000004A1 BF0000               879  	movw !LOWW(_myenergydata+0x0000C), ax
+000004A4 A812                 880  	movw ax, [sp+0x12]
+000004A6 61D8                 881  	sknc
+000004A8                      882  .BB@LABEL@2_108:	; if_then_bb231
+000004A8 A1                   883  	incw ax
+000004A9                      884  .BB@LABEL@2_109:	; if_then_bb231
+000004A9 020000               885  	addw ax, !LOWW(_myenergydata+0x0000E)
+000004AC BF0000               886  	movw !LOWW(_myenergydata+0x0000E), ax
+000004AF                      887  .BB@LABEL@2_110:	; if_then_bb231.split
+000004AF 300500               888  	movw ax, #0x0005
+000004B2                      889  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 814
+000004B2 C1                   890  	push ax
+000004B3 30407E               891  	movw ax, #0x7E40
+000004B6 C1                   892  	push ax
+000004B7 DB0000               893  	movw bc, !LOWW(_total_consumed_reactive_energy_lag+0x00002)
+000004BA AF0000               894  	movw ax, !LOWW(_total_consumed_reactive_energy_lag)
+000004BD FC000000             895  	call !!__COM_slrem
+000004C1 BF0000               896  	movw !LOWW(_total_consumed_reactive_energy_lag), ax
+000004C4 13                   897  	movw ax, bc
+000004C5 BF0000               898  	movw !LOWW(_total_consumed_reactive_energy_lag+0x00002), ax
+000004C8 1004                 899  	addw sp, #0x04
+000004CA                      900  .BB@LABEL@2_111:	; if_then_bb231.split20
+000004CA F6                   901  	clrw ax
+000004CB                      902  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 815
+000004CB C1                   903  	push ax
+000004CC 30100E               904  	movw ax, #0x0E10
+000004CF C1                   905  	push ax
+000004D0 DB0000               906  	movw bc, !LOWW(_total_consumed_reactive_energy_lag+0x00002)
+000004D3 AF0000               907  	movw ax, !LOWW(_total_consumed_reactive_energy_lag)
+000004D6 FC000000             908  	call !!__COM_sldiv
+000004DA 60                   909  	mov a, x
+000004DB 9F0000               910  	mov !LOWW(_high_resolution_kvarh_lag_value), a
+000004DE 1004                 911  	addw sp, #0x04
+000004E0                      912  .BB@LABEL@2_112:	; if_break_bb241
+000004E0                      913  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 825
+000004E0 A840                 914  	movw ax, [sp+0x40]
+000004E2 B812                 915  	movw [sp+0x12], ax
+000004E4 A83E                 916  	movw ax, [sp+0x3E]
+000004E6 B810                 917  	movw [sp+0x10], ax
+000004E8                      918  .BB@LABEL@2_113:	; if_break_bb241.split
+000004E8                      919  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 833
+000004E8 A824                 920  	movw ax, [sp+0x24]
+000004EA 12                   921  	movw bc, ax
+000004EB A822                 922  	movw ax, [sp+0x22]
+000004ED FC000000             923  	call !!__COM_sltof
+000004F1 340200               924  	movw de, #0x0002
+000004F4 FC000000             925  	call !!_EM_pow
+000004F8 B802                 926  	movw [sp+0x02], ax
+000004FA 13                   927  	movw ax, bc
+000004FB B800                 928  	movw [sp+0x00], ax
+000004FD A820                 929  	movw ax, [sp+0x20]
+000004FF 12                   930  	movw bc, ax
+00000500 A81E                 931  	movw ax, [sp+0x1E]
+00000502 FC000000             932  	call !!__COM_sltof
+00000506 340200               933  	movw de, #0x0002
+00000509 FC000000             934  	call !!_EM_pow
+0000050D C3                   935  	push bc
+0000050E C1                   936  	push ax
+0000050F A804                 937  	movw ax, [sp+0x04]
+00000511 12                   938  	movw bc, ax
+00000512 A806                 939  	movw ax, [sp+0x06]
+00000514 FC000000             940  	call !!__COM_fadd
+00000518 1004                 941  	addw sp, #0x04
+0000051A FC000000             942  	call !!_EM_sqrt
+0000051E FC000000             943  	call !!__COM_ftosl
+00000522 B80C                 944  	movw [sp+0x0C], ax
+00000524 13                   945  	movw ax, bc
+00000525 B80E                 946  	movw [sp+0x0E], ax
+00000527                      947  .BB@LABEL@2_114:	; if_break_bb241.split21
+00000527                      948  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 835
+00000527 A812                 949  	movw ax, [sp+0x12]
+00000529 7C80                 950  	xor a, #0x80
+0000052B 12                   951  	movw bc, ax
+0000052C A810                 952  	movw ax, [sp+0x10]
+0000052E 14                   953  	movw de, ax
+0000052F A80E                 954  	movw ax, [sp+0x0E]
+00000531 7C80                 955  	xor a, #0x80
+00000533 43                   956  	cmpw ax, bc
+00000534 A80C                 957  	movw ax, [sp+0x0C]
+00000536 61F8                 958  	sknz
+00000538                      959  .BB@LABEL@2_115:	; if_break_bb241.split21
+00000538 45                   960  	cmpw ax, de
+00000539                      961  .BB@LABEL@2_116:	; if_break_bb241.split21
+00000539 DE00                 962  	bnc $.BB@LABEL@2_118
+0000053B                      963  .BB@LABEL@2_117:	; if_then_bb257
+0000053B                      964  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 836
+0000053B A812                 965  	movw ax, [sp+0x12]
+0000053D B80E                 966  	movw [sp+0x0E], ax
+0000053F A810                 967  	movw ax, [sp+0x10]
+00000541 B80C                 968  	movw [sp+0x0C], ax
+00000543                      969  .BB@LABEL@2_118:	; if_break_bb259
+00000543                      970  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 839
+00000543 A80E                 971  	movw ax, [sp+0x0E]
+00000545 14                   972  	movw de, ax
+00000546 A80C                 973  	movw ax, [sp+0x0C]
+00000548 12                   974  	movw bc, ax
+00000549 A81A                 975  	movw ax, [sp+0x1A]
+0000054B 03                   976  	addw ax, bc
+0000054C B81A                 977  	movw [sp+0x1A], ax
+0000054E A81C                 978  	movw ax, [sp+0x1C]
+00000550 61D8                 979  	sknc
+00000552                      980  .BB@LABEL@2_119:	; if_break_bb259
+00000552 A1                   981  	incw ax
+00000553                      982  .BB@LABEL@2_120:	; if_break_bb259
+00000553 05                   983  	addw ax, de
+00000554 B81C                 984  	movw [sp+0x1C], ax
+00000556                      985  .BB@LABEL@2_121:	; if_break_bb259.split
+00000556                      986  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 840
+00000556 A80C                 987  	movw ax, [sp+0x0C]
+00000558 020000               988  	addw ax, !LOWW(_total_consumed_apparent_energy)
+0000055B BF0000               989  	movw !LOWW(_total_consumed_apparent_energy), ax
+0000055E A80E                 990  	movw ax, [sp+0x0E]
+00000560 61D8                 991  	sknc
+00000562                      992  .BB@LABEL@2_122:	; if_break_bb259.split
+00000562 A1                   993  	incw ax
+00000563                      994  .BB@LABEL@2_123:	; if_break_bb259.split
+00000563 020000               995  	addw ax, !LOWW(_total_consumed_apparent_energy+0x00002)
+00000566 BF0000               996  	movw !LOWW(_total_consumed_apparent_energy+0x00002), ax
+00000569                      997  .BB@LABEL@2_124:	; if_break_bb259.split22
+00000569 300500               998  	movw ax, #0x0005
+0000056C                      999  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 841
+0000056C C1                  1000  	push ax
+0000056D 30407E              1001  	movw ax, #0x7E40
+00000570 C1                  1002  	push ax
+00000571 DB0000              1003  	movw bc, !LOWW(_total_consumed_apparent_energy+0x00002)
+00000574 AF0000              1004  	movw ax, !LOWW(_total_consumed_apparent_energy)
+00000577 FC000000            1005  	call !!__COM_sldiv
+0000057B B814                1006  	movw [sp+0x14], ax
+0000057D 13                  1007  	movw ax, bc
+0000057E B816                1008  	movw [sp+0x16], ax
+00000580 1004                1009  	addw sp, #0x04
+00000582                     1010  .BB@LABEL@2_125:	; if_break_bb259.split23
+00000582                     1011  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 843
+00000582 AF0000              1012  	movw ax, !LOWW(_total_consumed_apparent_energy+0x00002)
+00000585 7C80                1013  	xor a, #0x80
+00000587 440080              1014  	cmpw ax, #0x8000
+0000058A AF0000              1015  	movw ax, !LOWW(_total_consumed_apparent_energy)
+0000058D 61F8                1016  	sknz
+0000058F                     1017  .BB@LABEL@2_126:	; if_break_bb259.split23
+0000058F 440100              1018  	cmpw ax, #0x0001
+00000592                     1019  .BB@LABEL@2_127:	; if_break_bb259.split23
+00000592 DC00                1020  	bc $.BB@LABEL@2_136
+00000594                     1021  .BB@LABEL@2_128:	; if_then_bb272
+00000594                     1022  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 845
+00000594 A810                1023  	movw ax, [sp+0x10]
+00000596 020000              1024  	addw ax, !LOWW(_myenergydata+0x00008)
+00000599 BF0000              1025  	movw !LOWW(_myenergydata+0x00008), ax
+0000059C A812                1026  	movw ax, [sp+0x12]
+0000059E 61D8                1027  	sknc
+000005A0                     1028  .BB@LABEL@2_129:	; if_then_bb272
+000005A0 A1                  1029  	incw ax
+000005A1                     1030  .BB@LABEL@2_130:	; if_then_bb272
+000005A1 020000              1031  	addw ax, !LOWW(_myenergydata+0x0000A)
+000005A4 BF0000              1032  	movw !LOWW(_myenergydata+0x0000A), ax
+000005A7                     1033  .BB@LABEL@2_131:	; if_then_bb272.split
+000005A7                     1034  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 846
+000005A7 A810                1035  	movw ax, [sp+0x10]
+000005A9 020000              1036  	addw ax, !LOWW(_myenergydata+0x00020)
+000005AC BF0000              1037  	movw !LOWW(_myenergydata+0x00020), ax
+000005AF A812                1038  	movw ax, [sp+0x12]
+000005B1 61D8                1039  	sknc
+000005B3                     1040  .BB@LABEL@2_132:	; if_then_bb272.split
+000005B3 A1                  1041  	incw ax
+000005B4                     1042  .BB@LABEL@2_133:	; if_then_bb272.split
+000005B4 020000              1043  	addw ax, !LOWW(_myenergydata+0x00022)
+000005B7 BF0000              1044  	movw !LOWW(_myenergydata+0x00022), ax
+000005BA                     1045  .BB@LABEL@2_134:	; if_then_bb272.split24
+000005BA 300500              1046  	movw ax, #0x0005
+000005BD                     1047  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 847
+000005BD C1                  1048  	push ax
+000005BE 30407E              1049  	movw ax, #0x7E40
+000005C1 C1                  1050  	push ax
+000005C2 DB0000              1051  	movw bc, !LOWW(_total_consumed_apparent_energy+0x00002)
+000005C5 AF0000              1052  	movw ax, !LOWW(_total_consumed_apparent_energy)
+000005C8 FC000000            1053  	call !!__COM_slrem
+000005CC BF0000              1054  	movw !LOWW(_total_consumed_apparent_energy), ax
+000005CF 13                  1055  	movw ax, bc
+000005D0 BF0000              1056  	movw !LOWW(_total_consumed_apparent_energy+0x00002), ax
+000005D3 1004                1057  	addw sp, #0x04
+000005D5                     1058  .BB@LABEL@2_135:	; if_then_bb272.split25
+000005D5 F6                  1059  	clrw ax
+000005D6                     1060  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 848
+000005D6 C1                  1061  	push ax
+000005D7 30100E              1062  	movw ax, #0x0E10
+000005DA C1                  1063  	push ax
+000005DB DB0000              1064  	movw bc, !LOWW(_total_consumed_apparent_energy+0x00002)
+000005DE AF0000              1065  	movw ax, !LOWW(_total_consumed_apparent_energy)
+000005E1 FC000000            1066  	call !!__COM_sldiv
+000005E5 60                  1067  	mov a, x
+000005E6 9F0000              1068  	mov !LOWW(_high_resolution_kvah_value), a
+000005E9 1004                1069  	addw sp, #0x04
+000005EB                     1070  .BB@LABEL@2_136:	; if_break_bb284
+000005EB 880A                1071  	mov a, [sp+0x0A]
+000005ED 81                  1072  	inc a
+000005EE 980A                1073  	mov [sp+0x0A], a
+000005F0                     1074  .BB@LABEL@2_137:	; bb287
+000005F0                     1075  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 675
+000005F0 880A                1076  	mov a, [sp+0x0A]
+000005F2 318F                1077  	sarw ax, 8+0x00000
+000005F4 7C80                1078  	xor a, #0x80
+000005F6 440380              1079  	cmpw ax, #0x8003
+000005F9                     1080  	.bc $!.BB@LABEL@2_6
+000005F9 61D8                    	 -- Skncond
+000005FB EE0000                  	 -- br	**.target1
+000005FE                     1081  .BB@LABEL@2_138:	; bb293
+000005FE F6                  1082  	clrw ax
+000005FF                     1083  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 893
+000005FF C1                  1084  	push ax
+00000600 306400              1085  	movw ax, #0x0064
+00000603 C1                  1086  	push ax
+00000604 A81C                1087  	movw ax, [sp+0x1C]
+00000606 12                  1088  	movw bc, ax
+00000607 A81A                1089  	movw ax, [sp+0x1A]
+00000609 FC000000            1090  	call !!__COM_sldiv
+0000060D BF0000              1091  	movw !LOWW(_total_active_power), ax
+00000610 13                  1092  	movw ax, bc
+00000611 BF0000              1093  	movw !LOWW(_total_active_power+0x00002), ax
+00000614 1004                1094  	addw sp, #0x04
+00000616                     1095  .BB@LABEL@2_139:	; bb293.split
+00000616 F6                  1096  	clrw ax
+00000617                     1097  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 894
+00000617 C1                  1098  	push ax
+00000618 306400              1099  	movw ax, #0x0064
+0000061B C1                  1100  	push ax
+0000061C A820                1101  	movw ax, [sp+0x20]
+0000061E 12                  1102  	movw bc, ax
+0000061F A81E                1103  	movw ax, [sp+0x1E]
+00000621 FC000000            1104  	call !!__COM_sldiv
+00000625 BF0000              1105  	movw !LOWW(_total_apparent_power), ax
+00000628 13                  1106  	movw ax, bc
+00000629 BF0000              1107  	movw !LOWW(_total_apparent_power+0x00002), ax
+0000062C 1004                1108  	addw sp, #0x04
+0000062E                     1109  .BB@LABEL@2_140:	; bb293.split26
+0000062E F6                  1110  	clrw ax
+0000062F                     1111  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 895
+0000062F C1                  1112  	push ax
+00000630 306400              1113  	movw ax, #0x0064
+00000633 C1                  1114  	push ax
+00000634 A82C                1115  	movw ax, [sp+0x2C]
+00000636 12                  1116  	movw bc, ax
+00000637 A82A                1117  	movw ax, [sp+0x2A]
+00000639 FC000000            1118  	call !!__COM_sldiv
+0000063D BF0000              1119  	movw !LOWW(_total_reactive_power), ax
+00000640 13                  1120  	movw ax, bc
+00000641 BF0000              1121  	movw !LOWW(_total_reactive_power+0x00002), ax
+00000644 1004                1122  	addw sp, #0x04
+00000646                     1123  .BB@LABEL@2_141:	; bb293.split27
+00000646 F6                  1124  	clrw ax
+00000647                     1125  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 897
+00000647 C1                  1126  	push ax
+00000648 300A00              1127  	movw ax, #0x000A
+0000064B C1                  1128  	push ax
+0000064C A81C                1129  	movw ax, [sp+0x1C]
+0000064E 12                  1130  	movw bc, ax
+0000064F A81A                1131  	movw ax, [sp+0x1A]
+00000651 FC000000            1132  	call !!__COM_sldiv
+00000655 BF0000              1133  	movw !LOWW(_total_active_power_pulsing), ax
+00000658 13                  1134  	movw ax, bc
+00000659 BF0000              1135  	movw !LOWW(_total_active_power_pulsing+0x00002), ax
+0000065C 1004                1136  	addw sp, #0x04
+0000065E                     1137  .BB@LABEL@2_142:	; bb293.split28
+0000065E F6                  1138  	clrw ax
+0000065F                     1139  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 898
+0000065F C1                  1140  	push ax
+00000660 300A00              1141  	movw ax, #0x000A
+00000663 C1                  1142  	push ax
+00000664 A820                1143  	movw ax, [sp+0x20]
+00000666 12                  1144  	movw bc, ax
+00000667 A81E                1145  	movw ax, [sp+0x1E]
+00000669 FC000000            1146  	call !!__COM_sldiv
+0000066D BF0000              1147  	movw !LOWW(_total_apparent_power_pulsing), ax
+00000670 13                  1148  	movw ax, bc
+00000671 BF0000              1149  	movw !LOWW(_total_apparent_power_pulsing+0x00002), ax
+00000674 1004                1150  	addw sp, #0x04
+00000676                     1151  .BB@LABEL@2_143:	; bb293.split29
+00000676 F6                  1152  	clrw ax
+00000677                     1153  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 899
+00000677 C1                  1154  	push ax
+00000678 300A00              1155  	movw ax, #0x000A
+0000067B C1                  1156  	push ax
+0000067C A82C                1157  	movw ax, [sp+0x2C]
+0000067E 12                  1158  	movw bc, ax
+0000067F A82A                1159  	movw ax, [sp+0x2A]
+00000681 FC000000            1160  	call !!__COM_sldiv
+00000685 BF0000              1161  	movw !LOWW(_total_reactive_power_pulsing), ax
+00000688 13                  1162  	movw ax, bc
+00000689 BF0000              1163  	movw !LOWW(_total_reactive_power_pulsing+0x00002), ax
+0000068C 1004                1164  	addw sp, #0x04
+0000068E                     1165  .BB@LABEL@2_144:	; bb293.split30
+0000068E                     1166  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 904
+0000068E A82C                1167  	movw ax, [sp+0x2C]
+00000690 14                  1168  	movw de, ax
+00000691 31FE                1169  	shrw ax, 0x0F
+00000693 6168                1170  	or a, x
+00000695 A82A                1171  	movw ax, [sp+0x2A]
+00000697 12                  1172  	movw bc, ax
+00000698 DD00                1173  	bz $.BB@LABEL@2_148
+0000069A                     1174  .BB@LABEL@2_145:	; bb309
+0000069A F6                  1175  	clrw ax
+0000069B 16                  1176  	movw hl, ax
+0000069C 23                  1177  	subw ax, bc
+0000069D B836                1178  	movw [sp+0x36], ax
+0000069F 17                  1179  	movw ax, hl
+000006A0 61D8                1180  	sknc
+000006A2                     1181  .BB@LABEL@2_146:	; bb309
+000006A2 B1                  1182  	decw ax
+000006A3                     1183  .BB@LABEL@2_147:	; bb309
+000006A3 25                  1184  	subw ax, de
+000006A4 B838                1185  	movw [sp+0x38], ax
+000006A6 EF00                1186  	br $.BB@LABEL@2_149
+000006A8                     1187  .BB@LABEL@2_148:	; bb312
+000006A8 B836                1188  	movw [sp+0x36], ax
+000006AA 15                  1189  	movw ax, de
+000006AB B838                1190  	movw [sp+0x38], ax
+000006AD                     1191  .BB@LABEL@2_149:	; bb315
+000006AD A818                1192  	movw ax, [sp+0x18]
+000006AF 12                  1193  	movw bc, ax
+000006B0 A816                1194  	movw ax, [sp+0x16]
+000006B2 14                  1195  	movw de, ax
+000006B3 A838                1196  	movw ax, [sp+0x38]
+000006B5 43                  1197  	cmpw ax, bc
+000006B6 A836                1198  	movw ax, [sp+0x36]
+000006B8 61F8                1199  	sknz
+000006BA                     1200  .BB@LABEL@2_150:	; bb315
+000006BA 45                  1201  	cmpw ax, de
+000006BB                     1202  .BB@LABEL@2_151:	; bb315
+000006BB DF00                1203  	bnz $.BB@LABEL@2_153
+000006BD                     1204  .BB@LABEL@2_152:	; if_then_bb322
+000006BD                     1205  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 906
+000006BD F50000              1206  	clrb !LOWW(_mixedPowers)
+000006C0 EF00                1207  	br $.BB@LABEL@2_154
+000006C2                     1208  .BB@LABEL@2_153:	; if_else_bb
+000006C2                     1209  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 910
+000006C2 E50000              1210  	oneb !LOWW(_mixedPowers)
+000006C5                     1211  .BB@LABEL@2_154:	; if_break_bb323
+000006C5                     1212  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 913
+000006C5 322500              1213  	movw bc, #0x0025
+000006C8 300000              1214  	movw ax, #LOWW(_myenergydata)
+000006CB FC000000            1215  	call !!_calcChecksum
+000006CF 9F0000              1216  	mov !LOWW(_myenergydata+0x00025), a
+000006D2                     1217  .BB@LABEL@2_155:	; if_break_bb323.split
+000006D2                     1218  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 932
+000006D2 AF0000              1219  	movw ax, !LOWW(_total_active_power+0x00002)
+000006D5 7C80                1220  	xor a, #0x80
+000006D7 440080              1221  	cmpw ax, #0x8000
+000006DA AF0000              1222  	movw ax, !LOWW(_total_active_power)
+000006DD 61F8                1223  	sknz
+000006DF                     1224  .BB@LABEL@2_156:	; if_break_bb323.split
+000006DF 440300              1225  	cmpw ax, #0x0003
+000006E2                     1226  .BB@LABEL@2_157:	; if_break_bb323.split
+000006E2 DE00                1227  	bnc $.BB@LABEL@2_162
+000006E4                     1228  .BB@LABEL@2_158:	; bb328
+000006E4 AF0000              1229  	movw ax, !LOWW(_total_reactive_power+0x00002)
+000006E7 7C80                1230  	xor a, #0x80
+000006E9 440080              1231  	cmpw ax, #0x8000
+000006EC AF0000              1232  	movw ax, !LOWW(_total_reactive_power)
+000006EF 61F8                1233  	sknz
+000006F1                     1234  .BB@LABEL@2_159:	; bb328
+000006F1 440600              1235  	cmpw ax, #0x0006
+000006F4                     1236  .BB@LABEL@2_160:	; bb328
+000006F4 DE00                1237  	bnc $.BB@LABEL@2_162
+000006F6                     1238  .BB@LABEL@2_161:	; bb332
+000006F6 E6                  1239  	onew ax
+000006F7 B814                1240  	movw [sp+0x14], ax
+000006F9 EF00                1241  	br $.BB@LABEL@2_163
+000006FB                     1242  .BB@LABEL@2_162:	; bb333
+000006FB F6                  1243  	clrw ax
+000006FC B814                1244  	movw [sp+0x14], ax
+000006FE                     1245  .BB@LABEL@2_163:	; bb334
+000006FE A814                1246  	movw ax, [sp+0x14]
+00000700 6168                1247  	or a, x
+00000702 DD00                1248  	bz $.BB@LABEL@2_165
+00000704                     1249  .BB@LABEL@2_164:	; if_then_bb339
+00000704 30E803              1250  	movw ax, #0x03E8
+00000707                     1251  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 934
+00000707 BF0000              1252  	movw !LOWW(_systemPF), ax
+0000070A EE0000              1253  	br $!.BB@LABEL@2_174
+0000070D                     1254  .BB@LABEL@2_165:	; if_else_bb340
+0000070D F6                  1255  	clrw ax
+0000070E                     1256  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 947
+0000070E C1                  1257  	push ax
+0000070F 300A00              1258  	movw ax, #0x000A
+00000712 C1                  1259  	push ax
+00000713 A820                1260  	movw ax, [sp+0x20]
+00000715 12                  1261  	movw bc, ax
+00000716 A81E                1262  	movw ax, [sp+0x1E]
+00000718 FC000000            1263  	call !!__COM_sldiv
+0000071C 1004                1264  	addw sp, #0x04
+0000071E C3                  1265  	push bc
+0000071F C1                  1266  	push ax
+00000720 A81A                1267  	movw ax, [sp+0x1A]
+00000722 326400              1268  	movw bc, #0x0064
+00000725 CEFB01              1269  	mulhu
+00000728 14                  1270  	movw de, ax
+00000729 C3                  1271  	push bc
+0000072A C6                  1272  	pop hl
+0000072B A81C                1273  	movw ax, [sp+0x1C]
+0000072D 326400              1274  	movw bc, #0x0064
+00000730 CEFB02              1275  	mulh
+00000733 07                  1276  	addw ax, hl
+00000734 12                  1277  	movw bc, ax
+00000735 15                  1278  	movw ax, de
+00000736 FC000000            1279  	call !!__COM_sldiv
+0000073A 1004                1280  	addw sp, #0x04
+0000073C BF0000              1281  	movw !LOWW(_systemPF), ax
+0000073F                     1282  .BB@LABEL@2_166:	; if_else_bb340.split
+0000073F                     1283  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 948
+0000073F AF0000              1284  	movw ax, !LOWW(_systemPF)
+00000742 7C80                1285  	xor a, #0x80
+00000744 44E983              1286  	cmpw ax, #0x83E9
+00000747 DC00                1287  	bc $.BB@LABEL@2_168
+00000749                     1288  .BB@LABEL@2_167:	; if_then_bb351
+00000749 30E803              1289  	movw ax, #0x03E8
+0000074C                     1290  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 949
+0000074C BF0000              1291  	movw !LOWW(_systemPF), ax
+0000074F                     1292  .BB@LABEL@2_168:	; if_break_bb352
+0000074F                     1293  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 952
+0000074F AF0000              1294  	movw ax, !LOWW(_systemPF)
+00000752 7C80                1295  	xor a, #0x80
+00000754 443380              1296  	cmpw ax, #0x8033
+00000757 DC00                1297  	bc $.BB@LABEL@2_173
+00000759                     1298  .BB@LABEL@2_169:	; if_then_bb357
+00000759                     1299  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 954
+00000759 AF0000              1300  	movw ax, !LOWW(_systemPF)
+0000075C 7C80                1301  	xor a, #0x80
+0000075E 44D983              1302  	cmpw ax, #0x83D9
+00000761 DE00                1303  	bnc $.BB@LABEL@2_172
+00000763                     1304  .BB@LABEL@2_170:	; if_then_bb362
+00000763                     1305  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 956
+00000763 A834                1306  	movw ax, [sp+0x34]
+00000765 12                  1307  	movw bc, ax
+00000766 A832                1308  	movw ax, [sp+0x32]
+00000768 14                  1309  	movw de, ax
+00000769 C3                  1310  	push bc
+0000076A C5                  1311  	push de
+0000076B A830                1312  	movw ax, [sp+0x30]
+0000076D 12                  1313  	movw bc, ax
+0000076E A82E                1314  	movw ax, [sp+0x2E]
+00000770 FC000000            1315  	call !!_isSameSign
+00000774 1004                1316  	addw sp, #0x04
+00000776 318F                1317  	sarw ax, 8+0x00000
+00000778 6168                1318  	or a, x
+0000077A DF00                1319  	bnz $.BB@LABEL@2_174
+0000077C                     1320  .BB@LABEL@2_171:	; if_then_bb370
+0000077C F6                  1321  	clrw ax
+0000077D                     1322  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 958
+0000077D 220000              1323  	subw ax, !LOWW(_systemPF)
+00000780 BF0000              1324  	movw !LOWW(_systemPF), ax
+00000783 EF00                1325  	br $.BB@LABEL@2_174
+00000785                     1326  .BB@LABEL@2_172:	; if_else_bb374
+00000785 30E803              1327  	movw ax, #0x03E8
+00000788                     1328  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 962
+00000788 BF0000              1329  	movw !LOWW(_systemPF), ax
+0000078B EF00                1330  	br $.BB@LABEL@2_174
+0000078D                     1331  .BB@LABEL@2_173:	; if_else_bb376
+0000078D F6                  1332  	clrw ax
+0000078E                     1333  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 967
+0000078E BF0000              1334  	movw !LOWW(_systemPF), ax
+00000791                     1335  .BB@LABEL@2_174:	; if_break_bb378
+00000791                     1336  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 975
+00000791 AF0000              1337  	movw ax, !LOWW(_total_active_power+0x00002)
+00000794 7C80                1338  	xor a, #0x80
+00000796 440080              1339  	cmpw ax, #0x8000
+00000799 AF0000              1340  	movw ax, !LOWW(_total_active_power)
+0000079C 61F8                1341  	sknz
+0000079E                     1342  .BB@LABEL@2_175:	; if_break_bb378
+0000079E 440300              1343  	cmpw ax, #0x0003
+000007A1                     1344  .BB@LABEL@2_176:	; if_break_bb378
+000007A1 DE00                1345  	bnc $.BB@LABEL@2_181
+000007A3                     1346  .BB@LABEL@2_177:	; bb382
+000007A3 AF0000              1347  	movw ax, !LOWW(_total_reactive_power+0x00002)
+000007A6 7C80                1348  	xor a, #0x80
+000007A8 440080              1349  	cmpw ax, #0x8000
+000007AB AF0000              1350  	movw ax, !LOWW(_total_reactive_power)
+000007AE 61F8                1351  	sknz
+000007B0                     1352  .BB@LABEL@2_178:	; bb382
+000007B0 440600              1353  	cmpw ax, #0x0006
+000007B3                     1354  .BB@LABEL@2_179:	; bb382
+000007B3 DE00                1355  	bnc $.BB@LABEL@2_181
+000007B5                     1356  .BB@LABEL@2_180:	; bb386
+000007B5 E6                  1357  	onew ax
+000007B6 B814                1358  	movw [sp+0x14], ax
+000007B8 EF00                1359  	br $.BB@LABEL@2_182
+000007BA                     1360  .BB@LABEL@2_181:	; bb387
+000007BA F6                  1361  	clrw ax
+000007BB B814                1362  	movw [sp+0x14], ax
+000007BD                     1363  .BB@LABEL@2_182:	; bb388
+000007BD A814                1364  	movw ax, [sp+0x14]
+000007BF 6168                1365  	or a, x
+000007C1 DD00                1366  	bz $.BB@LABEL@2_187
+000007C3                     1367  .BB@LABEL@2_183:	; if_then_bb393
+000007C3                     1368  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 977
+000007C3 AF0000              1369  	movw ax, !LOWW(_myenergydata+0x00002)
+000007C6 420000              1370  	cmpw ax, !LOWW(_total_energy_lastSaved+0x00002)
+000007C9 AF0000              1371  	movw ax, !LOWW(_myenergydata)
+000007CC 61F8                1372  	sknz
+000007CE                     1373  .BB@LABEL@2_184:	; if_then_bb393
+000007CE 420000              1374  	cmpw ax, !LOWW(_total_energy_lastSaved)
+000007D1                     1375  .BB@LABEL@2_185:	; if_then_bb393
+000007D1                     1376  	.bz $!.BB@LABEL@2_217
+000007D1 61F8                    	 -- Skncond
+000007D3 EE0000                  	 -- br	**.target1
+000007D6                     1377  .BB@LABEL@2_186:	; if_then_bb399
+000007D6                     1378  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 978
+000007D6 FC000000            1379  	call !!_update_energies_stored
+000007DA 1042                1380  	addw sp, #0x42
+000007DC D7                  1381  	ret
+000007DD                     1382  .BB@LABEL@2_187:	; if_else_bb401
+000007DD                     1383  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 982
+000007DD AF0000              1384  	movw ax, !LOWW(_total_reactive_power+0x00002)
+000007E0 7C80                1385  	xor a, #0x80
+000007E2 12                  1386  	movw bc, ax
+000007E3 AF0000              1387  	movw ax, !LOWW(_total_active_power+0x00002)
+000007E6 7C80                1388  	xor a, #0x80
+000007E8 43                  1389  	cmpw ax, bc
+000007E9 AF0000              1390  	movw ax, !LOWW(_total_active_power)
+000007EC 61F8                1391  	sknz
+000007EE                     1392  .BB@LABEL@2_188:	; if_else_bb401
+000007EE 420000              1393  	cmpw ax, !LOWW(_total_reactive_power)
+000007F1                     1394  .BB@LABEL@2_189:	; if_else_bb401
+000007F1 61D300              1395  	bnh $.BB@LABEL@2_196
+000007F4                     1396  .BB@LABEL@2_190:	; if_then_bb407
+000007F4                     1397  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 984
+000007F4 AF0000              1398  	movw ax, !LOWW(_myenergydata)
+000007F7 220000              1399  	subw ax, !LOWW(_total_energy_lastSaved)
+000007FA 12                  1400  	movw bc, ax
+000007FB AF0000              1401  	movw ax, !LOWW(_myenergydata+0x00002)
+000007FE 61D8                1402  	sknc
+00000800                     1403  .BB@LABEL@2_191:	; if_then_bb407
+00000800 B1                  1404  	decw ax
+00000801                     1405  .BB@LABEL@2_192:	; if_then_bb407
+00000801 220000              1406  	subw ax, !LOWW(_total_energy_lastSaved+0x00002)
+00000804 7C80                1407  	xor a, #0x80
+00000806 440080              1408  	cmpw ax, #0x8000
+00000809 13                  1409  	movw ax, bc
+0000080A 61F8                1410  	sknz
+0000080C                     1411  .BB@LABEL@2_193:	; if_then_bb407
+0000080C 44E803              1412  	cmpw ax, #0x03E8
+0000080F                     1413  .BB@LABEL@2_194:	; if_then_bb407
+0000080F                     1414  	.bc $!.BB@LABEL@2_217
+0000080F 61D8                    	 -- Skncond
+00000811 EE0000                  	 -- br	**.target1
+00000814                     1415  .BB@LABEL@2_195:	; if_then_bb414
+00000814                     1416  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 985
+00000814 FC000000            1417  	call !!_update_energies_stored
+00000818 1042                1418  	addw sp, #0x42
+0000081A D7                  1419  	ret
+0000081B                     1420  .BB@LABEL@2_196:	; if_else_bb416
+0000081B                     1421  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 990
+0000081B AF0000              1422  	movw ax, !LOWW(_myenergydata+0x0000C)
+0000081E 220000              1423  	subw ax, !LOWW(_reactive_energy_lag_lastSaved)
+00000821 B80C                1424  	movw [sp+0x0C], ax
+00000823 AF0000              1425  	movw ax, !LOWW(_myenergydata+0x0000E)
+00000826 61D8                1426  	sknc
+00000828                     1427  .BB@LABEL@2_197:	; if_else_bb416
+00000828 B1                  1428  	decw ax
+00000829                     1429  .BB@LABEL@2_198:	; if_else_bb416
+00000829 220000              1430  	subw ax, !LOWW(_reactive_energy_lag_lastSaved+0x00002)
+0000082C B80E                1431  	movw [sp+0x0E], ax
+0000082E                     1432  .BB@LABEL@2_199:	; if_else_bb416.split
+0000082E                     1433  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 991
+0000082E AF0000              1434  	movw ax, !LOWW(_myenergydata+0x00010)
+00000831 220000              1435  	subw ax, !LOWW(_reactive_energy_lead_lastSaved)
+00000834 B810                1436  	movw [sp+0x10], ax
+00000836 AF0000              1437  	movw ax, !LOWW(_myenergydata+0x00012)
+00000839 61D8                1438  	sknc
+0000083B                     1439  .BB@LABEL@2_200:	; if_else_bb416.split
+0000083B B1                  1440  	decw ax
+0000083C                     1441  .BB@LABEL@2_201:	; if_else_bb416.split
+0000083C 220000              1442  	subw ax, !LOWW(_reactive_energy_lead_lastSaved+0x00002)
+0000083F B812                1443  	movw [sp+0x12], ax
+00000841                     1444  .BB@LABEL@2_202:	; if_else_bb416.split31
+00000841                     1445  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 993
+00000841 A812                1446  	movw ax, [sp+0x12]
+00000843 7C80                1447  	xor a, #0x80
+00000845 12                  1448  	movw bc, ax
+00000846 A810                1449  	movw ax, [sp+0x10]
+00000848 14                  1450  	movw de, ax
+00000849 A80E                1451  	movw ax, [sp+0x0E]
+0000084B 7C80                1452  	xor a, #0x80
+0000084D 43                  1453  	cmpw ax, bc
+0000084E A80C                1454  	movw ax, [sp+0x0C]
+00000850 61F8                1455  	sknz
+00000852                     1456  .BB@LABEL@2_203:	; if_else_bb416.split31
+00000852 45                  1457  	cmpw ax, de
+00000853                     1458  .BB@LABEL@2_204:	; if_else_bb416.split31
+00000853 61D300              1459  	bnh $.BB@LABEL@2_211
+00000856                     1460  .BB@LABEL@2_205:	; if_then_bb428
+00000856                     1461  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 995
+00000856 AF0000              1462  	movw ax, !LOWW(_myenergydata+0x0000C)
+00000859 220000              1463  	subw ax, !LOWW(_reactive_energy_lag_lastSaved)
+0000085C 12                  1464  	movw bc, ax
+0000085D AF0000              1465  	movw ax, !LOWW(_myenergydata+0x0000E)
+00000860 61D8                1466  	sknc
+00000862                     1467  .BB@LABEL@2_206:	; if_then_bb428
+00000862 B1                  1468  	decw ax
+00000863                     1469  .BB@LABEL@2_207:	; if_then_bb428
+00000863 220000              1470  	subw ax, !LOWW(_reactive_energy_lag_lastSaved+0x00002)
+00000866 7C80                1471  	xor a, #0x80
+00000868 440080              1472  	cmpw ax, #0x8000
+0000086B 13                  1473  	movw ax, bc
+0000086C 61F8                1474  	sknz
+0000086E                     1475  .BB@LABEL@2_208:	; if_then_bb428
+0000086E 44E803              1476  	cmpw ax, #0x03E8
+00000871                     1477  .BB@LABEL@2_209:	; if_then_bb428
+00000871 DC00                1478  	bc $.BB@LABEL@2_217
+00000873                     1479  .BB@LABEL@2_210:	; if_then_bb435
+00000873                     1480  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 996
+00000873 FC000000            1481  	call !!_update_energies_stored
+00000877 1042                1482  	addw sp, #0x42
+00000879 D7                  1483  	ret
+0000087A                     1484  .BB@LABEL@2_211:	; if_else_bb437
+0000087A                     1485  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 1000
+0000087A AF0000              1486  	movw ax, !LOWW(_myenergydata+0x00010)
+0000087D 220000              1487  	subw ax, !LOWW(_reactive_energy_lead_lastSaved)
+00000880 12                  1488  	movw bc, ax
+00000881 AF0000              1489  	movw ax, !LOWW(_myenergydata+0x00012)
+00000884 61D8                1490  	sknc
+00000886                     1491  .BB@LABEL@2_212:	; if_else_bb437
+00000886 B1                  1492  	decw ax
+00000887                     1493  .BB@LABEL@2_213:	; if_else_bb437
+00000887 220000              1494  	subw ax, !LOWW(_reactive_energy_lead_lastSaved+0x00002)
+0000088A 7C80                1495  	xor a, #0x80
+0000088C 440080              1496  	cmpw ax, #0x8000
+0000088F 13                  1497  	movw ax, bc
+00000890 61F8                1498  	sknz
+00000892                     1499  .BB@LABEL@2_214:	; if_else_bb437
+00000892 44E803              1500  	cmpw ax, #0x03E8
+00000895                     1501  .BB@LABEL@2_215:	; if_else_bb437
+00000895 DC00                1502  	bc $.BB@LABEL@2_217
+00000897                     1503  .BB@LABEL@2_216:	; if_then_bb444
+00000897                     1504  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 1001
+00000897 FC000000            1505  	call !!_update_energies_stored
+0000089B 1042                1506  	addw sp, #0x42
+0000089D D7                  1507  	ret
+0000089E                     1508  .BB@LABEL@2_217:	; return
+0000089E                     1509  	.LINE "D:/Sushmita/TENDER/2025/3_PHASE_METER_CODE/MEDCO_3PH_TENDER/Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy/Application/energyIntegration.c", 1005
+0000089E 1042                1510  	addw sp, #0x42
+000008A0 D7                  1511  	ret
+000008A1                     1512  .LFE2:
+00000000                     1513  	.SECTION .bss,BSS
+00000000                     1514  	.ALIGN 2
+00000000                     1515  	.TYPE _systemPF,object,2
+00000000                     1516  _systemPF:
+00000000                     1517  	.DS (2)
+00000002                     1518  	.TYPE _mixedPowers,object,1
+00000002                     1519  _mixedPowers:
+00000002                     1520  	.DS (1)
+
+Section List
+Attr     Size                Name
+
+TEXTF              2209 (000008A1) .textf
+BSS                   3 (00000003) .bss
+
+Command Line Parameter
+Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\asrl.exe" @C:\Users\sys_f\AppData\Local\Temp\$ccrl\energyIntegration.asm.cmd 
+
+Command File Parameter
+-define=__RENESAS_VERSION__=0x01120000 -cpu=S3 -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\Release_BQFR" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\physical" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\objects" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\meter_app\hash" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\meter_app\aes" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms\meter_app" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dlms" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\debug\loadtest" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\services\64bit_process" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\core\sw\filter\config" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\core\sw\filter\include" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\powermgmt" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\storage\meterdata" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\storage\config" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dataflash\fdl\incrl78" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\dataflash" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\services" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsHeaders" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsCIHandler" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsCIEng" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsCIComm" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\interpreter\mlsCIApp" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\driver\mcu" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\calibration" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\debug" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\display&button" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\display&button\lcd" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\eeprom" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\event" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\startup" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\application\storage" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\middleware\headers" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\middleware\plugin" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\user" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\core\sw" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c\wrapper\core\shared" -include="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\" -character_set=none -goptimize -dev="C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -prn_path=Release_BQFR -output="D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\Build\Release_BQFR\energyIntegration.obj" C:\Users\sys_f\AppData\Local\Temp\$ccrl\energyIntegration.asm 
+

@@ -1,0 +1,336 @@
+QualityReport
+12 August 2025 17:42:09
+
+------ Start build(BootCode, Release_BQFR) ------
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\ccrl.exe Command.c -cpu=S3 -o Release_BQFR\Command.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -MAKEUD=Release_BQFR -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_d1401adb2384442ebf987b1c5e3e014ek2zdikkp.nco -msg_lang=english
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\ccrl.exe my_cgc.c -cpu=S3 -o Release_BQFR\my_cgc.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -MAKEUD=Release_BQFR -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_db84882a1d0041e4a8e984f23f262f67is30yrwa.aqb -msg_lang=english
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\ccrl.exe my_main.c -cpu=S3 -o Release_BQFR\my_main.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -MAKEUD=Release_BQFR -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_44b719d777b341fba190e079d0ae99c3qnjjw144.x3w -msg_lang=english
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\ccrl.exe MY_ram_vector.c -cpu=S3 -o Release_BQFR\MY_ram_vector.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -MAKEUD=Release_BQFR -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_9533b98fd4b147799f1555b5af45d511bphnp5cg.n4l -msg_lang=english
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\ccrl.exe my_uartf.c -cpu=S3 -o Release_BQFR\my_uartf.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -MAKEUD=Release_BQFR -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_8051e0054a23469780ea4874ed04a798ds1weta5.3rd -msg_lang=english
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\ccrl.exe My_cg_timer.c -cpu=S3 -o Release_BQFR\My_cg_timer.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -MAKEUD=Release_BQFR -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_a74aec78261e442d9b8b847f2b82b633cyn43geb.tob -msg_lang=english
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\ccrl.exe my_port.c -cpu=S3 -o Release_BQFR\my_port.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -MAKEUD=Release_BQFR -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_67c45c4f840249c0b5c9367e02bc2e1bko33v5ss.2ao -msg_lang=english
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\ccrl.exe my_cgc_user.c -cpu=S3 -o Release_BQFR\my_cgc_user.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -MAKEUD=Release_BQFR -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_b3ea39d2232340318715b28a847e5d7c3ql4doqr.1us -msg_lang=english
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\ccrl.exe My_cg_timer_user.c -cpu=S3 -o Release_BQFR\My_cg_timer_user.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -MAKEUD=Release_BQFR -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_746fcdc3df7841bcb463075053f0e4cfgwaeejr1.dbj -msg_lang=english
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\ccrl.exe MY_interrupts.c -cpu=S3 -o Release_BQFR\MY_interrupts.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -MAKEUD=Release_BQFR -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_865e12a75b004e78a30dd57d9d97e580355erwvg.5i3 -msg_lang=english
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\ccrl.exe xmodem.c -cpu=S3 -o Release_BQFR\xmodem.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -MAKEUD=Release_BQFR -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_4db81af5dee745cc8e2324c88fa89528wfkm0lsy.git -msg_lang=english
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\ccrl.exe my_port_user.c -cpu=S3 -o Release_BQFR\my_port_user.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -g_line -Onothing -I Release_BQFR -I V2.21\incrl78 -I . -asmopt=-prn_path=Release_BQFR -c -MAKEUD=Release_BQFR -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_ca555d5ad4754a078eb1a8cb79e439e1lqfwgciy.z0v -msg_lang=english
+xmodem.c(277):W0520111:Statement is unreachable
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\ccrl.exe My_cstart.asm -cpu=S3 -o Release_BQFR\My_cstart.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -I V2.21\incrl78 -asmopt=-prn_path=Release_BQFR -c -MAKEUD=Release_BQFR -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_165b3389c61a4b34bf3f504dc140550fwgrpkx55.asy -msg_lang=english
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\ccrl.exe My_hdwinit.asm -cpu=S3 -o Release_BQFR\My_hdwinit.obj "-dev=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF" -g -I V2.21\incrl78 -asmopt=-prn_path=Release_BQFR -c -MAKEUD=Release_BQFR -exec_time=C:\Users\sys_f\AppData\Local\Temp\CSPlusBuildTool_74cd412d096f464797cb558adf5bfd11irm2wk4l.pou -msg_lang=english
+C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\Bin\rlink.exe -MAKEUD=Release_BQFR\BootCode.lk.ud -subcommand=Release_BQFR\BootCode.clnk
+W0561520:"on chip debug" in ".option_byte" created by device file
+Renesas Optimizing Linker Completed
+------ Build ended(Error:0, Warning:2)(BootCode, Release_BQFR) ------
+
+--- CommandFile 1 ---
+Release_BQFR\BootCode.clnk :
+-Input=Release_BQFR\Command.obj
+-Input=Release_BQFR\My_cg_timer.obj
+-Input=Release_BQFR\My_cg_timer_user.obj
+-Input=Release_BQFR\my_cgc.obj
+-Input=Release_BQFR\my_cgc_user.obj
+-Input=Release_BQFR\MY_interrupts.obj
+-Input=Release_BQFR\my_main.obj
+-Input=Release_BQFR\my_port.obj
+-Input=Release_BQFR\my_port_user.obj
+-Input=Release_BQFR\MY_ram_vector.obj
+-Input=Release_BQFR\my_uartf.obj
+-Input=Release_BQFR\xmodem.obj
+-Input=Release_BQFR\My_cstart.obj
+-Input=Release_BQFR\My_hdwinit.obj
+-LIBrary=V2.21\librl78\fsl.lib
+-SECURITY_ID=00000000000000000000
+-DEVICE=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+-DEBug
+-NOCOmpress
+-OUtput=Release_BQFR\BootCode.abs
+-LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\lib\rl78em4s.lib
+-LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\lib\malloc_n.lib
+-LIBrary=C:\Program Files (x86)\Renesas Electronics\CS+\CC\CC-RL\V1.12.00\lib\rl78em4r.lib
+-USER_OPT_BYTE=7E39E0
+-LISt=Release_BQFR\BootCode.map
+-SHow=SYmbol,Reference,Xreference,Total_size,VECTOR,RELOCATION_ATTRIBUTE
+-STARt=.text,.RLIB,.SLIB,.textf,.constf,.data,.sdata,FSL_BCD,FSL_RCD,FSL_FCD/00100,.const/02000,.dataR,.bss/FC410,.ramvect_n/FFD50,.sdataR,.sbss/FFE20
+-ROm=.data=.dataR
+-ROm=.sdata=.sdataR
+-NOMessage
+-NOLOgo
+-end
+-Input=Release_BQFR\BootCode.abs
+-DEVICE=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RL78\Devicefile\DR5F10NPJ.DVF
+-OUtput=..\..\Application\Release_BQFR\BootCode.hex
+-FOrm=Hexadecimal
+-NOMessage
+-exit
+
+
+--- SHA1 hash value of output files ---
+D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\BootCode\BootCode\Release_BQFR\BootCode.abs: bded3945076b2fcc954ac2406759592df5c642a0
+D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\Release_BQFR\BootCode.hex: dae58cb9408b2dc7586995b95cd8a7cbaa0d1e64
+
+
+--- System Information ---
+*OS Version
+ Microsoft Windows 11 Pro (-, 10.0.26100, WOW64)
+*Language
+ English (United States)
+*.NET Framework Version
+ Microsoft .NET Framework 4 [.NET 4.8 or later] (533320)
+
+--- Application Information ---
+*Product Name
+ CS+ for CC
+*Package Version
+ V8.09.00  [12 Dec 2022]
+*Version
+ V9.09.00.06 [12 Dec 2022]
+*Assembly Version
+ 3.12.10.1
+*Sales Area
+ Japan
+*Product License
+ Compiler Standard V1 for RL78 (CC-RL) Node Locked License(permanent); 
+*Execution Place
+ C:\Program Files (x86)\Renesas Electronics\CS+\CC
+*Memory Usage
+ *Private Working Set
+  424 MB
+ *Number of GDI Objects
+  2303
+ *Number of USER Objects
+  1164
+ *Opened Files
+  1 editors, 1 files, 33 KB
+
+--- Build Tool Plug-in Information ---
+RH850 Build tool CC-RH Plug-in
+ *Version
+  V8.09.00.00 [07 Oct 2022]
+ *Assembly Version
+  1.1.10.12
+ *DLL File Name
+  BuildToolCCRH.dll
+RL78 Build tool CC-RL Plug-in
+ *Version
+  V8.09.00.01 [07 Oct 2022]
+ *Assembly Version
+  1.0.0.0
+ *DLL File Name
+  BuildToolCCRL.dll
+RX Build tool CC-RX Plug-in
+ *Version
+  V8.09.00.00 [07 Oct 2022]
+ *Assembly Version
+  3.12.10.1
+ *DLL File Name
+  BuildToolCCRX.dll
+RH850 Build tool GHS CCRH850 Plug-in
+ *Version
+  V1.07.00.00 [07 Oct 2022]
+ *Assembly Version
+  1.0.0.0
+ *DLL File Name
+  BuildToolGHSCCRH850.dll
+
+--- Debug Tool Plug-in Information ---
+Debugger Collection Plug-in
+ *Version
+  V8.09.00.03 [24 Nov 2022]
+ *Assembly Version
+  2.12.10.1
+ *DLL File Name
+  DebugToolCollection.dll
+
+--- Other Plug-in Information ---
+Code Generator Plug-in for RH850
+ *Version
+  V1.02.02.05 [25 May 2018]
+ *Assembly Version
+  1.0.0.0
+ *DLL File Name
+  CodeGeneratorRH850.dll
+Code Generator Plug-in
+ *Version
+  V4.08.06.01 [28 Oct 2022]
+ *Assembly Version
+  3.0.0.0
+ *DLL File Name
+  CodePart.dll
+Code Generator/PinView Plug-in
+ *Version
+  V2.10.07.02 [08 Nov 2021]
+ *Assembly Version
+  1.0.0.0
+ *DLL File Name
+  CodePart2.dll
+Debug Console Plug-in
+ *Version
+  V8.09.00.03 [24 Nov 2022]
+ *Assembly Version
+  8.9.0.0
+ *DLL File Name
+  DebugConsole.dll
+Quick and Effective tool solution - QE
+ *Version
+  V9.09.00.01 [18 Oct 2022]
+ *Assembly Version
+  1.15.10.16
+ *DLL File Name
+  InCarTools.dll
+Pin Configurator Plug-in
+ *Version
+  V1.54.01.01 [31 Jul 2014]
+ *Assembly Version
+  1.6.10.23
+ *DLL File Name
+  PinConfig.dll
+Program Analyzer Plug-in
+ *Version
+  V4.12.00.01 [14 Apr 2021]
+ *Assembly Version
+  3.12.11.9
+ *DLL File Name
+  ProgramAnalyzer.dll
+IronPython Console Plug-in
+ *Version
+  V1.45.00.03 [22 Nov 2022]
+ *Assembly Version
+  1.6.10.23
+ *DLL File Name
+  PythonConsole.dll
+Editor plug-in DLL
+ *Version
+  V1.19.00.01 [24 Oct 2022]
+ *Assembly Version
+  1.1.0.0
+ *DLL File Name
+  SEditor.dll
+Stack Usage Tracer
+ *Version
+  V1.05.00.02 [30 Jul 2014]
+ *Assembly Version
+  1.30.11.15
+ *DLL File Name
+  Stk.dll
+Update Manager Plug-in
+ *Version
+  V2.03.00.02 [29 Oct 2018]
+ *Assembly Version
+  1.13.6.20
+ *DLL File Name
+  Update.dll
+
+Debug Tool Common Interface
+ *Version
+  V8.09.00.03 [24 Nov 2022]
+ *Assembly Version
+  3.12.10.1
+ *DLL File Name
+  CommonDebuggerInterface.dll
+Device Information Common Interface
+ *Version
+  V9.09.00.01 [18 Oct 2022]
+ *Assembly Version
+  3.0.0.0
+ *DLL File Name
+  DeviceInformation.dll
+
+--- Main Project Information ---
+D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\Application\rl78i1c.mtpj
+Microcontroller Information
+ *R5F10NPJ
+  *File Name: Version
+   RL78_Productlist.xml: V8.090001
+   R5F10NPJ_common.xml: V1.01.00.XX.XX
+   DR5F10NPJ.DVF: V1.01
+   -: -
+   -: -
+  
+
+Build Tool Information
+ *CC-RL
+   * Version of plug-in(*.dll)
+     V8.09.00.03 [04 Nov 2022]
+   * The Version of the Compiler Package
+     V1.12.00
+  
+ * The version of SMS Assembler
+   V1.00.00.01 [29 May 2020]
+ 
+
+Debug Tool Information
+ *RL78 E2 Lite
+  Debugger Library V8.09.00.03 [24 Nov 2022]
+  
+
+Other Tool Information
+ *None
+
+ *None
+
+ *Code Generator
+ *None
+
+ *Program Analyzer
+  *Version
+   V4.12.00.01 [14 Apr 2021]
+
+ *None
+
+Other Information
+ *RL78/I1C Code Library
+  *Version
+   V1.01.07.02 [08 Nov 2021]
+  *Description
+   Code library for RL78/I1C code generation plugin.
+
+--- Subproject Information(1/1) ---
+D:\Sushmita\TENDER\2025\3_PHASE_METER_CODE\MEDCO_3PH_TENDER\Three-Phase-Base-MVVNL_Base-Code_010324_FOR_GUJRAT_UNI_47 -VER06_final - Copy\BootCode\BootCode\BootCode.mtsp
+Microcontroller Information
+ *R5F10NPJ
+  *File Name: Version
+   RL78_Productlist.xml: V8.090001
+   R5F10NPJ_common.xml: V1.01.00.XX.XX
+   DR5F10NPJ.DVF: V1.01
+   -: -
+   -: -
+  
+
+Build Tool Information
+ *CC-RL
+   * Version of plug-in(*.dll)
+     V8.09.00.03 [04 Nov 2022]
+   * The Version of the Compiler Package
+     V1.12.00
+  
+ * The version of SMS Assembler
+   V1.00.00.01 [29 May 2020]
+ 
+
+Debug Tool Information
+ *RL78 E1(Serial)
+  Debugger Library V8.09.00.03 [24 Nov 2022]
+  
+
+Other Tool Information
+ *None
+
+ *None
+
+ *Code Generator
+ *None
+
+ *Program Analyzer
+  *Version
+   V4.12.00.01 [14 Apr 2021]
+
+ *None
+
+Other Information
+ *RL78/I1C Code Library
+  *Version
+   V1.01.07.02 [08 Nov 2021]
+  *Description
+   Code library for RL78/I1C code generation plugin.
+
+
